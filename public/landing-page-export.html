@@ -1027,14 +1027,36 @@
       const header = document.getElementById('main-header');
       const stickyNav = document.getElementById('sticky-nav');
       const floatingCta = document.getElementById('floating-cta');
+      
+      if (!header || !stickyNav || !floatingCta) {
+        console.error('Navigation elements not found');
+        return;
+      }
+      
       function handleScroll() {
         const scrollY = window.scrollY;
-        if (scrollY > 600) { header.classList.add('hidden'); stickyNav.classList.add('visible'); } 
-        else { header.classList.remove('hidden'); stickyNav.classList.remove('visible'); }
-        if (scrollY > 50) { header.classList.add('scrolled'); } else { header.classList.remove('scrolled'); }
-        if (scrollY > 500) { floatingCta.classList.add('visible'); } else { floatingCta.classList.remove('visible'); }
+        if (scrollY > 600) { 
+          header.classList.add('hidden'); 
+          stickyNav.classList.add('visible'); 
+        } else { 
+          header.classList.remove('hidden'); 
+          stickyNav.classList.remove('visible'); 
+        }
+        if (scrollY > 50) { 
+          header.classList.add('scrolled'); 
+        } else { 
+          header.classList.remove('scrolled'); 
+        }
+        if (scrollY > 500) { 
+          floatingCta.classList.add('visible'); 
+        } else { 
+          floatingCta.classList.remove('visible'); 
+        }
         updateActiveSection();
       }
+      
+      // Initial call to set correct state on page load
+      handleScroll();
       window.addEventListener('scroll', handleScroll);
     }
 
