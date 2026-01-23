@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, BookOpen, Clock, Video, Check, Sparkles } from "lucide-react";
+import { ChevronDown, BookOpen, Clock, Video, Check, Sparkles, Calendar, Users, RefreshCw } from "lucide-react";
 
 const levels = [
   {
@@ -71,6 +71,12 @@ const levels = [
   },
 ];
 
+const drawWithMeBenefits = [
+  { icon: RefreshCw, text: "Refresh fundamentals" },
+  { icon: Sparkles, text: "Introduce new drawings" },
+  { icon: Users, text: "Keep learning continuous" },
+];
+
 const CurriculumSection = () => {
   const [expandedLevel, setExpandedLevel] = useState<number | null>(0);
 
@@ -93,7 +99,7 @@ const CurriculumSection = () => {
         </div>
 
         {/* Overview Stats */}
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-10 p-4 sm:p-6 rounded-xl bg-card border border-border">
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-10 p-4 sm:p-5 rounded-xl bg-card border border-border max-w-2xl mx-auto">
           <div className="flex items-center gap-2">
             <BookOpen className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium">{totalModules} Modules</span>
@@ -111,7 +117,7 @@ const CurriculumSection = () => {
         </div>
 
         {/* Levels Accordion */}
-        <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
+        <div className="space-y-3 max-w-4xl mx-auto mb-8 sm:mb-10">
           {levels.map((level, index) => (
             <div
               key={index}
@@ -123,25 +129,25 @@ const CurriculumSection = () => {
                 className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
               >
                 <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                    <span className="text-sm sm:text-base font-bold text-primary">
+                  <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">
                       L{level.level}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-base sm:text-lg">
+                    <h3 className="font-semibold text-sm sm:text-base">
                       {level.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground">
                       {level.subtitle}
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="hidden sm:flex items-center gap-3 text-xs text-muted-foreground">
-                    <span>{level.modules} Modules</span>
+                <div className="flex items-center gap-3">
+                  <div className="hidden sm:flex items-center gap-2 text-xs text-muted-foreground">
+                    <span>{level.modules}M</span>
                     <span>·</span>
-                    <span>{level.lessons} Lessons</span>
+                    <span>{level.lessons}L</span>
                     <span>·</span>
                     <span>{level.duration}</span>
                   </div>
@@ -166,11 +172,11 @@ const CurriculumSection = () => {
                   </div>
 
                   {/* Highlights */}
-                  <div className="space-y-2 sm:space-y-3 pt-2 sm:pt-4">
-                    <p className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
+                  <div className="space-y-2 pt-2 sm:pt-3">
+                    <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
                       What you'll learn:
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1.5">
                       {level.highlights.map((highlight, hIndex) => (
                         <li
                           key={hIndex}
@@ -194,6 +200,49 @@ const CurriculumSection = () => {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Draw With Me - Bonus Section */}
+        <div className="max-w-4xl mx-auto">
+          <div className="relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-2 border-primary/30">
+            {/* Bonus badge */}
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-full bg-primary text-primary-foreground">
+                Bonus Included
+              </span>
+            </div>
+
+            <div className="text-center pt-4">
+              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <Calendar className="w-7 h-7 text-primary" />
+              </div>
+              
+              <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                Draw With Me — Learn Together, Always
+              </h3>
+              
+              <p className="text-sm sm:text-base text-muted-foreground mb-6 max-w-lg mx-auto">
+                Every three months, all students draw along with me live.
+              </p>
+
+              {/* Benefits */}
+              <div className="flex flex-wrap justify-center gap-3 mb-6">
+                {drawWithMeBenefits.map((benefit, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border"
+                  >
+                    <benefit.icon className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium">{benefit.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-base sm:text-lg font-semibold text-primary">
+                You can attend every Draw With Me session, forever.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
