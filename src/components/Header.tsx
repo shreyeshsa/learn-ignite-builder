@@ -11,13 +11,11 @@ const navLinks = [
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      setIsHidden(window.scrollY > 600);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -39,10 +37,6 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isHidden 
-          ? "opacity-0 -translate-y-full pointer-events-none" 
-          : "opacity-100 translate-y-0"
-      } ${
         isScrolled
           ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-sm"
           : "bg-transparent"

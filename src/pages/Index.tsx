@@ -1,17 +1,11 @@
 import Header from "@/components/Header";
-import StickyNav from "@/components/StickyNav";
 import HeroSection from "@/components/HeroSection";
-import WhyPeopleFail from "@/components/WhyPeopleFail";
 import BenefitsSection from "@/components/BenefitsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import InstructorSection from "@/components/InstructorSection";
-import PositioningSection from "@/components/PositioningSection";
+import ArtworkGallery from "@/components/ArtworkGallery";
 import CurriculumSection from "@/components/CurriculumSection";
-import PlatformSection from "@/components/PlatformSection";
-import GoldMembershipSection from "@/components/GoldMembershipSection";
-import WhatsAppSection from "@/components/WhatsAppSection";
-import ShareSection from "@/components/ShareSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
+import InstructorSection from "@/components/InstructorSection";
 import FloatingCTA from "@/components/FloatingCTA";
 import Footer from "@/components/Footer";
 
@@ -19,19 +13,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <StickyNav />
       <main>
         <HeroSection />
         <BenefitsSection />
+        <ArtworkGallery />
+        <CurriculumSection />
         <TestimonialsSection />
         <InstructorSection />
-        <WhyPeopleFail />
-        <PositioningSection />
-        <CurriculumSection />
-        <PlatformSection />
-        <GoldMembershipSection />
-        <WhatsAppSection />
-        <ShareSection />
         <FAQSection />
       </main>
       <Footer />
