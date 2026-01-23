@@ -1,206 +1,199 @@
-import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { ChevronDown, BookOpen, Clock, Video, Check, Sparkles } from "lucide-react";
 
 const levels = [
   {
     level: 1,
-    title: "Rajagopalan Realistic Drawing",
-    modules: 4,
-    lessons: 11,
-    duration: "11h 13m",
+    title: "Foundation of Realism",
+    subtitle: "Basics for Colour Pencil",
+    modules: 7,
+    lessons: 26,
+    duration: "7h 59m",
     highlights: [
-      "Basic Proportions: Learn to start with simple shapes and lines for accurate proportions",
-      "Master Skin Tones: Begin learning to replicate realistic skin tones with colors",
-      "Understanding Shadows: Learn to create depth by adding shadows and highlights",
-      "Practice and Confidence: Gain confidence by completing your first realistic drawing",
+      "Fundamentals of colour theory",
+      "Blending and colour control",
+      "Depth, texture, and realism",
+      "Observational clarity",
     ],
   },
   {
     level: 2,
-    title: "Venugopalan Realistic Drawing",
-    modules: 6,
-    lessons: 18,
-    duration: "18h 36m",
+    title: "Control & Confidence",
+    subtitle: "Rajagopalan Realistic Drawing",
+    modules: 5,
+    lessons: 13,
+    duration: "16h 41m",
     highlights: [
-      "Complex Shading: Advance to more complex shading for lifelike results",
-      "Detail Refinement: Focus on refining details like hair, textures, and accessories",
-      "Color Theory: Explore advanced color theory for vibrant and realistic artwork",
-      "Artistic Expression: Start developing your unique artistic style",
+      "Full portrait construction",
+      "Handling complex details",
+      "Applying skills beyond portraits",
     ],
   },
   {
     level: 3,
-    title: "Vaduvur Ramar Realistic Drawing",
-    modules: 6,
+    title: "Depth & Detail",
+    subtitle: "Vaduvur Ramar Realistic Drawing",
+    modules: 4,
     lessons: 19,
-    duration: "19h 1m",
+    duration: "13h 26m",
     highlights: [
-      "Advanced Composition: Exploring more intricate compositions",
-      "Master Drawing Details: Get good at drawing textures and shapes",
-      "Attention to Detail: Focusing on tiny details to make your art look super awesome",
-      "Keep Improving: Keep practicing to draw even harder things confidently",
+      "Advanced composition",
+      "Texture accuracy",
+      "Confident approach to complex subjects",
     ],
   },
   {
     level: 4,
-    title: "Ramanujar Realistic Drawing",
+    title: "Advanced Realism",
+    subtitle: "Ramanujar Realistic Drawing",
     modules: 6,
     lessons: 19,
     duration: "19h 1m",
     highlights: [
-      "Advanced Color Blending: Learn how to blend colors in more intricate ways",
-      "Using Light and Dark Better: Make your drawings look real and 3D",
-      "Artistic Confidence: Gain more confidence in drawing complex things",
-      "Become an Art Pro: Keep growing and draw more complex things with ease",
+      "Advanced colour blending",
+      "Light and dark mastery",
+      "Professional-level confidence",
     ],
   },
   {
     level: 5,
-    title: "Parthasarathy Realistic Drawing",
+    title: "Ultimate Realism",
+    subtitle: "Parthasarathy Realistic Drawing",
     modules: 4,
     lessons: 11,
     duration: "11h 27m",
     highlights: [
-      "New Approach to Realism: Understanding the values of color on white paper",
-      "New Technique: Learning to use darker shades to lighter ones",
-      "All-Round Expertise: Combine all your skills from earlier levels",
-      "Ultimate Realism: Reach a peak in creating lifelike art",
+      "White-paper realism",
+      "Dark-to-light value mastery",
+      "Ability to draw any subject with clarity",
     ],
-    badge: "More lessons coming!",
+    note: "More lessons added continuously",
   },
 ];
 
 const CurriculumSection = () => {
-  const [expandedLevel, setExpandedLevel] = useState<number | null>(1);
+  const [expandedLevel, setExpandedLevel] = useState<number | null>(0);
+
+  const totalModules = levels.reduce((acc, level) => acc + level.modules, 0);
+  const totalLessons = levels.reduce((acc, level) => acc + level.lessons, 0);
+  const totalHours = "68h 34m";
 
   return (
-    <section className="section-light" id="curriculum">
+    <section className="section-dark" id="curriculum">
       <div className="container">
         <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
-          <span className="level-badge">Complete Curriculum</span>
+          <span className="level-badge">Curriculum Overview</span>
           <h2 className="section-title">
-            5 Levels to <span className="text-primary">Mastery</span>
+            The Realism Redefined{" "}
+            <span className="text-primary">Learning Path</span>
           </h2>
           <p className="section-subtitle px-4">
-            Structured learning path from beginner to professional artist
+            A clear five-level progression designed to build lifelong skill and understanding.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
-          {/* Left - Curriculum */}
-          <div className="lg:col-span-2 space-y-3 sm:space-y-4">
-            {levels.map((levelData) => (
-              <div
-                key={levelData.level}
-                className={`course-module transition-all duration-300 ${
-                  expandedLevel === levelData.level ? "ring-2 ring-primary" : ""
-                }`}
+        {/* Overview Stats */}
+        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 mb-8 sm:mb-10 p-4 sm:p-6 rounded-xl bg-card border border-border">
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">{totalModules} Modules</span>
+          </div>
+          <div className="h-4 w-px bg-border hidden sm:block" />
+          <div className="flex items-center gap-2">
+            <Video className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">{totalLessons} Lessons</span>
+          </div>
+          <div className="h-4 w-px bg-border hidden sm:block" />
+          <div className="flex items-center gap-2">
+            <Clock className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">{totalHours} Content</span>
+          </div>
+        </div>
+
+        {/* Levels Accordion */}
+        <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto">
+          {levels.map((level, index) => (
+            <div
+              key={index}
+              className="bg-card rounded-xl border border-border overflow-hidden"
+            >
+              {/* Level Header */}
+              <button
+                onClick={() => setExpandedLevel(expandedLevel === index ? null : index)}
+                className="w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-muted/50 transition-colors"
               >
-                <button
-                  onClick={() =>
-                    setExpandedLevel(
-                      expandedLevel === levelData.level ? null : levelData.level
-                    )
-                  }
-                  className="w-full course-module-header justify-between text-left"
-                >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-semibold text-primary">
-                        Level {levelData.level}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        {levelData.modules} Modules • {levelData.lessons} Lessons • {levelData.duration}
-                      </span>
-                    </div>
-                    <h3 className="font-medium text-sm sm:text-base mt-1 truncate pr-4">
-                      {levelData.title}
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                    <span className="text-sm sm:text-base font-bold text-primary">
+                      L{level.level}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-base sm:text-lg">
+                      {level.title}
                     </h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground">
+                      {level.subtitle}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="hidden sm:flex items-center gap-3 text-xs text-muted-foreground">
+                    <span>{level.modules} Modules</span>
+                    <span>·</span>
+                    <span>{level.lessons} Lessons</span>
+                    <span>·</span>
+                    <span>{level.duration}</span>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 flex-shrink-0 transition-transform ${
-                      expandedLevel === levelData.level ? "rotate-180 text-primary" : ""
+                    className={`w-5 h-5 text-muted-foreground transition-transform ${
+                      expandedLevel === index ? "rotate-180" : ""
                     }`}
                   />
-                </button>
+                </div>
+              </button>
 
-                <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    expandedLevel === levelData.level ? "max-h-[500px]" : "max-h-0"
-                  }`}
-                >
-                  <div className="course-module-content">
-                    {levelData.badge && (
-                      <span className="inline-block text-xs text-primary font-medium mb-3">
-                        ✨ {levelData.badge}
-                      </span>
-                    )}
-                    <ul className="space-y-2.5 sm:space-y-3">
-                      {levelData.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 sm:gap-3">
-                          <span className="text-primary font-bold text-sm mt-0.5">➯</span>
-                          <span className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                            {highlight}
-                          </span>
+              {/* Level Content */}
+              {expandedLevel === index && (
+                <div className="px-4 sm:px-5 pb-4 sm:pb-5 border-t border-border">
+                  {/* Mobile Stats */}
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground py-3 sm:hidden">
+                    <span>{level.modules} Modules</span>
+                    <span>·</span>
+                    <span>{level.lessons} Lessons</span>
+                    <span>·</span>
+                    <span>{level.duration}</span>
+                  </div>
+
+                  {/* Highlights */}
+                  <div className="space-y-2 sm:space-y-3 pt-2 sm:pt-4">
+                    <p className="text-xs sm:text-sm font-medium text-muted-foreground uppercase tracking-wide">
+                      What you'll learn:
+                    </p>
+                    <ul className="space-y-2">
+                      {level.highlights.map((highlight, hIndex) => (
+                        <li
+                          key={hIndex}
+                          className="flex items-start gap-2 text-sm"
+                        >
+                          <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-muted-foreground">{highlight}</span>
                         </li>
                       ))}
                     </ul>
+                    {level.note && (
+                      <div className="flex items-center gap-2 mt-3 pt-3 border-t border-border">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        <span className="text-xs text-primary font-medium">
+                          {level.note}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Right - Pricing Card */}
-          <div className="lg:col-span-1">
-            <div className="pricing-card space-y-5 sm:space-y-6">
-              <div>
-                <p className="text-primary font-semibold text-sm sm:text-base">
-                  Gold Membership
-                </p>
-                <h3 className="text-xl sm:text-2xl font-bold mt-1">
-                  Color Pencil <span className="text-primary">Basic to Pro</span>
-                </h3>
-              </div>
-
-              <ul className="space-y-2.5 sm:space-y-3">
-                {[
-                  "Lifetime Access of the Course",
-                  "Includes 5 Levels + Live Draw sessions",
-                  "WhatsApp Chat Support",
-                  "Community & Gamification",
-                  "Live Q&A Sessions (Sundays)",
-                  "Course Completion Certificate",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-2.5 sm:gap-3">
-                    <span className="text-primary text-lg leading-none mt-0.5">✓</span>
-                    <span className="text-sm sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pt-4 border-t border-border">
-                <div className="flex items-baseline gap-2 mb-4 flex-wrap">
-                  <span className="text-2xl sm:text-3xl font-bold">₹9,990</span>
-                  <span className="text-muted-foreground line-through text-sm sm:text-base">
-                    ₹14,990
-                  </span>
-                  <span className="text-xs sm:text-sm text-primary font-semibold">
-                    Save 33%
-                  </span>
-                </div>
-                <a
-                  href="#"
-                  className="cta-button w-full justify-center text-sm sm:text-base"
-                >
-                  Enroll Now - Lifetime Access
-                </a>
-                <p className="text-center text-xs text-muted-foreground mt-3">
-                  30-day money-back guarantee
-                </p>
-              </div>
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
