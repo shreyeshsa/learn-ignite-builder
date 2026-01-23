@@ -22,10 +22,10 @@ const Index = () => {
       <StickyNav />
       <main>
         <HeroSection />
-        <WhyPeopleFail />
         <BenefitsSection />
         <TestimonialsSection />
         <InstructorSection />
+        <WhyPeopleFail />
         <PositioningSection />
         <CurriculumSection />
         <PlatformSection />

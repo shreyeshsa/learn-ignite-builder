@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, Play, Quote, ArrowRight, ImageIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Quote, ArrowRight } from "lucide-react";
 
 const studentStories = [
   {
@@ -12,6 +12,8 @@ const studentStories = [
       "Strong understanding of blending, light, shade, and observation made the difference.",
     ],
     avatar: "P",
+    gradientFrom: "from-rose-200",
+    gradientTo: "to-amber-100",
   },
   {
     name: "Ankitha",
@@ -23,6 +25,8 @@ const studentStories = [
       "Today, she teaches the same concepts to others — proof of true clarity, not dependence.",
     ],
     avatar: "A",
+    gradientFrom: "from-violet-200",
+    gradientTo: "to-pink-100",
   },
   {
     name: "Sruthi",
@@ -34,17 +38,34 @@ const studentStories = [
       "Art became grounding — not overwhelming.",
     ],
     avatar: "S",
+    gradientFrom: "from-teal-200",
+    gradientTo: "to-cyan-100",
   },
 ];
 
 const studentWorks = Array.from({ length: 6 }, (_, i) => ({
   id: i + 1,
   placeholder: `Student Work ${i + 1}`,
+  gradient: [
+    "from-amber-100 to-orange-200",
+    "from-rose-100 to-pink-200",
+    "from-violet-100 to-purple-200",
+    "from-teal-100 to-cyan-200",
+    "from-emerald-100 to-green-200",
+    "from-sky-100 to-blue-200",
+  ][i],
 }));
 
 const additionalWorks = Array.from({ length: 20 }, (_, i) => ({
   id: i + 7,
   placeholder: `Student Work ${i + 7}`,
+  gradient: [
+    "from-amber-100 to-orange-200",
+    "from-rose-100 to-pink-200",
+    "from-violet-100 to-purple-200",
+    "from-teal-100 to-cyan-200",
+    "from-emerald-100 to-green-200",
+  ][i % 5],
 }));
 
 const parentQuotes = [
@@ -83,44 +104,46 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Student Stories */}
-        <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+        <div className="space-y-8 sm:space-y-10 mb-14 sm:mb-20">
           {studentStories.map((story, storyIndex) => (
             <div
               key={storyIndex}
-              className="bg-card rounded-2xl border border-border overflow-hidden"
+              className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Left: Photo placeholder */}
-                <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-4 border-background">
-                      <span className="text-3xl sm:text-4xl font-bold text-primary">
+              <div className="grid md:grid-cols-5 gap-0">
+                {/* Left: Photo placeholder - takes 2 columns */}
+                <div className={`relative aspect-[4/3] md:aspect-auto md:col-span-2 bg-gradient-to-br ${story.gradientFrom} ${story.gradientTo} flex items-center justify-center`}>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <img
+                      src="/placeholder.svg"
+                      alt={`${story.name}'s photo`}
+                      className="w-full h-full object-cover opacity-40"
+                    />
+                  </div>
+                  <div className="relative text-center p-6 z-10">
+                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-background/90 flex items-center justify-center mx-auto mb-3 border-4 border-background shadow-lg">
+                      <span className="text-2xl sm:text-4xl font-bold text-primary">
                         {story.avatar}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                      Student photo placeholder
+                    <p className="text-sm font-medium text-foreground/80">
+                      {story.name}
+                    </p>
+                    <p className="text-xs text-foreground/60">
+                      {story.location}
                     </p>
                   </div>
                 </div>
 
-                {/* Right: Content + Media carousel */}
-                <div className="p-5 sm:p-6 md:p-8">
+                {/* Right: Content + Media carousel - takes 3 columns */}
+                <div className="md:col-span-3 p-5 sm:p-6 lg:p-8">
                   {/* Badge */}
-                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary mb-4">
+                  <span className="inline-block px-3 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary mb-4">
                     {story.badge}
                   </span>
 
-                  {/* Name */}
-                  <h3 className="text-xl sm:text-2xl font-bold mb-1">
-                    {story.name}
-                    <span className="text-sm font-normal text-muted-foreground ml-2">
-                      · {story.location}
-                    </span>
-                  </h3>
-
                   {/* Story content */}
-                  <div className="space-y-3 my-4">
+                  <div className="space-y-3 mb-5">
                     {story.content.map((paragraph, pIndex) => (
                       <p
                         key={pIndex}
@@ -138,41 +161,58 @@ const TestimonialsSection = () => {
                     <ChevronRight className="w-3 h-3" />
                   </p>
 
-                  {/* Media carousel */}
-                  <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide -mx-2 px-2">
+                  {/* Media carousel with actual placeholder images */}
+                  <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide -mx-2 px-2">
                     {/* Video placeholder */}
                     <div
-                      className={`flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-muted border-2 ${
+                      className={`flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-xl overflow-hidden border-2 ${
                         getActiveMedia(storyIndex) === 0
-                          ? "border-primary"
-                          : "border-transparent"
-                      } flex items-center justify-center cursor-pointer snap-center transition-all`}
+                          ? "border-primary shadow-lg"
+                          : "border-border"
+                      } cursor-pointer snap-center transition-all hover:scale-[1.02]`}
                       onClick={() => setActiveMedia(storyIndex, 0)}
                     >
-                      <div className="text-center">
-                        <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center mx-auto mb-1">
-                          <Play className="w-4 h-4 text-primary-foreground ml-0.5" fill="currentColor" />
+                      <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
+                        <img
+                          src="/placeholder.svg"
+                          alt="Video thumbnail"
+                          className="w-full h-full object-cover opacity-30"
+                        />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
+                            <Play className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" />
+                          </div>
                         </div>
-                        <p className="text-[10px] text-muted-foreground">Video</p>
+                        <span className="absolute bottom-2 left-2 text-[10px] text-white/70 font-medium">
+                          Video
+                        </span>
                       </div>
                     </div>
 
-                    {/* Artwork placeholders */}
-                    {[1, 2, 3].map((artIndex) => (
+                    {/* Artwork placeholders with gradient backgrounds */}
+                    {[
+                      { gradient: "from-amber-100 to-orange-200" },
+                      { gradient: "from-rose-100 to-pink-200" },
+                      { gradient: "from-violet-100 to-purple-200" },
+                    ].map((art, artIndex) => (
                       <div
                         key={artIndex}
-                        className={`flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-muted border-2 ${
-                          getActiveMedia(storyIndex) === artIndex
-                            ? "border-primary"
-                            : "border-transparent"
-                        } flex items-center justify-center cursor-pointer snap-center transition-all`}
-                        onClick={() => setActiveMedia(storyIndex, artIndex)}
+                        className={`flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-xl overflow-hidden border-2 ${
+                          getActiveMedia(storyIndex) === artIndex + 1
+                            ? "border-primary shadow-lg"
+                            : "border-border"
+                        } cursor-pointer snap-center transition-all hover:scale-[1.02]`}
+                        onClick={() => setActiveMedia(storyIndex, artIndex + 1)}
                       >
-                        <div className="text-center">
-                          <ImageIcon className="w-6 h-6 text-muted-foreground mx-auto mb-1" />
-                          <p className="text-[10px] text-muted-foreground">
-                            Artwork {artIndex}
-                          </p>
+                        <div className={`w-full h-full bg-gradient-to-br ${art.gradient} flex items-center justify-center relative`}>
+                          <img
+                            src="/placeholder.svg"
+                            alt={`Artwork ${artIndex + 1}`}
+                            className="w-full h-full object-cover mix-blend-overlay"
+                          />
+                          <span className="absolute bottom-2 left-2 text-[10px] text-foreground/60 font-medium bg-background/50 px-1.5 py-0.5 rounded">
+                            Artwork {artIndex + 1}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -184,26 +224,30 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Student Works Gallery */}
-        <div className="mb-12 sm:mb-16">
-          <div className="text-center mb-6 sm:mb-8">
+        <div className="mb-14 sm:mb-20">
+          <div className="text-center mb-8 sm:mb-10">
             <span className="level-badge mb-3 inline-block">Student Works</span>
-            <h3 className="text-xl sm:text-2xl font-bold">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
               Created through understanding, not copying
             </h3>
           </div>
 
-          {/* Initial 6 artworks */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
+          {/* Initial 6 artworks with gradient backgrounds */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {studentWorks.map((work) => (
               <div
                 key={work.id}
-                className="aspect-square rounded-xl bg-card border border-border overflow-hidden hover:border-primary/30 transition-colors"
+                className="aspect-square rounded-xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all cursor-pointer group"
               >
-                <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-                  <div className="text-center">
-                    <ImageIcon className="w-8 h-8 mx-auto mb-2 text-muted-foreground/50" />
-                    <p className="text-xs">{work.placeholder}</p>
-                  </div>
+                <div className={`w-full h-full bg-gradient-to-br ${work.gradient} flex items-center justify-center relative`}>
+                  <img
+                    src="/placeholder.svg"
+                    alt={work.placeholder}
+                    className="w-full h-full object-cover mix-blend-overlay group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-3 left-3 text-xs text-foreground/70 font-medium bg-background/60 px-2 py-1 rounded-md backdrop-blur-sm">
+                    {work.placeholder}
+                  </span>
                 </div>
               </div>
             ))}
@@ -211,23 +255,23 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Parent & Student Quotes */}
-        <div className="mb-10 sm:mb-14">
-          <div className="text-center mb-6">
-            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+        <div className="mb-12 sm:mb-16">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-muted-foreground">
               What Parents & Students Say
             </span>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
             {parentQuotes.map((item, index) => (
               <div
                 key={index}
-                className="p-5 sm:p-6 rounded-xl bg-card border border-border relative"
+                className="p-6 sm:p-8 rounded-2xl bg-card border border-border relative hover:shadow-md transition-shadow"
               >
-                <Quote className="absolute top-4 right-4 w-6 h-6 text-primary/10" />
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 italic">
+                <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
+                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-4 italic">
                   "{item.quote}"
                 </p>
-                <p className="text-sm font-medium text-foreground">
+                <p className="text-sm font-semibold text-foreground">
                   — {item.name}
                 </p>
               </div>
@@ -239,13 +283,13 @@ const TestimonialsSection = () => {
         <div className="text-center">
           <button
             onClick={() => setShowMoreWorks(!showMoreWorks)}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card border border-border hover:border-primary/30 hover:bg-muted transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 hover:border-primary/30 transition-all group"
           >
-            <span className="text-sm font-medium">
+            <span className="text-sm sm:text-base font-semibold text-primary">
               View More Student Works
             </span>
             <ArrowRight
-              className={`w-4 h-4 transition-transform ${
+              className={`w-4 h-4 text-primary transition-transform group-hover:translate-x-1 ${
                 showMoreWorks ? "rotate-90" : ""
               }`}
             />
@@ -254,19 +298,23 @@ const TestimonialsSection = () => {
 
         {/* Additional Works Gallery */}
         {showMoreWorks && (
-          <div className="mt-8">
+          <div className="mt-10">
             <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
               {additionalWorks.map((work) => (
                 <div
                   key={work.id}
-                  className="flex-shrink-0 w-40 sm:w-48 snap-center"
+                  className="flex-shrink-0 w-44 sm:w-52 snap-center"
                 >
-                  <div className="aspect-square rounded-xl bg-card border border-border overflow-hidden hover:border-primary/30 transition-colors">
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
-                      <div className="text-center">
-                        <ImageIcon className="w-6 h-6 mx-auto mb-1 text-muted-foreground/50" />
-                        <p>{work.placeholder}</p>
-                      </div>
+                  <div className="aspect-square rounded-xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all cursor-pointer group">
+                    <div className={`w-full h-full bg-gradient-to-br ${work.gradient} flex items-center justify-center relative`}>
+                      <img
+                        src="/placeholder.svg"
+                        alt={work.placeholder}
+                        className="w-full h-full object-cover mix-blend-overlay group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <span className="absolute bottom-2 left-2 text-[10px] text-foreground/70 font-medium bg-background/60 px-1.5 py-0.5 rounded backdrop-blur-sm">
+                        {work.placeholder}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -274,11 +322,11 @@ const TestimonialsSection = () => {
             </div>
 
             {/* Closing message */}
-            <div className="text-center mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
-              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+            <div className="text-center mt-10 p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Art grows when it's shared.
                 <br />
-                <span className="text-foreground font-medium">
+                <span className="text-foreground font-semibold text-lg sm:text-xl">
                   Learning grows when we grow together.
                 </span>
               </p>
