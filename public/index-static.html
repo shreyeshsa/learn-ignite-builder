@@ -1,0 +1,4043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realism Redefined - Aasuri Artist Academy</title>
+  <meta name="description" content="A lifelong artistic journey that teaches you how to understand realism — so you can draw any subject with confidence, even if you're starting from zero.">
+  <meta name="author" content="Aasuri Artist Academy">
+  <meta property="og:title" content="Realism Redefined - Aasuri Artist Academy">
+  <meta property="og:description" content="Built on a proven system followed by 4,000+ students across the world.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       CSS RESET & VARIABLES
+    ============================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Warm Cream Theme */
+      --background: hsl(35, 40%, 96%);
+      --foreground: hsl(25, 30%, 12%);
+      --card: hsl(35, 35%, 93%);
+      --card-foreground: hsl(25, 30%, 12%);
+      --primary: hsl(350, 65%, 40%);
+      --primary-foreground: hsl(35, 40%, 96%);
+      --secondary: hsl(35, 60%, 85%);
+      --secondary-foreground: hsl(25, 30%, 12%);
+      --muted: hsl(35, 25%, 90%);
+      --muted-foreground: hsl(25, 15%, 45%);
+      --accent: hsl(35, 50%, 88%);
+      --accent-foreground: hsl(25, 30%, 12%);
+      --destructive: hsl(0, 84%, 60%);
+      --border: hsl(35, 20%, 85%);
+      --star-color: hsl(45, 98%, 50%);
+      --radius: 0.75rem;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ============================================
+       LAYOUT & CONTAINER
+    ============================================ */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container { padding: 0 1.5rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .container { padding: 0 2rem; }
+    }
+
+    /* ============================================
+       TYPOGRAPHY
+    ============================================ */
+    .text-primary { color: var(--primary); }
+    .text-muted { color: var(--muted-foreground); }
+    .text-foreground { color: var(--foreground); }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .font-medium { font-weight: 500; }
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    @media (min-width: 640px) {
+      .section-title { font-size: 1.875rem; }
+    }
+
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.25rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .section-title { font-size: 3rem; }
+    }
+
+    .section-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .section-subtitle { font-size: 1rem; }
+    }
+
+    /* ============================================
+       SECTIONS
+    ============================================ */
+    .section-dark {
+      padding: 3rem 0;
+      background-color: var(--background);
+    }
+
+    .section-light {
+      padding: 3rem 0;
+      background-color: rgba(244, 237, 229, 0.5);
+    }
+
+    @media (min-width: 640px) {
+      .section-dark, .section-light { padding: 4rem 0; }
+    }
+
+    @media (min-width: 768px) {
+      .section-dark, .section-light { padding: 5rem 0; }
+    }
+
+    @media (min-width: 1024px) {
+      .section-dark, .section-light { padding: 6rem 0; }
+    }
+
+    /* ============================================
+       BUTTONS & BADGES
+    ============================================ */
+    .level-badge {
+      display: inline-block;
+      padding: 0.375rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      background-color: rgba(168, 50, 70, 0.1);
+      color: var(--primary);
+      border: 1px solid rgba(168, 50, 70, 0.2);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px -5px rgba(168, 50, 70, 0.3);
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    @media (min-width: 640px) {
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+      }
+    }
+
+    /* ============================================
+       CARDS
+    ============================================ */
+    .card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .highlight-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem 1.25rem;
+      background-color: rgba(235, 220, 200, 0.5);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    /* ============================================
+       NAVIGATION - STICKY (Always Visible)
+    ============================================ */
+    .sticky-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      background-color: rgba(250, 246, 241, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .sticky-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.5rem;
+    }
+
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+      border-radius: 9999px;
+      color: var(--muted-foreground);
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--foreground);
+      background-color: var(--accent);
+    }
+
+    .nav-link.active {
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-separator {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--border);
+      margin: 0 0.125rem;
+    }
+
+    /* Desktop Nav */
+    @media (min-width: 768px) {
+      .sticky-nav-inner {
+        justify-content: space-between;
+        height: 4rem;
+      }
+
+      .nav-pills-desktop {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        background-color: rgba(237, 232, 226, 0.5);
+        border-radius: 9999px;
+        padding: 0.25rem 0.5rem;
+      }
+
+      .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      .nav-separator-desktop {
+        width: 1px;
+        height: 1rem;
+        background-color: var(--border);
+        margin: 0 0.25rem;
+      }
+
+      .nav-cta {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        border-radius: 9999px;
+        background-color: var(--primary);
+        color: var(--primary-foreground);
+        transition: opacity 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-cta:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.75rem;
+      background-color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.875rem;
+      color: var(--primary-foreground);
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.125rem;
+      letter-spacing: -0.025em;
+    }
+
+    .mobile-only { display: flex; }
+    .desktop-only { display: none; }
+
+    @media (min-width: 768px) {
+      .mobile-only { display: none; }
+      .desktop-only { display: flex; }
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-top: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding-top: 4rem; }
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      height: 50vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(235, 220, 200, 0.5));
+    }
+
+    @media (min-width: 640px) {
+      .hero-image-wrapper { height: 60vh; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-image-wrapper { height: 70vh; }
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--background), rgba(250, 246, 241, 0.4), transparent);
+    }
+
+    .hero-play-btn {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .play-circle {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease;
+    }
+
+    .play-circle:hover {
+      transform: scale(1.1);
+    }
+
+    @media (min-width: 640px) {
+      .play-circle { width: 5rem; height: 5rem; }
+    }
+
+    .play-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--primary-foreground);
+      margin-left: 4px;
+    }
+
+    @media (min-width: 640px) {
+      .play-icon { width: 2rem; height: 2rem; }
+    }
+
+    .hero-content {
+      flex: 1;
+      background-color: var(--background);
+      position: relative;
+      margin-top: -4rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      padding-top: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-content {
+        margin-top: -5rem;
+        padding-top: 2rem;
+      }
+    }
+
+    .hero-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title { font-size: 2.25rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-title { font-size: 3.75rem; }
+    }
+
+    .hero-description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      max-width: 42rem;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @media (min-width: 640px) {
+      .hero-description { font-size: 1rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero-description { font-size: 1.125rem; }
+    }
+
+    /* Stars */
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .star-icon {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--star-color);
+      color: var(--star-color);
+    }
+
+    @media (min-width: 640px) {
+      .star-icon { width: 1.25rem; height: 1.25rem; }
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (min-width: 640px) {
+      .stats-row { gap: 1.5rem; }
+    }
+
+    .stats-divider {
+      height: 1rem;
+      width: 1px;
+      background-color: var(--border);
+    }
+
+    /* Highlights horizontal scroll */
+    .highlights-scroll {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .highlights-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 640px) {
+      .highlights-scroll {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        overflow-x: visible;
+      }
+    }
+
+    .highlight-item {
+      flex-shrink: 0;
+      min-width: 140px;
+    }
+
+    @media (min-width: 640px) {
+      .highlight-item {
+        flex: 1;
+        min-width: 0;
+        max-width: 160px;
+      }
+    }
+
+    .highlight-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Countdown Timer */
+    .timer-wrapper {
+      background-color: var(--card);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .timer-wrapper { padding: 1.5rem; }
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .timer-grid { gap: 1rem; }
+    }
+
+    .timer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 640px) {
+      .timer-item { width: 4rem; height: 4rem; }
+    }
+
+    @media (min-width: 768px) {
+      .timer-item { width: 5rem; height: 5rem; }
+    }
+
+    .timer-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    @media (min-width: 640px) {
+      .timer-value { font-size: 1.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .timer-value { font-size: 1.875rem; }
+    }
+
+    .timer-label {
+      font-size: 0.625rem;
+      color: var(--muted-foreground);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .timer-label { font-size: 0.75rem; }
+    }
+
+    /* Social Proof Avatars */
+    .avatars-group {
+      display: flex;
+    }
+
+    .avatar {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), var(--secondary));
+      border: 2px solid var(--background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: -0.5rem;
+    }
+
+    .avatar:first-child {
+      margin-left: 0;
+    }
+
+    @media (min-width: 640px) {
+      .avatar { width: 2.5rem; height: 2.5rem; }
+    }
+
+    /* ============================================
+       BENEFITS SECTION
+    ============================================ */
+    .benefits-grid {
+      display: grid;
+      gap: 1rem;
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+      }
+    }
+
+    .benefit-card {
+      padding: 1.25rem 1.5rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      border-color: rgba(168, 50, 70, 0.3);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-content {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .benefit-icon-wrapper {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      background-color: rgba(168, 50, 70, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .benefit-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--primary);
+    }
+
+    .benefit-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .benefit-title { font-size: 1.125rem; }
+    }
+
+    .benefit-description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       TESTIMONIALS SECTION
+    ============================================ */
+    .story-card {
+      background-color: var(--card);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .story-card { margin-bottom: 2rem; }
+    }
+
+    .story-grid {
+      display: grid;
+    }
+
+    @media (min-width: 768px) {
+      .story-grid { grid-template-columns: 2fr 3fr; }
+    }
+
+    .story-image {
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .story-image { aspect-ratio: auto; min-height: 280px; }
+    }
+
+    .story-avatar {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .avatar-circle {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: rgba(250, 246, 241, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.5rem;
+      border: 4px solid var(--background);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 640px) {
+      .avatar-circle { width: 6rem; height: 6rem; }
+    }
+
+    .avatar-letter {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .avatar-letter { font-size: 1.875rem; }
+    }
+
+    .story-content {
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .story-content { padding: 1.5rem 2rem 2rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .story-content { padding: 2rem; }
+    }
+
+    .story-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.625rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      background-color: rgba(168, 50, 70, 0.1);
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .story-badge {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .story-text {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .story-text { font-size: 1rem; }
+    }
+
+    /* Media Carousel */
+    .media-carousel {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+    }
+
+    .media-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .media-item {
+      flex-shrink: 0;
+      width: 8rem;
+      height: 6rem;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      scroll-snap-align: start;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .media-item { width: 10rem; height: 7rem; }
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-play-circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 640px) {
+      .video-play-circle { width: 3rem; height: 3rem; }
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: 0.25rem;
+      left: 0.25rem;
+      right: 0.25rem;
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .video-label { font-size: 0.75rem; }
+    }
+
+    .artwork-thumb {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .artwork-label {
+      position: absolute;
+      bottom: 0.25rem;
+      left: 0.25rem;
+      font-size: 0.625rem;
+      font-weight: 500;
+      color: var(--foreground);
+      background-color: rgba(250, 246, 241, 0.7);
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+    }
+
+    /* Carousel dots */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .carousel-dot {
+      width: 0.375rem;
+      height: 0.375rem;
+      border-radius: 50%;
+      background-color: var(--muted);
+    }
+
+    .carousel-dot.active {
+      background-color: var(--primary);
+    }
+
+    /* Student Works Gallery */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .works-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .work-item {
+      aspect-ratio: 1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .work-item:hover {
+      border-color: rgba(168, 50, 70, 0.3);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: scale(1.02);
+    }
+
+    .work-gradient {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .work-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(35, 29, 24, 0.7);
+      background-color: rgba(250, 246, 241, 0.6);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Quote cards */
+    .quotes-grid {
+      display: grid;
+      gap: 1rem;
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .quotes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    .quote-card {
+      padding: 1.5rem 2rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .quote-card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 2rem;
+      height: 2rem;
+      color: rgba(168, 50, 70, 0.1);
+    }
+
+    .quote-text {
+      font-size: 1rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    @media (min-width: 640px) {
+      .quote-text { font-size: 1.125rem; }
+    }
+
+    .quote-author {
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    /* View More Button */
+    .view-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      background-color: rgba(168, 50, 70, 0.1);
+      border: 1px solid rgba(168, 50, 70, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .view-more-btn:hover {
+      background-color: rgba(168, 50, 70, 0.2);
+      border-color: rgba(168, 50, 70, 0.3);
+    }
+
+    .view-more-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .view-more-text { font-size: 1rem; }
+    }
+
+    /* CSS-Only Toggle for View More Works */
+    .view-more-toggle {
+      display: none;
+    }
+
+    .additional-works {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .view-more-toggle:checked ~ .additional-works {
+      max-height: 2000px;
+    }
+
+    .view-more-toggle:checked ~ .view-more-label .arrow-icon {
+      transform: rotate(90deg);
+    }
+
+    /* ============================================
+       INSTRUCTOR SECTION
+    ============================================ */
+    .instructor-card {
+      border-radius: 1rem;
+      overflow: hidden;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .instructor-grid {
+      display: grid;
+    }
+
+    @media (min-width: 768px) {
+      .instructor-grid { grid-template-columns: 2fr 3fr; }
+    }
+
+    .instructor-image {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), var(--secondary));
+    }
+
+    @media (min-width: 768px) {
+      .instructor-image { aspect-ratio: auto; }
+    }
+
+    .instructor-content {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .instructor-content { padding: 2rem; }
+    }
+
+    @media (min-width: 768px) {
+      .instructor-content { padding: 2.5rem 3rem; }
+    }
+
+    .instructor-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .instructor-header { gap: 1rem; }
+    }
+
+    .instructor-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .instructor-avatar { width: 3.5rem; height: 3.5rem; }
+    }
+
+    .instructor-name {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .instructor-name { font-size: 1.5rem; }
+    }
+
+    .instructor-title {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    .instructor-bio {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .instructor-bio { font-size: 1rem; }
+    }
+
+    .instructor-stats {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .stat-divider {
+      height: 1rem;
+      width: 1px;
+      background-color: var(--border);
+    }
+
+    /* ============================================
+       WHY PEOPLE FAIL SECTION
+    ============================================ */
+    .fail-reasons {
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+
+    .fail-reason {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 0.75rem;
+      background-color: rgba(239, 68, 68, 0.05);
+      border: 1px solid rgba(239, 68, 68, 0.1);
+    }
+
+    .fail-icon-wrapper {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: rgba(239, 68, 68, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 640px) {
+      .fail-icon-wrapper { width: 2.5rem; height: 2.5rem; }
+    }
+
+    .fail-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--destructive);
+    }
+
+    @media (min-width: 640px) {
+      .fail-icon { width: 1.25rem; height: 1.25rem; }
+    }
+
+    .fail-text {
+      font-size: 0.875rem;
+      color: rgba(35, 29, 24, 0.8);
+    }
+
+    @media (min-width: 640px) {
+      .fail-text { font-size: 1rem; }
+    }
+
+    @media (min-width: 768px) {
+      .fail-text { font-size: 1.125rem; }
+    }
+
+    /* Eye Divider */
+    .eye-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 0;
+    }
+
+    @media (min-width: 640px) {
+      .eye-divider { padding: 1.5rem 0; }
+    }
+
+    .divider-line {
+      width: 4rem;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+
+    @media (min-width: 640px) {
+      .divider-line { width: 6rem; }
+    }
+
+    .eye-circle {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 1rem;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.1);
+      border: 1px solid rgba(168, 50, 70, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .eye-circle {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 1.5rem;
+      }
+    }
+
+    .eye-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .eye-icon { width: 1.75rem; height: 1.75rem; }
+    }
+
+    /* Insight Box */
+    .insight-box {
+      text-align: center;
+      padding: 1.5rem 2rem 2rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.05), rgba(168, 50, 70, 0.1), rgba(168, 50, 70, 0.05));
+      border: 1px solid rgba(168, 50, 70, 0.2);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 640px) {
+      .insight-box { padding: 2rem 2.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .insight-box { padding: 2.5rem; }
+    }
+
+    .insight-icon-wrapper {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.1);
+      border: 1px solid rgba(168, 50, 70, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .insight-icon-wrapper { width: 4rem; height: 4rem; }
+    }
+
+    .insight-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .insight-icon { width: 2rem; height: 2rem; }
+    }
+
+    .insight-text {
+      font-size: 1.125rem;
+      color: var(--muted-foreground);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .insight-text { font-size: 1.25rem; }
+    }
+
+    @media (min-width: 768px) {
+      .insight-text { font-size: 1.5rem; }
+    }
+
+    .insight-highlight {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .insight-highlight { font-size: 1.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .insight-highlight { font-size: 1.875rem; }
+    }
+
+    /* ============================================
+       POSITIONING SECTION (Quote Section)
+    ============================================ */
+    .positioning-wrapper {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      border-radius: 1.5rem;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.03), rgba(168, 50, 70, 0.08), rgba(168, 50, 70, 0.03));
+      border: 1px solid rgba(168, 50, 70, 0.15);
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .positioning-wrapper { padding: 3rem 2rem; }
+    }
+
+    @media (min-width: 768px) {
+      .positioning-wrapper { padding: 4rem 3rem; }
+    }
+
+    .quote-decorative {
+      position: absolute;
+      opacity: 0.05;
+      color: var(--primary);
+    }
+
+    .quote-left {
+      top: 1rem;
+      left: 1rem;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .quote-right {
+      bottom: 1rem;
+      right: 1rem;
+      width: 3rem;
+      height: 3rem;
+      transform: rotate(180deg);
+    }
+
+    @media (min-width: 640px) {
+      .quote-left, .quote-right { width: 4rem; height: 4rem; }
+      .quote-left { top: 1.5rem; left: 1.5rem; }
+      .quote-right { bottom: 1.5rem; right: 1.5rem; }
+    }
+
+    .positioning-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .positioning-title { font-size: 1.875rem; }
+    }
+
+    @media (min-width: 768px) {
+      .positioning-title { font-size: 2.25rem; }
+    }
+
+    .positioning-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .positioning-pills { gap: 0.75rem; margin-bottom: 2rem; }
+    }
+
+    .positioning-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    @media (min-width: 640px) {
+      .positioning-pill {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+      }
+    }
+
+    .positioning-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .positioning-text {
+      font-size: 1rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .positioning-text { font-size: 1.125rem; }
+    }
+
+    @media (min-width: 768px) {
+      .positioning-text { font-size: 1.25rem; }
+    }
+
+    .note-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .note-box { margin-top: 2rem; padding: 1.25rem; }
+    }
+
+    .note-text {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (min-width: 640px) {
+      .note-text { font-size: 1rem; }
+    }
+
+    /* ============================================
+       CURRICULUM SECTION
+    ============================================ */
+    .curriculum-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 640px) {
+      .curriculum-stats { gap: 2rem; padding: 1.25rem; margin-bottom: 2.5rem; }
+    }
+
+    .curriculum-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .curriculum-stat-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+    }
+
+    .curriculum-stat-divider {
+      display: none;
+      height: 1rem;
+      width: 1px;
+      background-color: var(--border);
+    }
+
+    @media (min-width: 640px) {
+      .curriculum-stat-divider { display: block; }
+    }
+
+    /* CSS-Only Accordion for Curriculum */
+    .curriculum-accordion {
+      max-width: 56rem;
+      margin: 0 auto 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .curriculum-accordion { margin-bottom: 2.5rem; }
+    }
+
+    .level-item {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .level-toggle {
+      display: none;
+    }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .level-header:hover {
+      background-color: rgba(237, 232, 226, 0.5);
+    }
+
+    .level-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .level-info { gap: 1rem; }
+    }
+
+    .level-number {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .level-number { width: 2.75rem; height: 2.75rem; }
+    }
+
+    .level-title {
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 640px) {
+      .level-title { font-size: 1rem; }
+    }
+
+    .level-subtitle {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    .level-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .level-stats {
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (min-width: 640px) {
+      .level-stats { display: flex; }
+    }
+
+    .chevron-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--muted-foreground);
+      transition: transform 0.3s ease;
+    }
+
+    .level-toggle:checked + .level-header .chevron-icon {
+      transform: rotate(180deg);
+    }
+
+    .level-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .level-toggle:checked ~ .level-content {
+      max-height: 500px;
+    }
+
+    .level-content-inner {
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-stats {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      padding: 0.75rem 0;
+    }
+
+    @media (min-width: 640px) {
+      .mobile-stats { display: none; }
+    }
+
+    .highlights-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted-foreground);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+
+    .highlights-list {
+      list-style: none;
+    }
+
+    .highlight-item-curriculum {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 0.375rem;
+    }
+
+    .check-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .level-note {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--primary);
+    }
+
+    .sparkle-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    /* Draw With Me Bonus */
+    .bonus-section {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.1), rgba(168, 50, 70, 0.05), transparent);
+      border: 2px solid rgba(168, 50, 70, 0.3);
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .bonus-section { padding: 2rem; }
+    }
+
+    .bonus-badge {
+      position: absolute;
+      top: -0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.375rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 9999px;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+    }
+
+    .bonus-icon-wrapper {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 1rem auto;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bonus-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: var(--primary);
+    }
+
+    .bonus-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .bonus-title { font-size: 1.5rem; }
+    }
+
+    .bonus-description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 640px) {
+      .bonus-description { font-size: 1rem; }
+    }
+
+    .bonus-benefits {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .bonus-benefit {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .bonus-benefit-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .bonus-highlight {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .bonus-highlight { font-size: 1.125rem; }
+    }
+
+    /* ============================================
+       PLATFORM SECTION
+    ============================================ */
+    .platform-wrapper {
+      max-width: 56rem;
+      margin: 0 auto;
+    }
+
+    .platform-card {
+      background-color: var(--card);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .platform-card { padding: 2rem; }
+    }
+
+    .platform-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+
+    .feature-icon-circle {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .feature-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+    }
+
+    .feature-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .feature-label { font-size: 0.875rem; }
+    }
+
+    /* App Mockup */
+    .app-mockup {
+      aspect-ratio: 16/9;
+      border-radius: 0.75rem;
+      background-color: var(--muted);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app-mockup-content {
+      text-align: center;
+    }
+
+    .app-icon {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), rgba(168, 50, 70, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .app-name {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Trust Note */
+    .trust-note {
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      background-color: rgba(168, 50, 70, 0.05);
+      border: 1px solid rgba(168, 50, 70, 0.2);
+      text-align: center;
+    }
+
+    .trust-note-text {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (min-width: 640px) {
+      .trust-note-text { font-size: 1rem; }
+    }
+
+    /* ============================================
+       GOLD MEMBERSHIP / PRICING SECTION
+    ============================================ */
+    .pricing-wrapper {
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background-color: var(--card);
+      border: 2px solid var(--primary);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 25px 50px -12px rgba(168, 50, 70, 0.15);
+    }
+
+    @media (min-width: 640px) {
+      .pricing-card { padding: 2rem; }
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .pricing-title { font-size: 1.75rem; }
+    }
+
+    .pricing-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    .pricing-features {
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+    }
+
+    .pricing-feature-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .pricing-feature-text {
+      font-size: 0.875rem;
+    }
+
+    @media (min-width: 640px) {
+      .pricing-feature-text { font-size: 1rem; }
+    }
+
+    /* Platform badges */
+    .platform-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background-color: rgba(168, 50, 70, 0.05);
+      border-radius: 0.75rem;
+    }
+
+    .platform-badge {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background-color: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+    }
+
+    /* Pricing amount */
+    .pricing-amount {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background-color: var(--background);
+      border-radius: 0.75rem;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-current {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .price-current { font-size: 2.5rem; }
+    }
+
+    .price-original {
+      font-size: 1rem;
+      color: var(--muted-foreground);
+      text-decoration: line-through;
+    }
+
+    @media (min-width: 640px) {
+      .price-original { font-size: 1.125rem; }
+    }
+
+    .price-discount {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background-color: rgba(168, 50, 70, 0.2);
+      color: var(--primary);
+      border-radius: 0.25rem;
+    }
+
+    .price-note {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+
+    /* Included list */
+    .included-list {
+      margin-bottom: 1.5rem;
+    }
+
+    .included-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 0.375rem;
+    }
+
+    .included-icon {
+      width: 1rem;
+      height: 1rem;
+      color: var(--primary);
+    }
+
+    .pricing-cta {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      transition: opacity 0.2s ease;
+      box-shadow: 0 10px 25px -5px rgba(168, 50, 70, 0.3);
+    }
+
+    .pricing-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* ============================================
+       WHATSAPP SECTION
+    ============================================ */
+    .whatsapp-wrapper {
+      max-width: 32rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .whatsapp-icon-wrapper {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background-color: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-icon {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+
+    .whatsapp-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .whatsapp-title { font-size: 1.5rem; }
+    }
+
+    .whatsapp-description {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .whatsapp-description { font-size: 1rem; }
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      background-color: #25D366;
+      color: white;
+      border-radius: 9999px;
+      transition: background-color 0.2s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #22c55e;
+    }
+
+    /* ============================================
+       SHARE SECTION
+    ============================================ */
+    .share-wrapper {
+      max-width: 40rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .heart-icon-wrapper {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background-color: rgba(168, 50, 70, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 640px) {
+      .heart-icon-wrapper { width: 5rem; height: 5rem; }
+    }
+
+    .heart-icon {
+      width: 2rem;
+      height: 2rem;
+      color: var(--primary);
+      fill: var(--primary);
+    }
+
+    @media (min-width: 640px) {
+      .heart-icon { width: 2.5rem; height: 2.5rem; }
+    }
+
+    .share-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .share-title { font-size: 1.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .share-title { font-size: 1.875rem; }
+    }
+
+    .share-box {
+      background-color: var(--card);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .share-box-text {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .share-box-text { font-size: 1rem; }
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .share-buttons { flex-direction: row; justify-content: center; }
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: white;
+      border-radius: 9999px;
+      transition: opacity 0.2s ease;
+    }
+
+    .share-btn:hover {
+      opacity: 0.9;
+    }
+
+    .share-btn-whatsapp {
+      background-color: #25D366;
+    }
+
+    .share-btn-facebook {
+      background-color: #1877F2;
+    }
+
+    .share-btn-twitter {
+      background-color: #1DA1F2;
+    }
+
+    .share-btn-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .copy-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      background-color: var(--muted);
+      color: var(--foreground);
+      border-radius: 9999px;
+      transition: background-color 0.2s ease;
+    }
+
+    .copy-link-btn:hover {
+      background-color: rgba(237, 232, 226, 0.8);
+    }
+
+    /* ============================================
+       FAQ SECTION
+    ============================================ */
+    .faq-wrapper {
+      max-width: 48rem;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      margin-bottom: 0.625rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 640px) {
+      .faq-item { margin-bottom: 0.75rem; }
+    }
+
+    .faq-toggle {
+      display: none;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      width: 100%;
+      padding: 1rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      gap: 0.75rem;
+    }
+
+    .faq-question:hover {
+      background-color: rgba(237, 232, 226, 0.5);
+    }
+
+    @media (min-width: 640px) {
+      .faq-question { align-items: center; }
+    }
+
+    .faq-question-text {
+      font-weight: 500;
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+
+    @media (min-width: 640px) {
+      .faq-question-text { font-size: 1rem; }
+    }
+
+    .faq-chevron {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--muted-foreground);
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+      transition: transform 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .faq-chevron { margin-top: 0; }
+    }
+
+    .faq-toggle:checked + .faq-question .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-toggle:checked ~ .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-content {
+      padding: 0 1rem 1rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      line-height: 1.7;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .contact-cta { margin-top: 3rem; }
+    }
+
+    .contact-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .contact-title { font-size: 1.25rem; }
+    }
+
+    .contact-subtitle {
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      margin-bottom: 0.75rem;
+    }
+
+    .call-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: 0.75rem;
+      transition: opacity 0.2s ease;
+    }
+
+    @media (min-width: 640px) {
+      .call-btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+    }
+
+    .call-btn:hover {
+      opacity: 0.9;
+    }
+
+    .call-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .call-icon { width: 1.25rem; height: 1.25rem; }
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      padding: 1.5rem 0;
+      background-color: var(--card);
+      border-top: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer { padding: 2rem 0; margin-bottom: 0; }
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-content { gap: 1.5rem; }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (min-width: 640px) {
+      .footer-links { gap: 1.5rem; }
+    }
+
+    .footer-link:hover {
+      color: var(--foreground);
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .footer-copyright { font-size: 0.875rem; }
+    }
+
+    /* ============================================
+       FLOATING CTA
+    ============================================ */
+    .floating-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background-color: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .floating-cta-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .floating-cta-inner {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .floating-cta-info {
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .floating-cta-info { text-align: left; }
+    }
+
+    .floating-cta-title {
+      font-weight: 600;
+    }
+
+    .floating-cta-price {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .floating-cta-current {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .floating-cta-original {
+      color: var(--muted-foreground);
+      text-decoration: line-through;
+      font-size: 0.75rem;
+    }
+
+    .floating-cta-discount {
+      font-size: 0.75rem;
+      background-color: rgba(168, 50, 70, 0.2);
+      color: var(--primary);
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .floating-cta-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background-color: var(--primary);
+      color: var(--primary-foreground);
+      border-radius: 0.75rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .floating-cta-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* ============================================
+       UTILITY CLASSES
+    ============================================ */
+    .mb-1 { margin-bottom: 0.25rem; }
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-5 { margin-bottom: 1.25rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mb-10 { margin-bottom: 2.5rem; }
+    .mb-12 { margin-bottom: 3rem; }
+    .mt-4 { margin-top: 1rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .gap-2 { gap: 0.5rem; }
+    .gap-4 { gap: 1rem; }
+
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+
+    .hidden { display: none; }
+
+    .space-y-2 > * + * { margin-top: 0.5rem; }
+    .space-y-3 > * + * { margin-top: 0.75rem; }
+    .space-y-4 > * + * { margin-top: 1rem; }
+    .space-y-6 > * + * { margin-top: 1.5rem; }
+    .space-y-8 > * + * { margin-top: 2rem; }
+
+    /* Gradient backgrounds for artwork */
+    .gradient-amber { background: linear-gradient(135deg, #fef3c7, #fed7aa); }
+    .gradient-rose { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+    .gradient-violet { background: linear-gradient(135deg, #ede9fe, #e9d5ff); }
+    .gradient-teal { background: linear-gradient(135deg, #ccfbf1, #a5f3fc); }
+    .gradient-emerald { background: linear-gradient(135deg, #d1fae5, #bbf7d0); }
+    .gradient-sky { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       STICKY NAVIGATION
+  ============================================ -->
+  <nav class="sticky-nav">
+    <div class="container">
+      <!-- Mobile Nav -->
+      <div class="sticky-nav-inner mobile-only">
+        <div class="nav-pills">
+          <a href="#why-choose" class="nav-link">Why Aasuri</a>
+          <span class="nav-separator"></span>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <span class="nav-separator"></span>
+          <a href="#curriculum" class="nav-link">Curriculum</a>
+          <span class="nav-separator"></span>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+      </div>
+
+      <!-- Desktop Nav -->
+      <div class="sticky-nav-inner desktop-only">
+        <a href="#" class="logo">
+          <div class="logo-icon">A</div>
+          <span class="logo-text">AASURI</span>
+        </a>
+        
+        <div class="nav-pills-desktop">
+          <a href="#why-choose" class="nav-link">Why Aasuri</a>
+          <span class="nav-separator-desktop"></span>
+          <a href="#testimonials" class="nav-link">Testimonials</a>
+          <span class="nav-separator-desktop"></span>
+          <a href="#curriculum" class="nav-link">Curriculum</a>
+          <span class="nav-separator-desktop"></span>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+
+        <a href="#pricing" class="nav-cta">Enroll Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-image-wrapper">
+        <div class="hero-overlay"></div>
+        <div class="hero-play-btn">
+          <div class="play-circle">
+            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5,3 19,12 5,21"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <div class="container">
+          <!-- Badge -->
+          <div class="text-center mb-4">
+            <span class="level-badge">Limited Time Offer</span>
+          </div>
+
+          <!-- Title -->
+          <div class="text-center space-y-3 mb-6">
+            <h1 class="hero-title">
+              Realism. <span class="text-primary">Redefined.</span>
+            </h1>
+            <p class="hero-description px-4">
+              A lifelong artistic journey that teaches you how to understand realism — so you can draw any subject with confidence, even if you're starting from zero.
+            </p>
+            <p style="font-size: 0.75rem; color: var(--primary); font-weight: 500;" class="px-4">
+              Built on a proven system followed by 4,000+ students across the world, inside Aasuri Artist Academy.
+            </p>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="stats-row mb-6">
+            <div class="stars" style="display: flex; align-items: center; gap: 0.25rem;">
+              <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"></polygon></svg>
+              <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"></polygon></svg>
+              <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"></polygon></svg>
+              <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"></polygon></svg>
+              <svg class="star-icon" viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"></polygon></svg>
+              <span style="font-weight: 600; font-size: 0.875rem; margin-left: 0.25rem;">4.8</span>
+              <span style="color: var(--muted-foreground); font-size: 0.75rem;">(600+)</span>
+            </div>
+            <div class="stats-divider"></div>
+            <div style="display: flex; align-items: center; gap: 0.375rem; color: var(--muted-foreground); font-size: 0.875rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <span>4,000+ Students</span>
+            </div>
+          </div>
+
+          <!-- Highlights -->
+          <div class="highlights-scroll mb-6">
+            <div class="highlight-item">
+              <div class="highlight-card">
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                <span class="highlight-text">88+ Lessons</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-card">
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
+                <span class="highlight-text">80+ Hours</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-card">
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span class="highlight-text">Live Q&A</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-card">
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
+                <span class="highlight-text">Lifetime Access</span>
+              </div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-card">
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="m9 16 2 2 4-4"></path></svg>
+                <span class="highlight-text">Weekly Guidance</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="timer-wrapper mb-6">
+            <p class="text-center text-muted" style="font-size: 0.875rem; margin-bottom: 0.75rem;">Offer Ends In</p>
+            <div class="timer-grid">
+              <div class="timer-item">
+                <span class="timer-value">30</span>
+                <span class="timer-label">Days</span>
+              </div>
+              <div class="timer-item">
+                <span class="timer-value">00</span>
+                <span class="timer-label">Hours</span>
+              </div>
+              <div class="timer-item">
+                <span class="timer-value">00</span>
+                <span class="timer-label">Mins</span>
+              </div>
+              <div class="timer-item">
+                <span class="timer-value">00</span>
+                <span class="timer-label">Secs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="text-center mb-4">
+            <a href="#pricing" class="cta-button" style="width: 100%; max-width: 400px;">
+              Join Realism Redefined
+            </a>
+          </div>
+          <p class="text-center text-muted" style="font-size: 0.875rem; margin-bottom: 2rem;">
+            Begin your journey inside Aasuri Artist Academy
+          </p>
+
+          <!-- Social Proof -->
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding-bottom: 1.5rem;">
+            <div class="avatars-group">
+              <div class="avatar">A</div>
+              <div class="avatar">B</div>
+              <div class="avatar">C</div>
+              <div class="avatar">D</div>
+              <div class="avatar">E</div>
+            </div>
+            <p style="font-size: 0.875rem; color: var(--muted-foreground);">
+              <span style="font-weight: 600; color: var(--foreground);">4,000+</span> Happy Learners
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         BENEFITS SECTION
+    ============================================ -->
+    <section class="section-light" id="why-choose">
+      <div class="container">
+        <div class="text-center space-y-4 mb-10">
+          <span class="level-badge">Why Choose Aasuri Artist Academy</span>
+          <h2 class="section-title">
+            Everything you need — and the <span class="text-primary">right environment</span> to grow
+          </h2>
+          <p class="section-subtitle px-4">
+            This is not just a collection of lessons. <span style="color: var(--foreground); font-weight: 500;">It's a complete artistic ecosystem built for long-term growth.</span>
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <!-- Benefit 1 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">A Proven Learning System</h3>
+                <p class="benefit-description">Over 80+ hours of structured learning, designed to help you understand realism clearly — not just follow steps.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">5 Progressive Levels to Mastery</h3>
+                <p class="benefit-description">From fundamentals to advanced realism, each level builds confidence and prepares you for the next.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">Learning Social Network (LSN) App</h3>
+                <p class="benefit-description">Learn inside a dedicated app. Access lessons, join live sessions, share your work, track progress, and connect with a calm, spiritual art community.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 4 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">A Spiritual & Divine Art Community</h3>
+                <p class="benefit-description">A calm, focused space where art connects with culture, devotion, and inner growth. Many students find not just skill here — but clarity, patience, and peace.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 5 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">Learn Anywhere, at Your Pace</h3>
+                <p class="benefit-description">Access everything on mobile, tablet, or desktop, and progress at a speed that suits your life.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">Recognition for Your Journey</h3>
+                <p class="benefit-description">Receive a course completion certificate that reflects your dedication and growth.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefit 7 -->
+          <div class="benefit-card">
+            <div class="benefit-content">
+              <div class="benefit-icon-wrapper">
+                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+              </div>
+              <div>
+                <h3 class="benefit-title">Draw With Me – Live Learning</h3>
+                <p class="benefit-description">Every 3 months, draw along with me live. Learn new drawings, strengthen fundamentals, and grow together as a community. You can attend every session — always.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS SECTION
+    ============================================ -->
+    <section class="section-dark" id="testimonials">
+      <div class="container">
+        <div class="text-center space-y-3 mb-10">
+          <span class="level-badge">Real Transformations</span>
+          <h2 class="section-title">
+            Student Journeys & <span class="text-primary">Their Artwork</span>
+          </h2>
+          <p class="section-subtitle px-4">
+            Real people. Real growth. Created through understanding.
+          </p>
+        </div>
+
+        <!-- Student Stories -->
+        <div class="space-y-6 mb-12">
+          <!-- Story 1: Pranavi -->
+          <div class="story-card">
+            <div class="story-grid">
+              <div class="story-image gradient-rose">
+                <div class="story-avatar">
+                  <div class="avatar-circle">
+                    <span class="avatar-letter">P</span>
+                  </div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Pranavi</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">Oman</p>
+                </div>
+              </div>
+              <div class="story-content">
+                <span class="story-badge">STUDENT STORY</span>
+                <div class="space-y-2 mb-4">
+                  <p class="story-text">Pranavi applied to top design universities including MIT, UID, Symbiosis, and ISDI — and was selected.</p>
+                  <p class="story-text">The works she created using the Aasuri system stood out during interviews and stayed in the invigilators' minds.</p>
+                  <p class="story-text">Strong understanding of blending, light, shade, and observation made the difference.</p>
+                </div>
+                <div class="media-carousel">
+                  <div class="media-item">
+                    <div class="video-thumb">
+                      <div class="video-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary-foreground)"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                      </div>
+                    </div>
+                    <span class="video-label">Watch Story</span>
+                  </div>
+                  <div class="media-item gradient-amber">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 1</span>
+                  </div>
+                  <div class="media-item gradient-rose">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 2</span>
+                  </div>
+                </div>
+                <div class="carousel-dots">
+                  <div class="carousel-dot active"></div>
+                  <div class="carousel-dot"></div>
+                  <div class="carousel-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 2: Ankitha -->
+          <div class="story-card">
+            <div class="story-grid">
+              <div class="story-image gradient-violet">
+                <div class="story-avatar">
+                  <div class="avatar-circle">
+                    <span class="avatar-letter">A</span>
+                  </div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Ankitha</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">India</p>
+                </div>
+              </div>
+              <div class="story-content">
+                <span class="story-badge">STUDENT STORY</span>
+                <div class="space-y-2 mb-4">
+                  <p class="story-text">Ankitha followed the Realism Redefined system step by step.</p>
+                  <p class="story-text">As her understanding grew, her confidence grew with it.</p>
+                  <p class="story-text">Today, she teaches the same concepts to others — proof of true clarity, not dependence.</p>
+                </div>
+                <div class="media-carousel">
+                  <div class="media-item">
+                    <div class="video-thumb">
+                      <div class="video-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary-foreground)"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                      </div>
+                    </div>
+                    <span class="video-label">Watch Story</span>
+                  </div>
+                  <div class="media-item gradient-violet">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 1</span>
+                  </div>
+                  <div class="media-item gradient-teal">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 2</span>
+                  </div>
+                </div>
+                <div class="carousel-dots">
+                  <div class="carousel-dot active"></div>
+                  <div class="carousel-dot"></div>
+                  <div class="carousel-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Story 3: Sruthi -->
+          <div class="story-card">
+            <div class="story-grid">
+              <div class="story-image gradient-teal">
+                <div class="story-avatar">
+                  <div class="avatar-circle">
+                    <span class="avatar-letter">S</span>
+                  </div>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Sruthi</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">India</p>
+                </div>
+              </div>
+              <div class="story-content">
+                <span class="story-badge">STUDENT STORY</span>
+                <div class="space-y-2 mb-4">
+                  <p class="story-text">For Sruthi, drawing became a place of calm after stressful workdays.</p>
+                  <p class="story-text">Understanding realism helped her slow down, focus, and reconnect.</p>
+                  <p class="story-text">Art became grounding — not overwhelming.</p>
+                </div>
+                <div class="media-carousel">
+                  <div class="media-item">
+                    <div class="video-thumb">
+                      <div class="video-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary-foreground)"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                      </div>
+                    </div>
+                    <span class="video-label">Watch Story</span>
+                  </div>
+                  <div class="media-item gradient-emerald">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 1</span>
+                  </div>
+                  <div class="media-item gradient-sky">
+                    <div class="artwork-thumb"></div>
+                    <span class="artwork-label">Art 2</span>
+                  </div>
+                </div>
+                <div class="carousel-dots">
+                  <div class="carousel-dot active"></div>
+                  <div class="carousel-dot"></div>
+                  <div class="carousel-dot"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Student Works Gallery -->
+        <div class="mb-12">
+          <div class="text-center mb-8">
+            <span class="level-badge mb-3" style="display: inline-block;">Student Works</span>
+            <h3 style="font-size: 1.25rem; font-weight: 700;">Created through understanding, not copying</h3>
+          </div>
+
+          <div class="works-grid">
+            <div class="work-item"><div class="work-gradient gradient-amber"></div><span class="work-label">Student Work 1</span></div>
+            <div class="work-item"><div class="work-gradient gradient-rose"></div><span class="work-label">Student Work 2</span></div>
+            <div class="work-item"><div class="work-gradient gradient-violet"></div><span class="work-label">Student Work 3</span></div>
+            <div class="work-item"><div class="work-gradient gradient-teal"></div><span class="work-label">Student Work 4</span></div>
+            <div class="work-item"><div class="work-gradient gradient-emerald"></div><span class="work-label">Student Work 5</span></div>
+            <div class="work-item"><div class="work-gradient gradient-sky"></div><span class="work-label">Student Work 6</span></div>
+          </div>
+        </div>
+
+        <!-- Parent Quotes -->
+        <div class="mb-12">
+          <div class="text-center mb-6">
+            <span style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted-foreground);">What Parents & Students Say</span>
+          </div>
+          <div class="quotes-grid">
+            <div class="quote-card">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+              <p class="quote-text">"This learning brought out my daughter's potential in ways I never expected."</p>
+              <p class="quote-author">— Arun Durairaj</p>
+            </div>
+            <div class="quote-card">
+              <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+              <p class="quote-text">"This art not only looks beautiful, it awakens spiritual awareness."</p>
+              <p class="quote-author">— Radhika Ramesh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         INSTRUCTOR SECTION
+    ============================================ -->
+    <section class="section-light" id="instructor">
+      <div class="container">
+        <div class="text-center space-y-3 mb-8">
+          <span class="level-badge">Meet Your Guide</span>
+          <h2 class="section-title">Your <span class="text-primary">Mentor</span></h2>
+        </div>
+
+        <div class="instructor-card">
+          <div class="instructor-grid">
+            <div class="instructor-image"></div>
+            <div class="instructor-content">
+              <div class="instructor-header">
+                <div class="instructor-avatar">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                </div>
+                <div>
+                  <h3 class="instructor-name">Shreyesh Aasuri</h3>
+                  <p class="instructor-title">Founder, Aasuri Artist Academy</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <p class="instructor-bio">I'm a self-taught realistic artist who learned realism through years of trial, confusion, and deep study of fundamentals.</p>
+                <p class="instructor-bio">I built a clear, structured system that removes guesswork from drawing.</p>
+                <p class="instructor-bio" style="font-weight: 500; color: var(--foreground);">Not shortcuts. Not tricks.</p>
+                <p class="instructor-bio">Today, this system has helped <span style="color: var(--primary); font-weight: 600;">4,000+ students</span> — beginners, professionals, children, and working adults — gain confidence and clarity in art.</p>
+              </div>
+              <div class="instructor-stats">
+                <div class="stat-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                  <span>4,000+ Students</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                  <span>10+ Years Experience</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         WHY PEOPLE FAIL SECTION
+    ============================================ -->
+    <section class="section-dark" id="why-fail">
+      <div class="container">
+        <div style="max-width: 40rem; margin: 0 auto;">
+          <div class="text-center mb-10">
+            <span class="level-badge mb-4" style="display: inline-block;">The Real Challenge</span>
+            <h2 style="font-size: 1.5rem; font-weight: 700; line-height: 1.3;">
+              Why Most People Never Master <span class="text-primary">Realistic Drawing</span>
+            </h2>
+          </div>
+
+          <div class="space-y-8">
+            <div class="text-center">
+              <p style="font-size: 1.125rem; color: var(--muted-foreground); line-height: 1.6;">Most artists don't fail because of lack of talent.</p>
+            </div>
+
+            <div style="display: flex; justify-content: center;">
+              <div style="width: 5rem; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent);"></div>
+            </div>
+
+            <div class="text-center">
+              <p style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1.5rem;">They fail because:</p>
+              <div class="fail-reasons">
+                <div class="fail-reason">
+                  <div class="fail-icon-wrapper">
+                    <svg class="fail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                  </div>
+                  <p class="fail-text">They copy instead of understanding</p>
+                </div>
+                <div class="fail-reason">
+                  <div class="fail-icon-wrapper">
+                    <svg class="fail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                  </div>
+                  <p class="fail-text">They practice without clarity</p>
+                </div>
+                <div class="fail-reason">
+                  <div class="fail-icon-wrapper">
+                    <svg class="fail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                  </div>
+                  <p class="fail-text">They don't know what to observe</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="eye-divider">
+              <div class="divider-line"></div>
+              <div class="eye-circle">
+                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </div>
+              <div class="divider-line"></div>
+            </div>
+
+            <div class="insight-box">
+              <div class="insight-icon-wrapper">
+                <svg class="insight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+              </div>
+              <p class="insight-text">Realism feels hard only until you learn how to <span style="color: var(--foreground); font-weight: 600;">see</span>.</p>
+              <p class="insight-highlight">Once that changes, everything changes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         POSITIONING SECTION
+    ============================================ -->
+    <section class="section-light" id="positioning">
+      <div class="container">
+        <div class="positioning-wrapper">
+          <svg class="quote-decorative quote-left" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+          <svg class="quote-decorative quote-right" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+
+          <div class="text-center">
+            <h2 class="positioning-title">
+              This Is Not a Course.<br>It's an Artist's <span class="text-primary">Journey.</span>
+            </h2>
+
+            <div class="positioning-pills">
+              <span class="positioning-pill">
+                <svg class="positioning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
+                Self-paced
+              </span>
+              <span class="positioning-pill">
+                <svg class="positioning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
+                Lifelong
+              </span>
+              <span class="positioning-pill">
+                <svg class="positioning-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                Always supported
+              </span>
+            </div>
+
+            <div class="space-y-3 mb-6">
+              <p class="positioning-text">No deadlines. No pressure. No rush.</p>
+              <p class="positioning-text">You move through 5 levels at your own pace — supported by live sessions, community, and instructor guidance.</p>
+              <p class="positioning-text" style="font-weight: 600; color: var(--foreground);">This is not a one-time purchase. It's a commitment to lifelong growth.</p>
+            </div>
+
+            <div class="note-box">
+              <p class="note-text">Shreyesh continues to teach, guide, and add new content — so your learning never stops.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         CURRICULUM SECTION
+    ============================================ -->
+    <section class="section-dark" id="curriculum">
+      <div class="container">
+        <div class="text-center space-y-3 mb-8">
+          <span class="level-badge">Curriculum Overview</span>
+          <h2 class="section-title">
+            The Realism Redefined <span class="text-primary">Learning Path</span>
+          </h2>
+          <p class="section-subtitle px-4">A clear five-level progression designed to build lifelong skill and understanding.</p>
+        </div>
+
+        <!-- Overview Stats -->
+        <div class="curriculum-stats">
+          <div class="curriculum-stat">
+            <svg class="curriculum-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+            <span>26 Modules</span>
+          </div>
+          <div class="curriculum-stat-divider"></div>
+          <div class="curriculum-stat">
+            <svg class="curriculum-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2" ry="2"></rect></svg>
+            <span>88 Lessons</span>
+          </div>
+          <div class="curriculum-stat-divider"></div>
+          <div class="curriculum-stat">
+            <svg class="curriculum-stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
+            <span>68h 34m Content</span>
+          </div>
+        </div>
+
+        <!-- Curriculum Accordion -->
+        <div class="curriculum-accordion">
+          <!-- Level 1 -->
+          <div class="level-item">
+            <input type="radio" name="curriculum" id="level-1" class="level-toggle" checked>
+            <label for="level-1" class="level-header">
+              <div class="level-info">
+                <div class="level-number">L1</div>
+                <div>
+                  <h3 class="level-title">Foundation of Realism</h3>
+                  <p class="level-subtitle">Basics for Colour Pencil</p>
+                </div>
+              </div>
+              <div class="level-meta">
+                <div class="level-stats">
+                  <span>7M</span>
+                  <span>·</span>
+                  <span>26L</span>
+                  <span>·</span>
+                  <span>7h 59m</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </label>
+            <div class="level-content">
+              <div class="level-content-inner">
+                <div class="mobile-stats">
+                  <span>7 Modules</span>
+                  <span>·</span>
+                  <span>26 Lessons</span>
+                  <span>·</span>
+                  <span>7h 59m</span>
+                </div>
+                <p class="highlights-label">What you'll learn:</p>
+                <ul class="highlights-list">
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Fundamentals of colour theory</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Blending and colour control</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Depth, texture, and realism</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Observational clarity</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 2 -->
+          <div class="level-item">
+            <input type="radio" name="curriculum" id="level-2" class="level-toggle">
+            <label for="level-2" class="level-header">
+              <div class="level-info">
+                <div class="level-number">L2</div>
+                <div>
+                  <h3 class="level-title">Control & Confidence</h3>
+                  <p class="level-subtitle">Rajagopalan Realistic Drawing</p>
+                </div>
+              </div>
+              <div class="level-meta">
+                <div class="level-stats">
+                  <span>5M</span>
+                  <span>·</span>
+                  <span>13L</span>
+                  <span>·</span>
+                  <span>16h 41m</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </label>
+            <div class="level-content">
+              <div class="level-content-inner">
+                <div class="mobile-stats">
+                  <span>5 Modules</span>
+                  <span>·</span>
+                  <span>13 Lessons</span>
+                  <span>·</span>
+                  <span>16h 41m</span>
+                </div>
+                <p class="highlights-label">What you'll learn:</p>
+                <ul class="highlights-list">
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Full portrait construction</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Handling complex details</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Applying skills beyond portraits</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 3 -->
+          <div class="level-item">
+            <input type="radio" name="curriculum" id="level-3" class="level-toggle">
+            <label for="level-3" class="level-header">
+              <div class="level-info">
+                <div class="level-number">L3</div>
+                <div>
+                  <h3 class="level-title">Depth & Detail</h3>
+                  <p class="level-subtitle">Vaduvur Ramar Realistic Drawing</p>
+                </div>
+              </div>
+              <div class="level-meta">
+                <div class="level-stats">
+                  <span>4M</span>
+                  <span>·</span>
+                  <span>19L</span>
+                  <span>·</span>
+                  <span>13h 26m</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </label>
+            <div class="level-content">
+              <div class="level-content-inner">
+                <div class="mobile-stats">
+                  <span>4 Modules</span>
+                  <span>·</span>
+                  <span>19 Lessons</span>
+                  <span>·</span>
+                  <span>13h 26m</span>
+                </div>
+                <p class="highlights-label">What you'll learn:</p>
+                <ul class="highlights-list">
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Advanced composition</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Texture accuracy</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Confident approach to complex subjects</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 4 -->
+          <div class="level-item">
+            <input type="radio" name="curriculum" id="level-4" class="level-toggle">
+            <label for="level-4" class="level-header">
+              <div class="level-info">
+                <div class="level-number">L4</div>
+                <div>
+                  <h3 class="level-title">Advanced Realism</h3>
+                  <p class="level-subtitle">Ramanujar Realistic Drawing</p>
+                </div>
+              </div>
+              <div class="level-meta">
+                <div class="level-stats">
+                  <span>6M</span>
+                  <span>·</span>
+                  <span>19L</span>
+                  <span>·</span>
+                  <span>19h 1m</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </label>
+            <div class="level-content">
+              <div class="level-content-inner">
+                <div class="mobile-stats">
+                  <span>6 Modules</span>
+                  <span>·</span>
+                  <span>19 Lessons</span>
+                  <span>·</span>
+                  <span>19h 1m</span>
+                </div>
+                <p class="highlights-label">What you'll learn:</p>
+                <ul class="highlights-list">
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Advanced colour blending</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Light and dark mastery</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Professional-level confidence</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Level 5 -->
+          <div class="level-item">
+            <input type="radio" name="curriculum" id="level-5" class="level-toggle">
+            <label for="level-5" class="level-header">
+              <div class="level-info">
+                <div class="level-number">L5</div>
+                <div>
+                  <h3 class="level-title">Ultimate Realism</h3>
+                  <p class="level-subtitle">Parthasarathy Realistic Drawing</p>
+                </div>
+              </div>
+              <div class="level-meta">
+                <div class="level-stats">
+                  <span>4M</span>
+                  <span>·</span>
+                  <span>11L</span>
+                  <span>·</span>
+                  <span>11h 27m</span>
+                </div>
+                <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </div>
+            </label>
+            <div class="level-content">
+              <div class="level-content-inner">
+                <div class="mobile-stats">
+                  <span>4 Modules</span>
+                  <span>·</span>
+                  <span>11 Lessons</span>
+                  <span>·</span>
+                  <span>11h 27m</span>
+                </div>
+                <p class="highlights-label">What you'll learn:</p>
+                <ul class="highlights-list">
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>White-paper realism</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Dark-to-light value mastery</span>
+                  </li>
+                  <li class="highlight-item-curriculum">
+                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                    <span>Ability to draw any subject with clarity</span>
+                  </li>
+                </ul>
+                <div class="level-note">
+                  <svg class="sparkle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                  <span>More lessons added continuously</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Draw With Me Bonus -->
+        <div class="bonus-section text-center">
+          <span class="bonus-badge">Bonus Included</span>
+          <div class="bonus-icon-wrapper">
+            <svg class="bonus-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+          </div>
+          <h3 class="bonus-title">Draw With Me — Learn Together, Always</h3>
+          <p class="bonus-description">Every three months, all students draw along with me live.</p>
+          <div class="bonus-benefits">
+            <span class="bonus-benefit">
+              <svg class="bonus-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path></svg>
+              Refresh fundamentals
+            </span>
+            <span class="bonus-benefit">
+              <svg class="bonus-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+              Introduce new drawings
+            </span>
+            <span class="bonus-benefit">
+              <svg class="bonus-benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Keep learning continuous
+            </span>
+          </div>
+          <p class="bonus-highlight">You can attend every Draw With Me session, forever.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PLATFORM SECTION
+    ============================================ -->
+    <section class="section-light" id="platform">
+      <div class="container">
+        <div class="text-center space-y-3 mb-8">
+          <span class="level-badge">Platform & Community</span>
+          <h2 class="section-title">
+            Aasuri Artist Academy — <span class="text-primary">A Learning Social Network</span>
+          </h2>
+          <p class="section-subtitle px-4">This is not just video lessons.</p>
+        </div>
+
+        <div class="platform-wrapper">
+          <div class="platform-card">
+            <p class="platform-subtitle text-center">Inside the app:</p>
+            <div class="features-grid">
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <span class="feature-label">Community learning</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" x2="10" y1="11" y2="11"></line><line x1="8" x2="8" y1="9" y2="13"></line><line x1="15" x2="15.01" y1="12" y2="12"></line><line x1="18" x2="18.01" y1="10" y2="10"></line><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path></svg>
+                </div>
+                <span class="feature-label">Gamified progress</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                </div>
+                <span class="feature-label">Leaderboards</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                </div>
+                <span class="feature-label">Student gallery</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 8-6 4 6 4V8Z"></path><rect width="14" height="12" x="2" y="6" rx="2" ry="2"></rect></svg>
+                </div>
+                <span class="feature-label">Live sessions</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon-circle">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                </div>
+                <span class="feature-label">Cultural & spiritual space</span>
+              </div>
+            </div>
+            <div class="app-mockup">
+              <div class="app-mockup-content">
+                <div class="app-icon">A</div>
+                <p class="app-name">Aasuri Artist Academy App</p>
+              </div>
+            </div>
+          </div>
+          <div class="trust-note">
+            <p class="trust-note-text">A <span style="color: var(--foreground); font-weight: 500;">safe place</span> for students, children, and families.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PRICING SECTION
+    ============================================ -->
+    <section class="section-dark" id="pricing">
+      <div class="container">
+        <div class="text-center space-y-3 mb-8">
+          <span class="level-badge">Gold Membership</span>
+          <h2 class="section-title">
+            Join <span class="text-primary">Realism Redefined</span>
+          </h2>
+        </div>
+
+        <div class="pricing-wrapper">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3 class="pricing-title">Colour Pencil Masterclass</h3>
+              <p class="pricing-subtitle">Lifetime access to all 5 levels</p>
+            </div>
+
+            <div class="pricing-features">
+              <div class="pricing-feature">
+                <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span class="pricing-feature-text">88+ HD video lessons</span>
+              </div>
+              <div class="pricing-feature">
+                <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span class="pricing-feature-text">80+ hours of content</span>
+              </div>
+              <div class="pricing-feature">
+                <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span class="pricing-feature-text">Draw With Me live sessions</span>
+              </div>
+              <div class="pricing-feature">
+                <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span class="pricing-feature-text">Community access</span>
+              </div>
+              <div class="pricing-feature">
+                <svg class="pricing-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span class="pricing-feature-text">Certificate of completion</span>
+              </div>
+            </div>
+
+            <div class="platform-badges">
+              <span class="platform-badge">📱 App Store</span>
+              <span class="platform-badge">🤖 Play Store</span>
+              <span class="platform-badge">💻 Web App</span>
+            </div>
+
+            <div class="pricing-amount">
+              <div class="price-row">
+                <span class="price-current">₹9,990</span>
+                <span class="price-original">₹14,990</span>
+                <span class="price-discount">Save 33%</span>
+              </div>
+              <p class="price-note">One-time payment · Lifetime access</p>
+            </div>
+
+            <div class="included-list">
+              <div class="included-item">
+                <svg class="included-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span>All 5 curriculum levels</span>
+              </div>
+              <div class="included-item">
+                <svg class="included-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span>Lifetime Draw With Me access</span>
+              </div>
+              <div class="included-item">
+                <svg class="included-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"></polyline></svg>
+                <span>All future updates included</span>
+              </div>
+            </div>
+
+            <button class="pricing-cta" style="width: 100%;">Join Realism Redefined</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         WHATSAPP SECTION
+    ============================================ -->
+    <section class="section-light" id="whatsapp">
+      <div class="container">
+        <div class="whatsapp-wrapper">
+          <div class="whatsapp-icon-wrapper">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+          </div>
+          <h2 class="whatsapp-title">Have Questions?</h2>
+          <p class="whatsapp-description">Chat with us on WhatsApp for quick answers about the course, payment, or anything else.</p>
+          <a href="https://wa.me/917695938525" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SHARE SECTION
+    ============================================ -->
+    <section class="section-dark" id="share">
+      <div class="container">
+        <div class="share-wrapper">
+          <div class="heart-icon-wrapper">
+            <svg class="heart-icon" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+          </div>
+          <h2 class="share-title">Share This <span class="text-primary">Journey</span></h2>
+          <div class="space-y-2 text-muted mb-6">
+            <p style="font-size: 0.875rem;">Know someone who loves art?</p>
+            <p style="font-weight: 500; color: var(--foreground);">A friend. A family member. A child who loves drawing.</p>
+          </div>
+          <div class="share-box">
+            <p class="share-box-text">Realism Redefined is a lifelong artistic path — not just a course.</p>
+            <p class="share-box-text">If this page resonated with you, share it with someone who might need it today.</p>
+          </div>
+          <div class="share-buttons">
+            <a href="#" class="share-btn share-btn-whatsapp">
+              <svg class="share-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+              WhatsApp
+            </a>
+            <a href="#" class="share-btn share-btn-facebook">
+              <svg class="share-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+              Facebook
+            </a>
+            <a href="#" class="share-btn share-btn-twitter">
+              <svg class="share-btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+              Twitter
+            </a>
+          </div>
+          <button class="copy-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         FAQ SECTION
+    ============================================ -->
+    <section class="section-light" id="faq">
+      <div class="container">
+        <div class="faq-wrapper">
+          <div class="text-center space-y-3 mb-8">
+            <span class="level-badge">Got Questions?</span>
+            <h2 class="section-title">Frequently Asked <span class="text-primary">Questions</span></h2>
+          </div>
+
+          <div class="space-y-2">
+            <!-- FAQ 1 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-1" class="faq-toggle" checked>
+              <label for="faq-1" class="faq-question">
+                <span class="faq-question-text">What materials do I need for this course?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Basic supplies needed: Prisma pencils, Grey A3 Sketchbook, Eraser, Sharpener. The instructor will recommend specific brands or types of pencils and other materials once you register for the course.</div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-2" class="faq-toggle">
+              <label for="faq-2" class="faq-question">
+                <span class="faq-question-text">I am a beginner who has absolutely no knowledge about Drawing. Will it be useful for me?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Yes, you're in the right place! This course is designed to take you from absolute beginner to professional level. You are going to be transformed with your drawing skills!</div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-3" class="faq-toggle">
+              <label for="faq-3" class="faq-question">
+                <span class="faq-question-text">Why does this course combine live guidance and self-paced learning?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Self-paced lessons allow progress at your convenience, while live Q&A sessions provide real-time guidance and interaction with the instructor for deeper understanding and support.</div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-4" class="faq-toggle">
+              <label for="faq-4" class="faq-question">
+                <span class="faq-question-text">Why opt for prerecorded online drawing courses?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Prerecorded lessons offer personalized learning, allowing you to progress at your own speed with detailed guidance, clear voiceovers, and the ability to review and refine each step.</div>
+              </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-5" class="faq-toggle">
+              <label for="faq-5" class="faq-question">
+                <span class="faq-question-text">Will I have access to the instructor for support and feedback?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Yes, you'll get instructor support and feedback throughout the course. You'll also be able to reach out to the instructor through the app.</div>
+              </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-6" class="faq-toggle">
+              <label for="faq-6" class="faq-question">
+                <span class="faq-question-text">What will be the language for the courses?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">All lessons are taught in simple, easy-to-understand English!</div>
+              </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-7" class="faq-toggle">
+              <label for="faq-7" class="faq-question">
+                <span class="faq-question-text">Is there an app available for learning?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Absolutely! Our app is available on iOS and Android, bringing learning to your fingertips. Access lessons, connect with artists, and chat directly with our instructor.</div>
+              </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="faq-item">
+              <input type="radio" name="faq" id="faq-8" class="faq-toggle">
+              <label for="faq-8" class="faq-question">
+                <span class="faq-question-text">Can I access the course materials on multiple devices with a single account?</span>
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
+              </label>
+              <div class="faq-answer">
+                <div class="faq-answer-content">Yes! Your account allows seamless access to course materials across various devices, ensuring flexibility in your learning process.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact CTA -->
+          <div class="contact-cta">
+            <h3 class="contact-title">Having More Doubts About the Course?</h3>
+            <p class="contact-subtitle">Give us a call</p>
+            <a href="tel:+917695938525" class="call-btn">
+              <svg class="call-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              Call Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="logo">
+          <div class="logo-icon">A</div>
+          <span class="logo-text">AASURI</span>
+        </div>
+        <nav class="footer-links">
+          <a href="#why-choose" class="footer-link">Benefits</a>
+          <a href="#curriculum" class="footer-link">Curriculum</a>
+          <a href="#testimonials" class="footer-link">Testimonials</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+        </nav>
+        <p class="footer-copyright">Copyright © 2026 aasuri.com. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       FLOATING CTA
+  ============================================ -->
+  <div class="floating-cta">
+    <div class="container">
+      <div class="floating-cta-inner">
+        <div class="floating-cta-info">
+          <p class="floating-cta-title">Color Pencil Masterclass</p>
+          <div class="floating-cta-price">
+            <span class="floating-cta-current">₹9,990</span>
+            <span class="floating-cta-original">₹14,990</span>
+            <span class="floating-cta-discount">Save 33%</span>
+          </div>
+        </div>
+        <a href="#pricing" class="floating-cta-btn">Enroll Now - Lifetime Access</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
