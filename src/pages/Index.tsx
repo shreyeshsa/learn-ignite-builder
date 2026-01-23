@@ -1,13 +1,12 @@
 import Header from "@/components/Header";
+import StickyNav from "@/components/StickyNav";
 import HeroSection from "@/components/HeroSection";
 import WhyPeopleFail from "@/components/WhyPeopleFail";
-import PositioningSection from "@/components/PositioningSection";
 import BenefitsSection from "@/components/BenefitsSection";
-import ArtworkGallery from "@/components/ArtworkGallery";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import InstructorSection from "@/components/InstructorSection";
+import PositioningSection from "@/components/PositioningSection";
 import CurriculumSection from "@/components/CurriculumSection";
-import DrawWithMeSection from "@/components/DrawWithMeSection";
 import PlatformSection from "@/components/PlatformSection";
 import GoldMembershipSection from "@/components/GoldMembershipSection";
 import WhatsAppSection from "@/components/WhatsAppSection";
@@ -20,16 +19,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <StickyNav />
       <main>
         <HeroSection />
         <WhyPeopleFail />
-        <PositioningSection />
         <BenefitsSection />
-        <ArtworkGallery />
         <TestimonialsSection />
         <InstructorSection />
+        <PositioningSection />
         <CurriculumSection />
-        <DrawWithMeSection />
         <PlatformSection />
         <GoldMembershipSection />
         <WhatsAppSection />

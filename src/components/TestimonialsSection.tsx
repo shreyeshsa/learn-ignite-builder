@@ -1,230 +1,290 @@
 import { useState } from "react";
-import { ChevronDown, ChevronLeft, ChevronRight, Play, Quote } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Play, Quote, ArrowRight, ImageIcon } from "lucide-react";
 
 const studentStories = [
   {
     name: "Pranavi",
     location: "Oman",
-    title: "Selected for Top Design Universities",
-    shortStory: "Her realism work made invigilators stop, observe, and remember her portfolio. Clarity of fundamentals became her strongest advantage.",
-    fullStory: "Pranavi's journey with Realism Redefined transformed her portfolio completely. When she appeared for design university entrance exams, the invigilators couldn't help but pause at her work. The depth, precision, and understanding of fundamentals she demonstrated set her apart from hundreds of other candidates. Today, she's pursuing her dream at one of the top design universities.",
+    badge: "STUDENT STORY",
+    content: [
+      "Pranavi applied to top design universities including MIT, UID, Symbiosis, and ISDI — and was selected.",
+      "The works she created using the Aasuri system stood out during interviews and stayed in the invigilators' minds.",
+      "Strong understanding of blending, light, shade, and observation made the difference.",
+    ],
     avatar: "P",
   },
   {
     name: "Ankitha",
     location: "India",
-    title: "From Student to Teacher",
-    shortStory: "Understanding turned into confidence. Confidence turned into teaching.",
-    fullStory: "Ankitha started as a complete beginner, unsure if she had any talent for art. Through the structured system, she not only learned to draw realistically but understood the 'why' behind every technique. This deep understanding gave her the confidence to start teaching others. She now conducts art sessions in her community.",
+    badge: "STUDENT STORY",
+    content: [
+      "Ankitha followed the Realism Redefined system step by step.",
+      "As her understanding grew, her confidence grew with it.",
+      "Today, she teaches the same concepts to others — proof of true clarity, not dependence.",
+    ],
     avatar: "A",
   },
   {
     name: "Sruthi",
     location: "India",
-    title: "Calm Through Art",
-    shortStory: "Drawing became grounding. Art became a place of peace.",
-    fullStory: "For Sruthi, art became more than a skill—it became therapy. In the middle of a demanding career, she found that the focused practice of realistic drawing brought her immense calm. The Sunday sessions became her weekly reset, and the community became her support system.",
+    badge: "STUDENT STORY",
+    content: [
+      "For Sruthi, drawing became a place of calm after stressful workdays.",
+      "Understanding realism helped her slow down, focus, and reconnect.",
+      "Art became grounding — not overwhelming.",
+    ],
     avatar: "S",
   },
 ];
 
-const studentArtworks = [
-  { id: 1, placeholder: "Student Artwork 1" },
-  { id: 2, placeholder: "Student Artwork 2" },
-  { id: 3, placeholder: "Student Artwork 3" },
-  { id: 4, placeholder: "Student Artwork 4" },
-  { id: 5, placeholder: "Student Artwork 5" },
-  { id: 6, placeholder: "Student Artwork 6" },
-  { id: 7, placeholder: "Student Artwork 7" },
-  { id: 8, placeholder: "Student Artwork 8" },
-  { id: 9, placeholder: "Student Artwork 9" },
-  { id: 10, placeholder: "Student Artwork 10" },
+const studentWorks = Array.from({ length: 6 }, (_, i) => ({
+  id: i + 1,
+  placeholder: `Student Work ${i + 1}`,
+}));
+
+const additionalWorks = Array.from({ length: 20 }, (_, i) => ({
+  id: i + 7,
+  placeholder: `Student Work ${i + 7}`,
+}));
+
+const parentQuotes = [
+  {
+    quote: "This learning brought out my daughter's potential in ways I never expected.",
+    name: "Arun Durairaj",
+  },
+  {
+    quote: "This art not only looks beautiful, it awakens spiritual awareness.",
+    name: "Radhika Ramesh",
+  },
 ];
 
 const TestimonialsSection = () => {
-  const [expandedStory, setExpandedStory] = useState<number | null>(null);
-  const [showMoreStories, setShowMoreStories] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [showMoreWorks, setShowMoreWorks] = useState(false);
+  const [activeStoryMedia, setActiveStoryMedia] = useState<Record<number, number>>({});
 
-  const nextVideo = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % studentStories.length);
-  };
-
-  const prevVideo = () => {
-    setCurrentVideoIndex((prev) => (prev - 1 + studentStories.length) % studentStories.length);
+  const getActiveMedia = (storyIndex: number) => activeStoryMedia[storyIndex] || 0;
+  const setActiveMedia = (storyIndex: number, mediaIndex: number) => {
+    setActiveStoryMedia((prev) => ({ ...prev, [storyIndex]: mediaIndex }));
   };
 
   return (
     <section className="section-dark" id="testimonials">
       <div className="container">
-        <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
-          <span className="level-badge">Student Success Stories</span>
+        {/* Header */}
+        <div className="text-center space-y-3 sm:space-y-4 mb-10 sm:mb-14">
+          <span className="level-badge">Real Transformations</span>
           <h2 className="section-title">
-            What This Journey Has{" "}
-            <span className="text-primary">Made Possible</span>
+            Student Journeys &{" "}
+            <span className="text-primary">Their Artwork</span>
           </h2>
+          <p className="section-subtitle px-4">
+            Real people. Real growth. Created through understanding.
+          </p>
         </div>
 
-        {/* Student Stories with Photo + Video Cards */}
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-10">
-          {/* Story Cards */}
-          <div className="space-y-4">
-            {studentStories.map((story, index) => (
-              <div
-                key={index}
-                className="bg-card rounded-xl border border-border p-4 sm:p-5 relative"
-              >
-                <Quote className="absolute top-4 right-4 w-6 h-6 text-primary/10" />
-                
-                <div className="flex items-start gap-3 sm:gap-4">
-                  {/* Avatar/Photo Placeholder */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary/30 to-secondary flex items-center justify-center font-bold text-lg flex-shrink-0">
-                    {story.avatar}
-                  </div>
-                  
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap mb-1">
-                      <h4 className="font-semibold text-base sm:text-lg">
-                        {story.name}
-                      </h4>
-                      <span className="text-xs text-muted-foreground">
-                        ({story.location})
+        {/* Student Stories */}
+        <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-16">
+          {studentStories.map((story, storyIndex) => (
+            <div
+              key={storyIndex}
+              className="bg-card rounded-2xl border border-border overflow-hidden"
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                {/* Left: Photo placeholder */}
+                <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border-4 border-background">
+                      <span className="text-3xl sm:text-4xl font-bold text-primary">
+                        {story.avatar}
                       </span>
                     </div>
-                    <p className="text-sm font-medium text-primary mb-2">
-                      {story.title}
+                    <p className="text-sm text-muted-foreground">
+                      Student photo placeholder
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {expandedStory === index ? story.fullStory : story.shortStory}
-                    </p>
-                    <button
-                      onClick={() => setExpandedStory(expandedStory === index ? null : index)}
-                      className="text-sm text-primary font-medium mt-2 hover:underline"
+                  </div>
+                </div>
+
+                {/* Right: Content + Media carousel */}
+                <div className="p-5 sm:p-6 md:p-8">
+                  {/* Badge */}
+                  <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary mb-4">
+                    {story.badge}
+                  </span>
+
+                  {/* Name */}
+                  <h3 className="text-xl sm:text-2xl font-bold mb-1">
+                    {story.name}
+                    <span className="text-sm font-normal text-muted-foreground ml-2">
+                      · {story.location}
+                    </span>
+                  </h3>
+
+                  {/* Story content */}
+                  <div className="space-y-3 my-4">
+                    {story.content.map((paragraph, pIndex) => (
+                      <p
+                        key={pIndex}
+                        className="text-sm sm:text-base text-muted-foreground leading-relaxed"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {/* Swipeable media hint */}
+                  <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
+                    <ChevronLeft className="w-3 h-3" />
+                    Swipe to watch & view
+                    <ChevronRight className="w-3 h-3" />
+                  </p>
+
+                  {/* Media carousel */}
+                  <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide -mx-2 px-2">
+                    {/* Video placeholder */}
+                    <div
+                      className={`flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-muted border-2 ${
+                        getActiveMedia(storyIndex) === 0
+                          ? "border-primary"
+                          : "border-transparent"
+                      } flex items-center justify-center cursor-pointer snap-center transition-all`}
+                      onClick={() => setActiveMedia(storyIndex, 0)}
                     >
-                      {expandedStory === index ? "Show less" : "Read full story"}
-                    </button>
+                      <div className="text-center">
+                        <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center mx-auto mb-1">
+                          <Play className="w-4 h-4 text-primary-foreground ml-0.5" fill="currentColor" />
+                        </div>
+                        <p className="text-[10px] text-muted-foreground">Video</p>
+                      </div>
+                    </div>
+
+                    {/* Artwork placeholders */}
+                    {[1, 2, 3].map((artIndex) => (
+                      <div
+                        key={artIndex}
+                        className={`flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl bg-muted border-2 ${
+                          getActiveMedia(storyIndex) === artIndex
+                            ? "border-primary"
+                            : "border-transparent"
+                        } flex items-center justify-center cursor-pointer snap-center transition-all`}
+                        onClick={() => setActiveMedia(storyIndex, artIndex)}
+                      >
+                        <div className="text-center">
+                          <ImageIcon className="w-6 h-6 text-muted-foreground mx-auto mb-1" />
+                          <p className="text-[10px] text-muted-foreground">
+                            Artwork {artIndex}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Student Works Gallery */}
+        <div className="mb-12 sm:mb-16">
+          <div className="text-center mb-6 sm:mb-8">
+            <span className="level-badge mb-3 inline-block">Student Works</span>
+            <h3 className="text-xl sm:text-2xl font-bold">
+              Created through understanding, not copying
+            </h3>
+          </div>
+
+          {/* Initial 6 artworks */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl mx-auto">
+            {studentWorks.map((work) => (
+              <div
+                key={work.id}
+                className="aspect-square rounded-xl bg-card border border-border overflow-hidden hover:border-primary/30 transition-colors"
+              >
+                <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
+                  <div className="text-center">
+                    <ImageIcon className="w-8 h-8 mx-auto mb-2 text-muted-foreground/50" />
+                    <p className="text-xs">{work.placeholder}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          {/* Video Testimonial Card */}
-          <div className="bg-card rounded-xl border border-border p-4 sm:p-5">
-            <h3 className="font-semibold text-base sm:text-lg mb-4">Video Testimonials</h3>
-            
-            {/* Video Placeholder */}
-            <div className="relative aspect-video rounded-lg bg-muted mb-4 overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center mx-auto mb-3 cursor-pointer hover:bg-primary transition-colors">
-                    <Play className="w-6 h-6 text-primary-foreground ml-1" fill="currentColor" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    {studentStories[currentVideoIndex].name}'s Story
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Video Navigation */}
-            <div className="flex items-center justify-between">
-              <button
-                onClick={prevVideo}
-                className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-muted transition-colors"
+        {/* Parent & Student Quotes */}
+        <div className="mb-10 sm:mb-14">
+          <div className="text-center mb-6">
+            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              What Parents & Students Say
+            </span>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {parentQuotes.map((item, index) => (
+              <div
+                key={index}
+                className="p-5 sm:p-6 rounded-xl bg-card border border-border relative"
               >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              
-              <div className="flex gap-2">
-                {studentStories.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentVideoIndex(index)}
-                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                      currentVideoIndex === index ? "bg-primary" : "bg-muted-foreground/30"
-                    }`}
-                  />
-                ))}
+                <Quote className="absolute top-4 right-4 w-6 h-6 text-primary/10" />
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-3 italic">
+                  "{item.quote}"
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  — {item.name}
+                </p>
               </div>
-              
-              <button
-                onClick={nextVideo}
-                className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center hover:bg-muted transition-colors"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* View More Stories Toggle */}
-        <div className="text-center mb-8">
+        {/* View More Student Works */}
+        <div className="text-center">
           <button
-            onClick={() => setShowMoreStories(!showMoreStories)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-card border border-border hover:bg-muted transition-colors"
+            onClick={() => setShowMoreWorks(!showMoreWorks)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card border border-border hover:border-primary/30 hover:bg-muted transition-all"
           >
             <span className="text-sm font-medium">
-              {showMoreStories ? "Hide" : "View More"} Student Artworks
+              View More Student Works
             </span>
-            <ChevronDown
-              className={`w-4 h-4 transition-transform ${showMoreStories ? "rotate-180" : ""}`}
+            <ArrowRight
+              className={`w-4 h-4 transition-transform ${
+                showMoreWorks ? "rotate-90" : ""
+              }`}
             />
           </button>
         </div>
 
-        {/* Student Artworks Gallery */}
-        {showMoreStories && (
-          <div className="mb-8">
-            <h3 className="font-semibold text-lg mb-4 text-center">Student Gallery</h3>
+        {/* Additional Works Gallery */}
+        {showMoreWorks && (
+          <div className="mt-8">
             <div className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 snap-x snap-mandatory scrollbar-hide">
-              {studentArtworks.map((artwork) => (
+              {additionalWorks.map((work) => (
                 <div
-                  key={artwork.id}
-                  className="flex-shrink-0 w-48 sm:w-56 snap-center"
+                  key={work.id}
+                  className="flex-shrink-0 w-40 sm:w-48 snap-center"
                 >
-                  <div className="aspect-square rounded-xl bg-card border border-border overflow-hidden">
-                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-                      {artwork.placeholder}
+                  <div className="aspect-square rounded-xl bg-card border border-border overflow-hidden hover:border-primary/30 transition-colors">
+                    <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
+                      <div className="text-center">
+                        <ImageIcon className="w-6 h-6 mx-auto mb-1 text-muted-foreground/50" />
+                        <p>{work.placeholder}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-            {/* Scroll Indicator */}
-            <div className="flex justify-center gap-1.5 mt-4">
-              {studentArtworks.slice(0, 5).map((_, index) => (
-                <div
-                  key={index}
-                  className={`w-1.5 h-1.5 rounded-full ${index === 0 ? "bg-primary" : "bg-muted-foreground/30"}`}
-                />
-              ))}
+
+            {/* Closing message */}
+            <div className="text-center mt-8 p-6 rounded-xl bg-primary/5 border border-primary/20">
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Art grows when it's shared.
+                <br />
+                <span className="text-foreground font-medium">
+                  Learning grows when we grow together.
+                </span>
+              </p>
             </div>
           </div>
         )}
-
-        {/* Trust indicators */}
-        <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 p-4 sm:p-6 rounded-xl bg-card border border-border">
-          <div className="stat-item">
-            <p className="stat-value">4,000+</p>
-            <p className="stat-label">Happy Students</p>
-          </div>
-          <div className="h-10 w-px bg-border hidden sm:block" />
-          <div className="stat-item">
-            <p className="stat-value">4.8/5</p>
-            <p className="stat-label">Average Rating</p>
-          </div>
-          <div className="h-10 w-px bg-border hidden sm:block" />
-          <div className="stat-item">
-            <p className="stat-value">600+</p>
-            <p className="stat-label">Reviews</p>
-          </div>
-          <div className="h-10 w-px bg-border hidden sm:block" />
-          <div className="stat-item">
-            <p className="stat-value">80+</p>
-            <p className="stat-label">Hours Content</p>
-          </div>
-        </div>
       </div>
     </section>
   );
