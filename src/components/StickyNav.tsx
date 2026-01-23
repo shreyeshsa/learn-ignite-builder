@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Why", href: "#benefits" },
+  { label: "Why Choose", href: "#why-choose" },
   { label: "Stories", href: "#testimonials" },
   { label: "Curriculum", href: "#curriculum" },
   { label: "Pricing", href: "#pricing" },
@@ -12,18 +11,18 @@ const navLinks = [
 const StickyNav = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsVisible(window.scrollY > 600);
 
+      // Find active section
       const sections = navLinks.map((link) => link.href.substring(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
+          if (rect.top <= 150) {
             setActiveSection(section);
             break;
           }
@@ -31,77 +30,36 @@ const StickyNav = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 60;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   if (!isVisible) return null;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm animate-fade-in">
-      <div className="container px-3 sm:px-4">
-        <div className="flex items-center justify-between h-12 sm:h-14">
-          {/* Brand - compact */}
-          <span className="text-xs sm:text-sm font-semibold text-primary whitespace-nowrap">
-            Aasuri
-          </span>
-
-          {/* Desktop Navigation */}
-          <div className="hidden sm:flex items-center gap-1 md:gap-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className={`px-2.5 py-1.5 md:px-3 md:py-2 text-xs md:text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
-                  activeSection === link.href.substring(1)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="sm:hidden p-2 -mr-2 text-foreground"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
-        </div>
-
-        {/* Mobile Menu Dropdown */}
-        {mobileMenuOpen && (
-          <div className="sm:hidden py-2 border-t border-border animate-fade-in">
-            <div className="flex flex-wrap gap-2 justify-center">
+    <nav className="fixed top-0 left-0 right-0 z-[60] bg-background/95 backdrop-blur-lg border-b border-border shadow-sm">
+      <div className="container">
+        {/* Mobile: Horizontal scrollable pills */}
+        <div className="sm:hidden h-11 flex items-center -mx-4 px-4">
+          <div className="overflow-x-auto scrollbar-hide w-full">
+            <div className="flex gap-1.5 min-w-max py-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleClick(e, link.href)}
-                  className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
+                  className={`px-3 py-1.5 text-[11px] font-medium whitespace-nowrap rounded-full transition-colors ${
                     activeSection === link.href.substring(1)
                       ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-muted"
+                      : "bg-muted text-muted-foreground hover:bg-accent"
                   }`}
                 >
                   {link.label}
@@ -109,7 +67,41 @@ const StickyNav = () => {
               ))}
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Desktop: Standard navigation */}
+        <div className="hidden sm:flex items-center justify-between h-12">
+          <span className="font-bold text-base text-foreground">AASURI</span>
+          
+          <div className="flex items-center gap-1">
+            {navLinks.map((link, index) => (
+              <div key={link.href} className="flex items-center">
+                <a
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
+                    activeSection === link.href.substring(1)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  }`}
+                >
+                  {link.label}
+                </a>
+                {index < navLinks.length - 1 && (
+                  <span className="w-px h-4 bg-border mx-1" />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <a
+            href="#pricing"
+            onClick={(e) => handleClick(e, "#pricing")}
+            className="px-4 py-1.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:opacity-90 transition-opacity"
+          >
+            Enroll
+          </a>
+        </div>
       </div>
     </nav>
   );
