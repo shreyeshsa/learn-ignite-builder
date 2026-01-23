@@ -14,10 +14,8 @@ const StickyNav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show nav after scrolling past hero (600px)
       setIsVisible(window.scrollY > 600);
 
-      // Determine active section
       const sections = navLinks.map((link) => link.href.substring(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -52,27 +50,41 @@ const StickyNav = () => {
   if (!isVisible) return null;
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm animate-fade-in"
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm animate-fade-in">
       <div className="container">
-        <div className="flex items-center justify-center py-3">
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto scrollbar-hide">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className={`px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
-                  activeSection === link.href.substring(1)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+        <div className="flex items-center justify-between py-3 sm:py-4">
+          {/* Brand */}
+          <div className="hidden sm:flex items-center">
+            <span className="text-sm font-semibold text-primary">Aasuri Academy</span>
           </div>
+
+          {/* Navigation Links */}
+          <div className="flex items-center justify-center flex-1 sm:flex-none">
+            <div className="flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-6 overflow-x-auto scrollbar-hide px-2">
+              {navLinks.map((link, index) => (
+                <div key={link.href} className="flex items-center">
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleClick(e, link.href)}
+                    className={`px-3 py-2 sm:px-4 sm:py-2.5 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
+                      activeSection === link.href.substring(1)
+                        ? "bg-primary text-primary-foreground shadow-md"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                  {/* Separator dot - only between links */}
+                  {index < navLinks.length - 1 && (
+                    <span className="hidden md:block mx-1 lg:mx-2 w-1 h-1 rounded-full bg-border" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Spacer for balance on desktop */}
+          <div className="hidden sm:block w-24" />
         </div>
       </div>
     </nav>
