@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Quote, ArrowRight } from "lucide-react";
+import VideoModal from "./VideoModal";
 
 const studentStories = [
   {
@@ -79,13 +80,134 @@ const parentQuotes = [
   },
 ];
 
+interface MediaCarouselProps {
+  storyIndex: number;
+  studentName: string;
+  onVideoClick: () => void;
+}
+
+const MediaCarousel = ({ storyIndex, studentName, onVideoClick }: MediaCarouselProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 5);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5);
+    }
+  };
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 150;
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const artworks = [
+    { gradient: "from-amber-100 to-orange-200" },
+    { gradient: "from-rose-100 to-pink-200" },
+    { gradient: "from-violet-100 to-purple-200" },
+  ];
+
+  return (
+    <div className="relative">
+      {/* Scroll buttons */}
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll("left")}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-muted transition-colors"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+      )}
+      {canScrollRight && (
+        <button
+          onClick={() => scroll("right")}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-muted transition-colors"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      )}
+
+      {/* Scrollable container */}
+      <div
+        ref={scrollRef}
+        onScroll={checkScroll}
+        className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide scroll-smooth touch-pan-x"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {/* Video card */}
+        <button
+          onClick={onVideoClick}
+          className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden border-2 border-border hover:border-primary cursor-pointer snap-start transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label={`Watch ${studentName}'s video`}
+        >
+          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
+            <img
+              src="/placeholder.svg"
+              alt="Video thumbnail"
+              className="w-full h-full object-cover opacity-30"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground ml-0.5" fill="currentColor" />
+              </div>
+            </div>
+            <span className="absolute bottom-2 left-2 text-[10px] text-white/80 font-medium">
+              Watch Video
+            </span>
+          </div>
+        </button>
+
+        {/* Artwork cards */}
+        {artworks.map((art, artIndex) => (
+          <div
+            key={artIndex}
+            className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden border-2 border-border hover:border-primary/50 cursor-pointer snap-start transition-all hover:scale-[1.02]"
+          >
+            <div className={`w-full h-full bg-gradient-to-br ${art.gradient} flex items-center justify-center relative`}>
+              <img
+                src="/placeholder.svg"
+                alt={`Artwork ${artIndex + 1}`}
+                className="w-full h-full object-cover mix-blend-overlay"
+              />
+              <span className="absolute bottom-2 left-2 text-[10px] text-foreground/70 font-medium bg-background/60 px-1.5 py-0.5 rounded backdrop-blur-sm">
+                Artwork {artIndex + 1}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Swipe hint for mobile */}
+      <p className="text-[10px] text-muted-foreground mt-2 text-center sm:hidden">
+        ← Swipe to see more →
+      </p>
+    </div>
+  );
+};
+
 const TestimonialsSection = () => {
   const [showMoreWorks, setShowMoreWorks] = useState(false);
-  const [activeStoryMedia, setActiveStoryMedia] = useState<Record<number, number>>({});
+  const [videoModal, setVideoModal] = useState<{ isOpen: boolean; studentName: string }>({
+    isOpen: false,
+    studentName: "",
+  });
 
-  const getActiveMedia = (storyIndex: number) => activeStoryMedia[storyIndex] || 0;
-  const setActiveMedia = (storyIndex: number, mediaIndex: number) => {
-    setActiveStoryMedia((prev) => ({ ...prev, [storyIndex]: mediaIndex }));
+  const openVideoModal = (studentName: string) => {
+    setVideoModal({ isOpen: true, studentName });
+  };
+
+  const closeVideoModal = () => {
+    setVideoModal({ isOpen: false, studentName: "" });
   };
 
   return (
@@ -104,14 +226,14 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Student Stories */}
-        <div className="space-y-8 sm:space-y-10 mb-14 sm:mb-20">
+        <div className="space-y-6 sm:space-y-8 mb-14 sm:mb-20">
           {studentStories.map((story, storyIndex) => (
             <div
               key={storyIndex}
               className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="grid md:grid-cols-5 gap-0">
-                {/* Left: Photo placeholder - takes 2 columns */}
+                {/* Left: Photo placeholder */}
                 <div className={`relative aspect-[4/3] md:aspect-auto md:col-span-2 bg-gradient-to-br ${story.gradientFrom} ${story.gradientTo} flex items-center justify-center`}>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <img
@@ -120,9 +242,9 @@ const TestimonialsSection = () => {
                       className="w-full h-full object-cover opacity-40"
                     />
                   </div>
-                  <div className="relative text-center p-6 z-10">
-                    <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full bg-background/90 flex items-center justify-center mx-auto mb-3 border-4 border-background shadow-lg">
-                      <span className="text-2xl sm:text-4xl font-bold text-primary">
+                  <div className="relative text-center p-4 sm:p-6 z-10">
+                    <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full bg-background/90 flex items-center justify-center mx-auto mb-2 sm:mb-3 border-4 border-background shadow-lg">
+                      <span className="text-xl sm:text-3xl font-bold text-primary">
                         {story.avatar}
                       </span>
                     </div>
@@ -135,15 +257,15 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
 
-                {/* Right: Content + Media carousel - takes 3 columns */}
-                <div className="md:col-span-3 p-5 sm:p-6 lg:p-8">
+                {/* Right: Content + Media carousel */}
+                <div className="md:col-span-3 p-4 sm:p-6 lg:p-8">
                   {/* Badge */}
-                  <span className="inline-block px-3 py-1.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary mb-4">
+                  <span className="inline-block px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary mb-3 sm:mb-4">
                     {story.badge}
                   </span>
 
                   {/* Story content */}
-                  <div className="space-y-3 mb-5">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-5">
                     {story.content.map((paragraph, pIndex) => (
                       <p
                         key={pIndex}
@@ -154,69 +276,12 @@ const TestimonialsSection = () => {
                     ))}
                   </div>
 
-                  {/* Swipeable media hint */}
-                  <p className="text-xs text-muted-foreground mb-3 flex items-center gap-1">
-                    <ChevronLeft className="w-3 h-3" />
-                    Swipe to watch & view
-                    <ChevronRight className="w-3 h-3" />
-                  </p>
-
-                  {/* Media carousel with actual placeholder images */}
-                  <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide -mx-2 px-2">
-                    {/* Video placeholder */}
-                    <div
-                      className={`flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-xl overflow-hidden border-2 ${
-                        getActiveMedia(storyIndex) === 0
-                          ? "border-primary shadow-lg"
-                          : "border-border"
-                      } cursor-pointer snap-center transition-all hover:scale-[1.02]`}
-                      onClick={() => setActiveMedia(storyIndex, 0)}
-                    >
-                      <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
-                        <img
-                          src="/placeholder.svg"
-                          alt="Video thumbnail"
-                          className="w-full h-full object-cover opacity-30"
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg">
-                            <Play className="w-5 h-5 text-primary-foreground ml-0.5" fill="currentColor" />
-                          </div>
-                        </div>
-                        <span className="absolute bottom-2 left-2 text-[10px] text-white/70 font-medium">
-                          Video
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Artwork placeholders with gradient backgrounds */}
-                    {[
-                      { gradient: "from-amber-100 to-orange-200" },
-                      { gradient: "from-rose-100 to-pink-200" },
-                      { gradient: "from-violet-100 to-purple-200" },
-                    ].map((art, artIndex) => (
-                      <div
-                        key={artIndex}
-                        className={`flex-shrink-0 w-28 h-28 sm:w-36 sm:h-36 rounded-xl overflow-hidden border-2 ${
-                          getActiveMedia(storyIndex) === artIndex + 1
-                            ? "border-primary shadow-lg"
-                            : "border-border"
-                        } cursor-pointer snap-center transition-all hover:scale-[1.02]`}
-                        onClick={() => setActiveMedia(storyIndex, artIndex + 1)}
-                      >
-                        <div className={`w-full h-full bg-gradient-to-br ${art.gradient} flex items-center justify-center relative`}>
-                          <img
-                            src="/placeholder.svg"
-                            alt={`Artwork ${artIndex + 1}`}
-                            className="w-full h-full object-cover mix-blend-overlay"
-                          />
-                          <span className="absolute bottom-2 left-2 text-[10px] text-foreground/60 font-medium bg-background/50 px-1.5 py-0.5 rounded">
-                            Artwork {artIndex + 1}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                  {/* Media carousel */}
+                  <MediaCarousel
+                    storyIndex={storyIndex}
+                    studentName={story.name}
+                    onVideoClick={() => openVideoModal(story.name)}
+                  />
                 </div>
               </div>
             </div>
@@ -232,7 +297,7 @@ const TestimonialsSection = () => {
             </h3>
           </div>
 
-          {/* Initial 6 artworks with gradient backgrounds */}
+          {/* Initial 6 artworks */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {studentWorks.map((work) => (
               <div
@@ -334,6 +399,13 @@ const TestimonialsSection = () => {
           </div>
         )}
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={videoModal.isOpen}
+        onClose={closeVideoModal}
+        studentName={videoModal.studentName}
+      />
     </section>
   );
 };

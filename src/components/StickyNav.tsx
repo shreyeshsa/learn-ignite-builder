@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Why Choose", href: "#benefits" },
-  { label: "Student Stories", href: "#testimonials" },
+  { label: "Why", href: "#benefits" },
+  { label: "Stories", href: "#testimonials" },
   { label: "Curriculum", href: "#curriculum" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
@@ -11,6 +12,7 @@ const navLinks = [
 const StickyNav = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +37,10 @@ const StickyNav = () => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80;
+      const offset = 60;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({
@@ -51,41 +54,62 @@ const StickyNav = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm animate-fade-in">
-      <div className="container">
-        <div className="flex items-center justify-between py-3 sm:py-4">
-          {/* Brand */}
-          <div className="hidden sm:flex items-center">
-            <span className="text-sm font-semibold text-primary">Aasuri Academy</span>
+      <div className="container px-3 sm:px-4">
+        <div className="flex items-center justify-between h-12 sm:h-14">
+          {/* Brand - compact */}
+          <span className="text-xs sm:text-sm font-semibold text-primary whitespace-nowrap">
+            Aasuri
+          </span>
+
+          {/* Desktop Navigation */}
+          <div className="hidden sm:flex items-center gap-1 md:gap-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
+                className={`px-2.5 py-1.5 md:px-3 md:py-2 text-xs md:text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
+                  activeSection === link.href.substring(1)
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          {/* Navigation Links */}
-          <div className="flex items-center justify-center flex-1 sm:flex-none">
-            <div className="flex items-center gap-1 sm:gap-2 md:gap-4 lg:gap-6 overflow-x-auto scrollbar-hide px-2">
-              {navLinks.map((link, index) => (
-                <div key={link.href} className="flex items-center">
-                  <a
-                    href={link.href}
-                    onClick={(e) => handleClick(e, link.href)}
-                    className={`px-3 py-2 sm:px-4 sm:py-2.5 text-sm font-medium rounded-full whitespace-nowrap transition-all duration-200 ${
-                      activeSection === link.href.substring(1)
-                        ? "bg-primary text-primary-foreground shadow-md"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                  {/* Separator dot - only between links */}
-                  {index < navLinks.length - 1 && (
-                    <span className="hidden md:block mx-1 lg:mx-2 w-1 h-1 rounded-full bg-border" />
-                  )}
-                </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="sm:hidden p-2 -mr-2 text-foreground"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {mobileMenuOpen && (
+          <div className="sm:hidden py-2 border-t border-border animate-fade-in">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  className={`px-3 py-2 text-sm font-medium rounded-full transition-all ${
+                    activeSection === link.href.substring(1)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-muted"
+                  }`}
+                >
+                  {link.label}
+                </a>
               ))}
             </div>
           </div>
-
-          {/* Spacer for balance on desktop */}
-          <div className="hidden sm:block w-24" />
-        </div>
+        )}
       </div>
     </nav>
   );
