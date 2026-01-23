@@ -52,33 +52,35 @@ const FAQSection = () => {
   return (
     <section className="section-dark" id="faq">
       <div className="container max-w-3xl">
-        <div className="text-center space-y-4 mb-12">
+        <div className="text-center space-y-3 sm:space-y-4 mb-8 sm:mb-12">
           <span className="level-badge">Got Questions?</span>
-          <h2 className="text-3xl md:text-5xl font-bold">
+          <h2 className="section-title">
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           {faqs.map((faq, index) => (
             <div key={index} className="faq-item">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-card/80 transition-colors"
+                className="w-full flex items-start sm:items-center justify-between p-4 text-left hover:bg-accent/50 transition-colors gap-3"
               >
-                <span className="font-medium pr-4">{faq.question}</span>
+                <span className="font-medium text-sm sm:text-base leading-snug">
+                  {faq.question}
+                </span>
                 <ChevronDown
-                  className={`w-5 h-5 flex-shrink-0 transition-transform ${
+                  className={`w-5 h-5 flex-shrink-0 mt-0.5 sm:mt-0 transition-transform ${
                     openIndex === index ? "rotate-180 text-primary" : ""
                   }`}
                 />
               </button>
               <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? "max-h-48" : "max-h-0"
+                  openIndex === index ? "max-h-60" : "max-h-0"
                 }`}
               >
-                <div className="p-4 pt-0 text-muted-foreground bg-primary">
+                <div className="p-4 pt-0 text-sm text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </div>
               </div>
@@ -87,16 +89,16 @@ const FAQSection = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-12 text-center space-y-4">
-          <h3 className="text-xl font-semibold">
+        <div className="mt-10 sm:mt-12 text-center space-y-3 sm:space-y-4">
+          <h3 className="text-lg sm:text-xl font-semibold">
             Having More Doubts About the Course?
           </h3>
-          <p className="text-muted-foreground">Give us a call</p>
+          <p className="text-sm text-muted-foreground">Give us a call</p>
           <a
             href="tel:+917695938525"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-lg font-semibold transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 bg-primary hover:opacity-90 text-primary-foreground rounded-xl font-semibold text-sm sm:text-base transition-opacity"
           >
-            <Phone className="w-5 h-5" />
+            <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
             Call Now
           </a>
         </div>

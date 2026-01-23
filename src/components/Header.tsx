@@ -22,26 +22,38 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-lg border-b border-border"
+          ? "bg-background/95 backdrop-blur-lg border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center font-bold text-primary-foreground">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary flex items-center justify-center font-bold text-primary-foreground text-sm sm:text-base">
               A
             </div>
-            <span className="font-bold text-xl hidden sm:block">AASURI</span>
+            <span className="font-bold text-lg sm:text-xl">AASURI</span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -53,55 +65,58 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          {/* CTA Button - Desktop */}
+          <div className="hidden sm:flex items-center gap-4">
             <a
               href="#curriculum"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 bg-primary text-primary-foreground rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
             >
               Enroll Now
             </a>
-
-            {/* Mobile Menu Toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
           </div>
-        </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-80" : "max-h-0"
-          }`}
-        >
-          <nav className="flex flex-col gap-2 pb-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-card rounded-lg transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-accent transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`lg:hidden fixed inset-0 top-14 sm:top-16 bg-background z-40 transition-all duration-300 ${
+          isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+      >
+        <nav className="container py-6 flex flex-col gap-2">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mobile-nav-link"
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="pt-4 mt-4 border-t border-border">
             <a
               href="#curriculum"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="mx-4 mt-2 py-3 bg-primary text-primary-foreground rounded-lg font-medium text-sm text-center"
+              className="cta-button w-full justify-center"
             >
               Enroll Now
             </a>
-          </nav>
-        </div>
+          </div>
+        </nav>
       </div>
     </header>
   );
