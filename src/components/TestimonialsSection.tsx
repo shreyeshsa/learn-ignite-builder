@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Quote, ArrowRight } from "lucide-react";
 import VideoModal from "./VideoModal";
 
@@ -99,9 +99,24 @@ const MediaCarousel = ({ storyIndex, studentName, onVideoClick }: MediaCarouselP
     }
   };
 
+  // Initialize scroll state on mount and resize
+  useEffect(() => {
+    checkScroll();
+    const handleResize = () => checkScroll();
+    window.addEventListener('resize', handleResize);
+    
+    // Also check after a small delay to ensure content is rendered
+    const timeout = setTimeout(checkScroll, 100);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeout);
+    };
+  }, []);
+
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 150;
+      const scrollAmount = 200;
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",
@@ -109,11 +124,9 @@ const MediaCarousel = ({ storyIndex, studentName, onVideoClick }: MediaCarouselP
     }
   };
 
-  const artworks = [
-    { gradient: "from-amber-100 to-orange-200" },
-    { gradient: "from-rose-100 to-pink-200" },
-    { gradient: "from-violet-100 to-purple-200" },
-  ];
+  // Use sample artworks from studentWorks based on story index
+  const artworkStartIdx = storyIndex * 2;
+  const artworks = studentWorks.slice(artworkStartIdx, artworkStartIdx + 3);
 
   return (
     <div className="relative">
@@ -121,7 +134,7 @@ const MediaCarousel = ({ storyIndex, studentName, onVideoClick }: MediaCarouselP
       {canScrollLeft && (
         <button
           onClick={() => scroll("left")}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-muted transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-background/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-background transition-colors border border-border"
           aria-label="Scroll left"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -130,67 +143,65 @@ const MediaCarousel = ({ storyIndex, studentName, onVideoClick }: MediaCarouselP
       {canScrollRight && (
         <button
           onClick={() => scroll("right")}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-muted transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-background/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center hover:bg-background transition-colors border border-border"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
       )}
 
-      {/* Scrollable container */}
+      {/* Scrollable container with improved touch behavior */}
       <div
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide scroll-smooth touch-pan-x"
-        style={{ WebkitOverflowScrolling: "touch" }}
+        className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x snap-mandatory overscroll-x-contain touch-pan-x"
+        style={{ 
+          WebkitOverflowScrolling: "touch",
+          scrollPaddingLeft: "4px",
+          scrollPaddingRight: "4px"
+        }}
       >
-        {/* Video card */}
+        {/* Video thumbnail - first item */}
         <button
           onClick={onVideoClick}
-          className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden border-2 border-border hover:border-primary cursor-pointer snap-start transition-all hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-          aria-label={`Watch ${studentName}'s video`}
+          className="relative flex-shrink-0 w-32 h-24 sm:w-40 sm:h-28 rounded-xl overflow-hidden group cursor-pointer snap-start"
         >
-          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative">
-            <img
-              src="/placeholder.svg"
-              alt="Video thumbnail"
-              className="w-full h-full object-cover opacity-30"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                <Play className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground ml-0.5" fill="currentColor" />
-              </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+              <Play className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground ml-0.5" />
             </div>
-            <span className="absolute bottom-2 left-2 text-[10px] text-white/80 font-medium">
-              Watch Video
+          </div>
+          <div className="absolute bottom-1 left-1 right-1">
+            <span className="text-[10px] sm:text-xs text-white font-medium bg-black/50 px-1.5 py-0.5 rounded">
+              Watch Story
             </span>
           </div>
         </button>
 
-        {/* Artwork cards */}
-        {artworks.map((art, artIndex) => (
+        {/* Artwork items */}
+        {artworks.map((artwork, index) => (
           <div
-            key={artIndex}
-            className="flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-xl overflow-hidden border-2 border-border hover:border-primary/50 cursor-pointer snap-start transition-all hover:scale-[1.02]"
+            key={artwork.id}
+            className={`relative flex-shrink-0 w-32 h-24 sm:w-40 sm:h-28 rounded-xl overflow-hidden snap-start bg-gradient-to-br ${artwork.gradient}`}
           >
-            <div className={`w-full h-full bg-gradient-to-br ${art.gradient} flex items-center justify-center relative`}>
-              <img
-                src="/placeholder.svg"
-                alt={`Artwork ${artIndex + 1}`}
-                className="w-full h-full object-cover mix-blend-overlay"
-              />
-              <span className="absolute bottom-2 left-2 text-[10px] text-foreground/70 font-medium bg-background/60 px-1.5 py-0.5 rounded backdrop-blur-sm">
-                Artwork {artIndex + 1}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-xs text-muted-foreground font-medium">{artwork.placeholder}</span>
+            </div>
+            <div className="absolute bottom-1 left-1">
+              <span className="text-[10px] text-foreground font-medium bg-background/70 px-1.5 py-0.5 rounded">
+                Art {index + 1}
               </span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Swipe hint for mobile */}
-      <p className="text-[10px] text-muted-foreground mt-2 text-center sm:hidden">
-        ← Swipe to see more →
-      </p>
+      {/* Scroll indicator dots */}
+      <div className="flex justify-center gap-1 mt-2">
+        <div className={`w-1.5 h-1.5 rounded-full transition-colors ${!canScrollLeft ? 'bg-primary' : 'bg-muted'}`} />
+        <div className={`w-1.5 h-1.5 rounded-full transition-colors ${canScrollLeft && canScrollRight ? 'bg-primary' : 'bg-muted'}`} />
+        <div className={`w-1.5 h-1.5 rounded-full transition-colors ${!canScrollRight ? 'bg-primary' : 'bg-muted'}`} />
+      </div>
     </div>
   );
 };
