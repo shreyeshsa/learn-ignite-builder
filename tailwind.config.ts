@@ -7,7 +7,11 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1rem",
+      padding: {
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        lg: "2rem",
+      },
       screens: {
         sm: "640px",
         md: "768px",
@@ -54,13 +58,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: "hsl(45 100% 50%)",
-        star: "hsl(45 98% 60%)",
+        gold: "hsl(var(--gold))",
+        star: "hsl(var(--star-color))",
+        success: "hsl(var(--success))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      fontSize: {
+        "2xs": ["0.625rem", { lineHeight: "0.875rem" }],
+      },
+      spacing: {
+        "safe-bottom": "env(safe-area-inset-bottom)",
+        "safe-top": "env(safe-area-inset-top)",
       },
       keyframes: {
         "accordion-down": {
