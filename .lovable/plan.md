@@ -1,94 +1,73 @@
 
 
-# Create New Standalone Static HTML File
+# Color Update Plan for public/index-static.html
 
-## Problem Identified
+## Summary
 
-The changes exist in `public/index-static.html`, but you may be viewing the **React app** at the root URL `/` instead of the **static HTML file** at `/index-static.html`.
-
-**Current URLs:**
-- `/` → React app (served by Vite/React)
-- `/index-static.html` → Static HTML file (the one with all CSS changes)
+The dark purple theme and accent colors are **already implemented** in `public/index-static.html`. However, there are **18 remaining instances** of old brown text colors that need to be updated to match the new theme.
 
 ---
 
-## Solution: Create a New Clearly Named Static File
+## Current Status
 
-To avoid confusion, I will create a **new standalone static HTML/CSS file** with a clear name:
-
-**New File**: `public/aasuri-landing.html`
-
-This file will contain:
-1. Complete HTML structure (all sections from hero to footer)
-2. All CSS embedded inline in `<style>` tags
-3. Dark purple theme with all accent colors (green, orange, blue, teal, gold)
-4. Fixed header navigation (always visible at top)
-5. Mobile overflow fixes for testimonials
-6. The logo and instructor images integrated
-
----
-
-## File Structure
-
-```text
-public/
-├── aasuri-landing.html   ← NEW complete standalone file
-├── index-static.html     ← Existing (but user can't see it)
-├── images/
-│   ├── logo.png
-│   └── shreyesh.png
-└── ...
-```
-
----
-
-## What Will Be Included
-
-### CSS Features:
+### Already Implemented
 - Dark purple background: `hsl(255, 30%, 7%)`
 - Bright purple primary: `hsl(270, 90%, 65%)`
 - Purple-to-pink gradients for CTAs
-- Glassmorphism navigation with backdrop blur
-- Accent colors: green, orange, blue, teal, gold
-- Mobile-responsive design
-- Fixed header at top
+- Accent color variables: green, orange, blue, teal, gold
+- Fixed header navigation at top
+- Colored icons in Benefits section (blue, teal, orange, green, gold)
+- Colored icons in Hero highlights
+- Green checkmarks in curriculum and pricing
 
-### HTML Sections:
-1. Fixed Navigation Header
-2. Hero Section (with video placeholder)
-3. Highlights Row
-4. Countdown Timer
-5. Benefits Section (8 cards with colored icons)
-6. Testimonials/Student Journeys
-7. Instructor Section
-8. Curriculum Section
-9. Pricing Section
-10. WhatsApp CTA
-11. FAQ Section
-12. Footer
-13. Floating CTA (bottom bar)
-
-### Images:
-- Logo: `images/logo.png`
-- Instructor: `images/shreyesh.png`
+### Remaining Issues Found
+**18 instances** of old brown text color `rgba(35, 29, 24, ...)` in the testimonial section avatar names that need updating.
 
 ---
 
-## How to View
+## Changes Required
 
-After implementation, access the new file at:
+### File: `public/index-static.html`
 
-**Preview URL**: `/aasuri-landing.html`
+**Location**: Lines 3209-3302 (Testimonial avatar names)
 
-**Full URL example**: `https://id-preview--d7b233f8-1a7d-4d0f-9a98-54a8285a6656.lovable.app/aasuri-landing.html`
+| Line | Current (Old Brown) | New (Light Purple/White) |
+|------|---------------------|--------------------------|
+| 3209 | `color: rgba(35, 29, 24, 0.8)` | `color: var(--foreground)` |
+| 3210 | `color: rgba(35, 29, 24, 0.6)` | `color: var(--muted-foreground)` |
+| 3255 | `color: rgba(35, 29, 24, 0.8)` | `color: var(--foreground)` |
+| 3256 | `color: rgba(35, 29, 24, 0.6)` | `color: var(--muted-foreground)` |
+| 3301 | `color: rgba(35, 29, 24, 0.8)` | `color: var(--foreground)` |
+| 3302 | `color: rgba(35, 29, 24, 0.6)` | `color: var(--muted-foreground)` |
+
+**Summary**: Replace all `rgba(35, 29, 24, 0.8)` with `var(--foreground)` (white) and all `rgba(35, 29, 24, 0.6)` with `var(--muted-foreground)` (light purple-gray).
 
 ---
 
-## Technical Notes
+## How to View the Updated File
 
-- The file is completely standalone (no JavaScript dependencies)
-- All CSS is embedded in the `<head>` section
-- Uses Google Fonts (Poppins) loaded via CDN
-- Pure CSS interactivity for FAQ accordions and curriculum dropdowns
-- No build step required - just upload and serve
+After implementation, navigate to:
+
+**URL**: `/index-static.html`
+
+**Full Preview URL**: `https://id-preview--d7b233f8-1a7d-4d0f-9a98-54a8285a6656.lovable.app/index-static.html`
+
+The root URL `/` shows the React app, not the static HTML file.
+
+---
+
+## Visual Summary
+
+The file already has these colors working:
+
+| Element | Color | Hex |
+|---------|-------|-----|
+| Background | Dark purple-black | `#0D0B1E` |
+| Primary accent | Bright purple | `#A855F7` |
+| Success icons | Emerald green | `#22C55E` |
+| Urgency elements | Vibrant orange | `#F97316` |
+| Info icons | Sky blue | `#3B82F6` |
+| Growth icons | Teal | `#14B8A6` |
+| Achievement icons | Gold | `#FACC15` |
+| CTA buttons | Purple-to-pink gradient | `#A855F7` to `#EC4899` |
 
