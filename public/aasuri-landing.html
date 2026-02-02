@@ -1,0 +1,2428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realism Redefined - Aasuri Artist Academy</title>
+  <meta name="description" content="Master realistic color pencil art with Shreyesh Aasuri. 88+ lessons, lifetime access, and a proven system followed by 4,000+ students worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       CSS VARIABLES & RESET
+    ======================================== */
+    :root {
+      /* Core Theme Colors */
+      --bg-dark: hsl(255, 30%, 7%);
+      --bg-card: hsl(255, 25%, 12%);
+      --bg-elevated: hsl(255, 20%, 15%);
+      
+      /* Primary Purple */
+      --primary: hsl(270, 90%, 65%);
+      --primary-glow: hsl(280, 100%, 70%);
+      --primary-dark: hsl(270, 80%, 50%);
+      
+      /* Text Colors */
+      --text-primary: hsl(0, 0%, 98%);
+      --text-secondary: hsl(255, 20%, 75%);
+      --text-muted: hsl(255, 15%, 55%);
+      
+      /* Accent Colors */
+      --accent-green: hsl(145, 70%, 50%);
+      --accent-orange: hsl(25, 95%, 55%);
+      --accent-blue: hsl(210, 100%, 55%);
+      --accent-teal: hsl(175, 80%, 45%);
+      --accent-gold: hsl(45, 98%, 50%);
+      --accent-pink: hsl(330, 85%, 60%);
+      
+      /* Borders & Effects */
+      --border-subtle: hsla(270, 50%, 50%, 0.2);
+      --border-accent: hsla(270, 80%, 60%, 0.4);
+      --glow-primary: 0 0 30px hsla(270, 90%, 65%, 0.4);
+      --shadow-card: 0 4px 20px hsla(0, 0%, 0%, 0.3);
+      
+      /* Spacing */
+      --container-max: 1200px;
+      --section-padding: 5rem 0;
+      --section-padding-mobile: 3rem 0;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    /* ========================================
+       UTILITY CLASSES
+    ======================================== */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container { padding: 0 1.5rem; }
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.25rem; }
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Icon Color Classes */
+    .icon-green { color: var(--accent-green); }
+    .icon-orange { color: var(--accent-orange); }
+    .icon-blue { color: var(--accent-blue); }
+    .icon-teal { color: var(--accent-teal); }
+    .icon-gold { color: var(--accent-gold); }
+    .icon-purple { color: var(--primary); }
+
+    /* Icon Wrapper Backgrounds */
+    .icon-wrapper-green { background-color: hsla(145, 70%, 50%, 0.15); }
+    .icon-wrapper-orange { background-color: hsla(25, 95%, 55%, 0.15); }
+    .icon-wrapper-blue { background-color: hsla(210, 100%, 55%, 0.15); }
+    .icon-wrapper-teal { background-color: hsla(175, 80%, 45%, 0.15); }
+    .icon-wrapper-gold { background-color: hsla(45, 98%, 50%, 0.15); }
+    .icon-wrapper-purple { background-color: hsla(270, 90%, 65%, 0.15); }
+
+    /* ========================================
+       FIXED NAVIGATION
+    ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: hsla(255, 30%, 7%, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-container { height: 4rem; }
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-logo img {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    .nav-logo span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* ========================================
+       HERO SECTION
+    ======================================== */
+    .hero {
+      padding-top: 4.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding-top: 5rem; }
+    }
+
+    .hero-media {
+      position: relative;
+      height: 50vh;
+      min-height: 300px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .hero-media { height: 55vh; }
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-dark) 0%, transparent 50%, transparent 100%);
+    }
+
+    .hero-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 4rem;
+      height: 4rem;
+      background: hsla(270, 90%, 65%, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--glow-primary);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    @media (min-width: 768px) {
+      .hero-play {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+
+    .hero-play:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: var(--primary);
+    }
+
+    .hero-play svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-left: 0.25rem;
+      fill: white;
+    }
+
+    @media (min-width: 768px) {
+      .hero-play svg {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    .hero-content {
+      flex: 1;
+      background: var(--bg-dark);
+      position: relative;
+      margin-top: -3rem;
+      border-radius: 1.5rem 1.5rem 0 0;
+      padding: 1.5rem 0 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-content {
+        margin-top: -4rem;
+        padding: 2rem 0 3rem;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.875rem;
+      background: hsla(25, 95%, 55%, 0.15);
+      color: var(--accent-orange);
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 2rem;
+      border: 1px solid hsla(25, 95%, 55%, 0.3);
+      margin: 0 auto 1rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-title { font-size: 2.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .hero-title { font-size: 3rem; }
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 0.75rem;
+      padding: 0 1rem;
+    }
+
+    .hero-subtext {
+      font-size: 0.8rem;
+      color: var(--primary);
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Stats Row */
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-rating svg {
+      width: 1rem;
+      height: 1rem;
+      fill: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .hero-rating span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .hero-rating small {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-divider {
+      width: 1px;
+      height: 1rem;
+      background: var(--border-subtle);
+    }
+
+    .hero-students {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .hero-students svg {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    /* Highlight Cards */
+    .hero-highlights {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0 1rem 1rem;
+      margin: 0 -1rem 1.5rem;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .hero-highlights::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .hero-highlights {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+        margin: 0 0 1.5rem;
+        padding: 0 0 1rem;
+      }
+    }
+
+    .highlight-card {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      min-width: 120px;
+    }
+
+    @media (min-width: 768px) {
+      .highlight-card { min-width: 130px; }
+    }
+
+    .highlight-card svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .highlight-card span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Timer */
+    .hero-timer {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .timer-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .timer-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 3.5rem;
+    }
+
+    .timer-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: hsla(270, 90%, 65%, 0.1);
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.5rem;
+      min-width: 3rem;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .timer-value {
+        font-size: 1.75rem;
+        min-width: 3.5rem;
+      }
+    }
+
+    .timer-text {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 0.375rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA Buttons */
+    .hero-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .hero-cta {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      box-shadow: var(--glow-primary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px hsla(270, 90%, 65%, 0.5);
+    }
+
+    .hero-subtext-cta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    /* Social Proof */
+    .hero-social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .avatar-stack {
+      display: flex;
+    }
+
+    .avatar-stack span {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-dark), var(--accent-pink));
+      border: 2px solid var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin-left: -0.5rem;
+    }
+
+    .avatar-stack span:first-child {
+      margin-left: 0;
+    }
+
+    @media (min-width: 640px) {
+      .avatar-stack span {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    .hero-social-proof p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .hero-social-proof strong {
+      color: var(--text-primary);
+    }
+
+    /* ========================================
+       WHY CHOOSE / BENEFITS SECTION
+    ======================================== */
+    .benefits {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .benefits { padding: var(--section-padding); }
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .benefits-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .benefit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .benefit-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .benefit-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .benefit-icon svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+
+    .benefit-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       STUDENT JOURNEYS / TESTIMONIALS
+    ======================================== */
+    .testimonials {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .testimonials { padding: var(--section-padding); }
+    }
+
+    .testimonials-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0 1rem 1.5rem;
+      margin: 0 -1rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .testimonials-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .testimonials-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .testimonial-card {
+      flex-shrink: 0;
+      width: 85vw;
+      max-width: 320px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      overflow: hidden;
+      scroll-snap-align: center;
+    }
+
+    @media (min-width: 1024px) {
+      .testimonial-card {
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    .testimonial-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--bg-elevated);
+      overflow: hidden;
+    }
+
+    .testimonial-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 3rem;
+      height: 3rem;
+      background: hsla(270, 90%, 65%, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .testimonial-play svg {
+      width: 1rem;
+      height: 1rem;
+      fill: white;
+      margin-left: 0.125rem;
+    }
+
+    .testimonial-content {
+      padding: 1.25rem;
+    }
+
+    .testimonial-content h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .testimonial-content p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       INSTRUCTOR SECTION
+    ======================================== */
+    .instructor {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-card);
+    }
+
+    @media (min-width: 768px) {
+      .instructor { padding: var(--section-padding); }
+    }
+
+    .instructor-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .instructor-wrapper {
+        flex-direction: row;
+        gap: 3rem;
+      }
+    }
+
+    .instructor-image {
+      flex-shrink: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 3px solid var(--border-accent);
+      box-shadow: var(--glow-primary);
+    }
+
+    @media (min-width: 768px) {
+      .instructor-image {
+        width: 280px;
+        height: 280px;
+      }
+    }
+
+    .instructor-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .instructor-content {
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .instructor-content { text-align: left; }
+    }
+
+    .instructor-content h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .instructor-content h2 { font-size: 2rem; }
+    }
+
+    .instructor-content .subtitle {
+      font-size: 1rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .instructor-content p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .instructor-stats {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .instructor-stats { justify-content: flex-start; }
+    }
+
+    .instructor-stat {
+      text-align: center;
+    }
+
+    .instructor-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .instructor-stat span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       WHY PEOPLE FAIL SECTION
+    ======================================== */
+    .why-fail {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .why-fail { padding: var(--section-padding); }
+    }
+
+    .fail-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 640px) {
+      .fail-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .fail-card {
+      background: var(--bg-card);
+      border: 1px solid hsla(0, 60%, 50%, 0.2);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .fail-icon {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: hsla(0, 60%, 50%, 0.15);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fail-icon svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: hsl(0, 70%, 55%);
+    }
+
+    .fail-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .fail-card p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ========================================
+       POSITIONING QUOTE
+    ======================================== */
+    .positioning {
+      padding: 3rem 0;
+      background: linear-gradient(135deg, hsla(270, 50%, 15%, 0.5), hsla(280, 50%, 10%, 0.5));
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .positioning blockquote {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .positioning blockquote { font-size: 1.5rem; }
+    }
+
+    .positioning cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: normal;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* ========================================
+       CURRICULUM SECTION
+    ======================================== */
+    .curriculum {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .curriculum { padding: var(--section-padding); }
+    }
+
+    .curriculum-levels {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .level-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .level-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .level-header:hover {
+      background: var(--bg-elevated);
+    }
+
+    .level-number {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .level-info {
+      flex: 1;
+    }
+
+    .level-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.125rem;
+    }
+
+    .level-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .level-toggle {
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+
+    .level-toggle svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    /* CSS Checkbox Hack for Accordion */
+    .level-checkbox {
+      display: none;
+    }
+
+    .level-checkbox:checked ~ .level-header .level-toggle {
+      transform: rotate(180deg);
+    }
+
+    .level-checkbox:checked ~ .level-content {
+      max-height: 500px;
+      padding: 1.25rem;
+      padding-top: 0;
+    }
+
+    .level-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, padding 0.3s;
+      padding: 0 1.25rem;
+    }
+
+    .level-content ul {
+      list-style: none;
+    }
+
+    .level-content li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .level-content li svg {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--accent-green);
+      margin-top: 0.125rem;
+    }
+
+    /* Draw With Me Bonus */
+    .bonus-card {
+      background: linear-gradient(135deg, hsla(270, 50%, 20%, 0.5), hsla(280, 50%, 15%, 0.5));
+      border: 2px solid var(--border-accent);
+    }
+
+    .bonus-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: var(--accent-gold);
+      color: hsl(45, 80%, 15%);
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========================================
+       PLATFORM SECTION
+    ======================================== */
+    .platform {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-card);
+    }
+
+    @media (min-width: 768px) {
+      .platform { padding: var(--section-padding); }
+    }
+
+    .platform-preview {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .platform-icon {
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .platform-icon svg {
+      width: 2rem;
+      height: 2rem;
+      fill: white;
+    }
+
+    .platform-preview h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .platform-preview p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .platform-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .platform-feature {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.75rem;
+      background: var(--bg-card);
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .platform-feature svg {
+      width: 0.875rem;
+      height: 0.875rem;
+      color: var(--accent-green);
+    }
+
+    /* ========================================
+       PRICING SECTION
+    ======================================== */
+    .pricing {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .pricing { padding: var(--section-padding); }
+    }
+
+    .pricing-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, hsla(270, 40%, 15%, 0.8), hsla(280, 40%, 10%, 0.8));
+      border: 2px solid var(--border-accent);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--glow-primary);
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      padding: 0.375rem 1rem;
+      background: var(--accent-gold);
+      color: hsl(45, 80%, 15%);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-price {
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-current {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .pricing-original {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-left: 0.5rem;
+    }
+
+    .pricing-discount {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: hsla(25, 95%, 55%, 0.2);
+      color: var(--accent-orange);
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      margin-left: 0.75rem;
+    }
+
+    .pricing-features {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-features svg {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--accent-green);
+    }
+
+    .pricing-cta {
+      width: 100%;
+      padding: 1.25rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      box-shadow: var(--glow-primary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pricing-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px hsla(270, 90%, 65%, 0.5);
+    }
+
+    .pricing-guarantee {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ========================================
+       WHATSAPP SECTION
+    ======================================== */
+    .whatsapp {
+      padding: 2rem 0;
+      background: hsla(145, 70%, 40%, 0.1);
+      border-top: 1px solid hsla(145, 70%, 50%, 0.2);
+      border-bottom: 1px solid hsla(145, 70%, 50%, 0.2);
+    }
+
+    .whatsapp-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    @media (min-width: 640px) {
+      .whatsapp-content {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+      }
+    }
+
+    .whatsapp-icon {
+      width: 3rem;
+      height: 3rem;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .whatsapp-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: white;
+    }
+
+    .whatsapp-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .whatsapp-content p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      transition: opacity 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      opacity: 0.9;
+    }
+
+    .whatsapp-btn svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: white;
+    }
+
+    /* ========================================
+       FAQ SECTION
+    ======================================== */
+    .faq {
+      padding: var(--section-padding-mobile);
+      background: var(--bg-dark);
+    }
+
+    @media (min-width: 768px) {
+      .faq { padding: var(--section-padding); }
+    }
+
+    .faq-list {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-checkbox {
+      display: none;
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .faq-question:hover {
+      background: var(--bg-elevated);
+    }
+
+    .faq-question h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding-right: 1rem;
+    }
+
+    .faq-toggle {
+      flex-shrink: 0;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+
+    .faq-toggle svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .faq-checkbox:checked ~ .faq-question .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-checkbox:checked ~ .faq-answer {
+      max-height: 300px;
+      padding: 0 1.25rem 1.25rem;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s, padding 0.3s;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+    .footer {
+      padding: 2rem 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+    }
+
+    .footer-logo span {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .footer p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    /* ========================================
+       FLOATING CTA
+    ======================================== */
+    .floating-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: hsla(255, 30%, 10%, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+
+    .floating-cta.visible {
+      transform: translateY(0);
+    }
+
+    .floating-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    @media (min-width: 640px) {
+      .floating-content {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .floating-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .floating-price {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .floating-price strong {
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .floating-price span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .floating-price small {
+      font-size: 0.7rem;
+      background: hsla(25, 95%, 55%, 0.2);
+      color: var(--accent-orange);
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .floating-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       NAVIGATION
+  ======================================== -->
+  <nav class="nav">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <img src="images/logo.png" alt="Aasuri Logo">
+        <span>AASURI</span>
+      </a>
+      <div class="nav-links">
+        <a href="#benefits">Benefits</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#pricing" class="nav-cta">Enroll Now</a>
+    </div>
+  </nav>
+
+  <!-- ========================================
+       HERO SECTION
+  ======================================== -->
+  <section class="hero" id="hero">
+    <div class="hero-media">
+      <img src="images/shreyesh.png" alt="Realism Redefined Course Preview">
+      <div class="hero-overlay"></div>
+      <button class="hero-play" aria-label="Play video">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </button>
+    </div>
+    
+    <div class="hero-content">
+      <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          Limited Time Offer
+        </div>
+        
+        <h1 class="hero-title">Realism. <span class="gradient-text">Redefined.</span></h1>
+        
+        <p class="hero-description">A lifelong artistic journey that teaches you how to understand realism — so you can draw any subject with confidence, even if you're starting from zero.</p>
+        
+        <p class="hero-subtext">Built on a proven system followed by 4,000+ students worldwide, inside Aasuri Artist Academy.</p>
+        
+        <div class="hero-stats">
+          <div class="hero-rating">
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <span>4.8</span>
+            <small>(600+)</small>
+          </div>
+          <div class="hero-divider"></div>
+          <div class="hero-students">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>4,000+ Students</span>
+          </div>
+        </div>
+        
+        <div class="hero-highlights">
+          <div class="highlight-card">
+            <svg class="icon-blue" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <span>88+ Lessons</span>
+          </div>
+          <div class="highlight-card">
+            <svg class="icon-teal" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            <span>80+ Hours</span>
+          </div>
+          <div class="highlight-card">
+            <svg class="icon-orange" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span>Live Q&A</span>
+          </div>
+          <div class="highlight-card">
+            <svg class="icon-green" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+            <span>Lifetime Access</span>
+          </div>
+          <div class="highlight-card">
+            <svg class="icon-gold" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
+            <span>Weekly Guidance</span>
+          </div>
+        </div>
+        
+        <div class="hero-timer">
+          <p class="timer-label">Offer Ends In</p>
+          <div class="timer-grid">
+            <div class="timer-unit">
+              <div class="timer-value">29</div>
+              <span class="timer-text">Days</span>
+            </div>
+            <div class="timer-unit">
+              <div class="timer-value">12</div>
+              <span class="timer-text">Hours</span>
+            </div>
+            <div class="timer-unit">
+              <div class="timer-value">45</div>
+              <span class="timer-text">Mins</span>
+            </div>
+            <div class="timer-unit">
+              <div class="timer-value">30</div>
+              <span class="timer-text">Secs</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-cta">
+          <a href="#pricing" class="cta-primary">Join Realism Redefined</a>
+        </div>
+        <p class="hero-subtext-cta">Begin your journey inside Aasuri Artist Academy</p>
+        
+        <div class="hero-social-proof">
+          <div class="avatar-stack">
+            <span>A</span>
+            <span>B</span>
+            <span>C</span>
+            <span>D</span>
+            <span>E</span>
+          </div>
+          <p><strong>4,000+</strong> Happy Learners</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BENEFITS SECTION
+  ======================================== -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <h2 class="section-title">Why Choose <span class="gradient-text">Aasuri Academy?</span></h2>
+      <p class="section-subtitle">Everything you need to master realistic color pencil art, in one comprehensive program.</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-blue">
+            <svg class="icon-blue" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Proven Learning System</h3>
+          <p>A structured approach used by thousands of students worldwide.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-teal">
+            <svg class="icon-teal" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          </div>
+          <h3>5 Progressive Levels</h3>
+          <p>From absolute beginner to advanced realistic portraits.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-orange">
+            <svg class="icon-orange" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>LSN Learning App</h3>
+          <p>Access all lessons on our dedicated mobile app, anytime.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-purple">
+            <svg class="icon-purple" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Divine Art Community</h3>
+          <p>Connect with fellow artists in our exclusive community.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-green">
+            <svg class="icon-green" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+          </div>
+          <h3>Learn Anywhere</h3>
+          <p>Watch lessons on any device, at your own pace.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-gold">
+            <svg class="icon-gold" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <h3>Certificate of Completion</h3>
+          <p>Earn recognition for your artistic achievement.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-blue">
+            <svg class="icon-blue" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+          </div>
+          <h3>Lifetime Access</h3>
+          <p>One-time payment, forever access to all content.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon icon-wrapper-orange">
+            <svg class="icon-orange" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3>Monthly Live Sessions</h3>
+          <p>Interactive Q&A and live demonstrations with Shreyesh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       TESTIMONIALS SECTION
+  ======================================== -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title">Student <span class="gradient-text">Journeys</span></h2>
+      <p class="section-subtitle">See how our students transformed their artistic abilities.</p>
+      
+      <div class="testimonials-scroll">
+        <div class="testimonial-card">
+          <div class="testimonial-media">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--primary-dark),var(--accent-pink));display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:2rem;">🎨</span>
+            </div>
+            <button class="testimonial-play" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-content">
+            <h4>Priya's Journey</h4>
+            <p>From beginner to stunning portraits in 6 months</p>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-media">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--accent-teal),var(--accent-blue));display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:2rem;">✏️</span>
+            </div>
+            <button class="testimonial-play" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-content">
+            <h4>Rahul's Transformation</h4>
+            <p>Mastered realistic eyes and skin tones</p>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-media">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--accent-orange),var(--accent-gold));display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:2rem;">🖼️</span>
+            </div>
+            <button class="testimonial-play" aria-label="Play video">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </button>
+          </div>
+          <div class="testimonial-content">
+            <h4>Anita's Story</h4>
+            <p>Now taking professional commissions</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       INSTRUCTOR SECTION
+  ======================================== -->
+  <section class="instructor" id="instructor">
+    <div class="container">
+      <div class="instructor-wrapper">
+        <div class="instructor-image">
+          <img src="images/shreyesh.png" alt="Shreyesh Aasuri">
+        </div>
+        <div class="instructor-content">
+          <h2>Shreyesh Aasuri</h2>
+          <p class="subtitle">Founder, Aasuri Artist Academy</p>
+          <p>A renowned color pencil artist with over a decade of experience, Shreyesh has taught thousands of students the art of realistic drawing. His unique teaching methodology breaks down complex techniques into simple, learnable steps.</p>
+          <p>His work has been featured in galleries worldwide, and his online courses have helped students from over 50 countries discover their artistic potential.</p>
+          <div class="instructor-stats">
+            <div class="instructor-stat">
+              <strong>4,000+</strong>
+              <span>Students</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>10+</strong>
+              <span>Years Experience</span>
+            </div>
+            <div class="instructor-stat">
+              <strong>50+</strong>
+              <span>Countries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       WHY PEOPLE FAIL
+  ======================================== -->
+  <section class="why-fail" id="why-choose">
+    <div class="container">
+      <h2 class="section-title">Why Most People <span style="color: hsl(0, 70%, 55%);">Fail</span></h2>
+      <p class="section-subtitle">Don't let these common mistakes hold you back from your artistic dreams.</p>
+      
+      <div class="fail-grid">
+        <div class="fail-card">
+          <div class="fail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h4>No Structured Path</h4>
+            <p>Jumping between random tutorials without a clear progression.</p>
+          </div>
+        </div>
+        
+        <div class="fail-card">
+          <div class="fail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h4>Wrong Foundations</h4>
+            <p>Skipping fundamental techniques leads to frustration later.</p>
+          </div>
+        </div>
+        
+        <div class="fail-card">
+          <div class="fail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h4>No Feedback Loop</h4>
+            <p>Practicing alone without expert guidance reinforces mistakes.</p>
+          </div>
+        </div>
+        
+        <div class="fail-card">
+          <div class="fail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div>
+            <h4>Giving Up Too Soon</h4>
+            <p>Without community support, it's easy to lose motivation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       POSITIONING QUOTE
+  ======================================== -->
+  <section class="positioning">
+    <div class="container">
+      <blockquote>
+        "Art is not about talent. It's about understanding light, shadow, and having the right guidance to see what others miss."
+        <cite>— Shreyesh Aasuri</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CURRICULUM SECTION
+  ======================================== -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <h2 class="section-title">Complete <span class="gradient-text">Curriculum</span></h2>
+      <p class="section-subtitle">5 progressive levels designed to take you from beginner to master.</p>
+      
+      <div class="curriculum-levels">
+        <!-- Level 1 -->
+        <div class="level-card">
+          <input type="checkbox" id="level1" class="level-checkbox">
+          <label for="level1" class="level-header">
+            <div class="level-number">1</div>
+            <div class="level-info">
+              <h3>Foundations of Realism</h3>
+              <span>15 lessons • Materials, basics & techniques</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Understanding color pencil grades and paper types
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Basic shading and blending techniques
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Value scales and pressure control
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Your first realistic still life drawing
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Level 2 -->
+        <div class="level-card">
+          <input type="checkbox" id="level2" class="level-checkbox">
+          <label for="level2" class="level-header">
+            <div class="level-number">2</div>
+            <div class="level-info">
+              <h3>Mastering Textures</h3>
+              <span>18 lessons • Fur, fabric, metal & more</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Realistic fur and hair rendering
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Glass and transparent surfaces
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Metallic and reflective objects
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Level 3 -->
+        <div class="level-card">
+          <input type="checkbox" id="level3" class="level-checkbox">
+          <label for="level3" class="level-header">
+            <div class="level-number">3</div>
+            <div class="level-info">
+              <h3>Human Features</h3>
+              <span>20 lessons • Eyes, lips, skin & expressions</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Realistic eye anatomy and reflections
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Skin tone layering techniques
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Lips and facial expressions
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Level 4 -->
+        <div class="level-card">
+          <input type="checkbox" id="level4" class="level-checkbox">
+          <label for="level4" class="level-header">
+            <div class="level-number">4</div>
+            <div class="level-info">
+              <h3>Complete Portraits</h3>
+              <span>20 lessons • Full portrait compositions</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Facial proportions and structure
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Hair rendering mastery
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Background integration
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Level 5 -->
+        <div class="level-card">
+          <input type="checkbox" id="level5" class="level-checkbox">
+          <label for="level5" class="level-header">
+            <div class="level-number">5</div>
+            <div class="level-info">
+              <h3>Master Level</h3>
+              <span>15 lessons • Advanced techniques & style</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Developing your unique style
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Commission-ready artwork
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Portfolio creation
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Bonus: Draw With Me -->
+        <div class="level-card bonus-card">
+          <input type="checkbox" id="bonus" class="level-checkbox">
+          <label for="bonus" class="level-header">
+            <div class="level-number" style="background: var(--accent-gold); color: hsl(45, 80%, 15%);">★</div>
+            <div class="level-info">
+              <span class="bonus-badge">Bonus</span>
+              <h3>Draw With Me Sessions</h3>
+              <span>Real-time drawing with Shreyesh</span>
+            </div>
+            <div class="level-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </label>
+          <div class="level-content">
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Follow along real-time drawing sessions
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                See the complete process from start to finish
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+                Learn tips and tricks in real-time
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PLATFORM SECTION
+  ======================================== -->
+  <section class="platform">
+    <div class="container">
+      <h2 class="section-title">Learn on the <span class="gradient-text">LSN App</span></h2>
+      <p class="section-subtitle">Access all lessons on our dedicated learning platform.</p>
+      
+      <div class="platform-preview">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>LSN Learning App</h3>
+        <p>Watch lessons, track progress, and connect with the community - all in one place.</p>
+        <div class="platform-features">
+          <span class="platform-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Offline Access
+          </span>
+          <span class="platform-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Progress Tracking
+          </span>
+          <span class="platform-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            HD Video Quality
+          </span>
+          <span class="platform-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Community Chat
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PRICING SECTION
+  ======================================== -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">Gold <span class="gradient-text">Membership</span></h2>
+      <p class="section-subtitle">One-time investment for a lifetime of artistic growth.</p>
+      
+      <div class="pricing-card">
+        <span class="pricing-badge">Most Popular</span>
+        <h3 class="pricing-title">Realism Redefined - Complete Course</h3>
+        
+        <div class="pricing-price">
+          <span class="pricing-current">₹9,990</span>
+          <span class="pricing-original">₹14,990</span>
+          <span class="pricing-discount">Save 33%</span>
+        </div>
+        
+        <ul class="pricing-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            88+ HD Video Lessons
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            5 Progressive Skill Levels
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Lifetime Access - Learn Forever
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Monthly Live Q&A Sessions
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Divine Art Community Access
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Certificate of Completion
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>
+            Draw With Me Bonus Sessions
+          </li>
+        </ul>
+        
+        <button class="pricing-cta">Enroll Now - Lifetime Access</button>
+        <p class="pricing-guarantee">✓ 7-Day Money Back Guarantee</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       WHATSAPP SECTION
+  ======================================== -->
+  <section class="whatsapp">
+    <div class="container">
+      <div class="whatsapp-content">
+        <div class="whatsapp-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <h3>Have Questions?</h3>
+          <p>Chat with us on WhatsApp for instant support</p>
+        </div>
+        <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FAQ SECTION
+  ======================================== -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+      <p class="section-subtitle">Everything you need to know before joining.</p>
+      
+      <div class="faq-list">
+        <div class="faq-item">
+          <input type="checkbox" id="faq1" class="faq-checkbox">
+          <label for="faq1" class="faq-question">
+            <h4>Do I need any prior drawing experience?</h4>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </span>
+          </label>
+          <div class="faq-answer">
+            <p>No! This course is designed for absolute beginners. We start from the very basics and progressively build your skills. Whether you've never picked up a color pencil or have some experience, you'll find value in our structured approach.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <input type="checkbox" id="faq2" class="faq-checkbox">
+          <label for="faq2" class="faq-question">
+            <h4>What materials do I need to get started?</h4>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </span>
+          </label>
+          <div class="faq-answer">
+            <p>We provide a complete materials list in the first module. You can start with basic color pencils and paper, and upgrade as you progress. We recommend specific brands that offer the best value for beginners.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <input type="checkbox" id="faq3" class="faq-checkbox">
+          <label for="faq3" class="faq-question">
+            <h4>How long do I have access to the course?</h4>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </span>
+          </label>
+          <div class="faq-answer">
+            <p>Forever! Once you enroll, you have lifetime access to all course materials, including any future updates. Learn at your own pace without any time pressure.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <input type="checkbox" id="faq4" class="faq-checkbox">
+          <label for="faq4" class="faq-question">
+            <h4>Is there a refund policy?</h4>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </span>
+          </label>
+          <div class="faq-answer">
+            <p>Yes! We offer a 7-day money-back guarantee. If you're not satisfied with the course for any reason, contact us within 7 days of purchase for a full refund.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <input type="checkbox" id="faq5" class="faq-checkbox">
+          <label for="faq5" class="faq-question">
+            <h4>Can I access the course on mobile?</h4>
+            <span class="faq-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </span>
+          </label>
+          <div class="faq-answer">
+            <p>Absolutely! Our LSN Learning App is available for both iOS and Android. You can download lessons for offline viewing and learn anywhere, anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Aasuri Logo">
+        <span>AASURI</span>
+      </div>
+      <p>© 2024 Aasuri Artist Academy. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       FLOATING CTA
+  ======================================== -->
+  <div class="floating-cta" id="floatingCta">
+    <div class="container">
+      <div class="floating-content">
+        <div class="floating-info">
+          <h4>Color Pencil Masterclass</h4>
+          <div class="floating-price">
+            <strong>₹9,990</strong>
+            <span>₹14,990</span>
+            <small>Save 33%</small>
+          </div>
+        </div>
+        <a href="#pricing" class="floating-cta-btn">Enroll Now - Lifetime Access</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple scroll script for floating CTA -->
+  <script>
+    (function() {
+      var floatingCta = document.getElementById('floatingCta');
+      var lastScrollY = 0;
+      
+      function handleScroll() {
+        if (window.scrollY > 500) {
+          floatingCta.classList.add('visible');
+        } else {
+          floatingCta.classList.remove('visible');
+        }
+        lastScrollY = window.scrollY;
+      }
+      
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
