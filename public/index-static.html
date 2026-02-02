@@ -23,21 +23,21 @@
     }
 
     :root {
-      /* Warm Cream Theme */
-      --background: hsl(35, 40%, 96%);
-      --foreground: hsl(25, 30%, 12%);
-      --card: hsl(35, 35%, 93%);
-      --card-foreground: hsl(25, 30%, 12%);
-      --primary: hsl(350, 65%, 40%);
-      --primary-foreground: hsl(35, 40%, 96%);
-      --secondary: hsl(35, 60%, 85%);
-      --secondary-foreground: hsl(25, 30%, 12%);
-      --muted: hsl(35, 25%, 90%);
-      --muted-foreground: hsl(25, 15%, 45%);
-      --accent: hsl(35, 50%, 88%);
-      --accent-foreground: hsl(25, 30%, 12%);
+      /* Dark Purple Theme - Aasuri Academy */
+      --background: hsl(255, 30%, 7%);
+      --foreground: hsl(0, 0%, 98%);
+      --card: hsl(255, 25%, 12%);
+      --card-foreground: hsl(0, 0%, 98%);
+      --primary: hsl(270, 90%, 65%);
+      --primary-foreground: hsl(0, 0%, 100%);
+      --secondary: hsl(265, 30%, 18%);
+      --secondary-foreground: hsl(0, 0%, 98%);
+      --muted: hsl(260, 20%, 15%);
+      --muted-foreground: hsl(260, 20%, 70%);
+      --accent: hsl(265, 40%, 20%);
+      --accent-foreground: hsl(0, 0%, 98%);
       --destructive: hsl(0, 84%, 60%);
-      --border: hsl(35, 20%, 85%);
+      --border: hsl(260, 25%, 25%);
       --star-color: hsl(45, 98%, 50%);
       --radius: 0.75rem;
     }
@@ -144,7 +144,7 @@
 
     .section-light {
       padding: 3rem 0;
-      background-color: rgba(244, 237, 229, 0.5);
+      background-color: rgba(26, 21, 48, 0.5);
     }
 
     @media (min-width: 640px) {
@@ -170,9 +170,9 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-radius: 9999px;
-      background-color: rgba(168, 50, 70, 0.1);
+      background-color: rgba(168, 85, 247, 0.15);
       color: var(--primary);
-      border: 1px solid rgba(168, 50, 70, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.3);
     }
 
     .cta-button {
@@ -183,14 +183,15 @@
       font-size: 1rem;
       font-weight: 600;
       border-radius: 0.75rem;
-      background-color: var(--primary);
-      color: var(--primary-foreground);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      color: white;
       transition: all 0.3s ease;
-      box-shadow: 0 10px 25px -5px rgba(168, 50, 70, 0.3);
+      box-shadow: 0 10px 30px -5px rgba(168, 85, 247, 0.4);
     }
 
     .cta-button:hover {
       opacity: 0.9;
+      box-shadow: 0 15px 35px -5px rgba(168, 85, 247, 0.5);
     }
 
     @media (min-width: 640px) {
@@ -216,9 +217,9 @@
       align-items: center;
       text-align: center;
       padding: 1rem 1.25rem;
-      background-color: rgba(235, 220, 200, 0.5);
+      background-color: rgba(45, 37, 71, 0.5);
       border-radius: 0.75rem;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(168, 85, 247, 0.2);
     }
 
     /* ============================================
@@ -244,11 +245,11 @@
       position: sticky;
       top: 0;
       z-index: 60;
-      background-color: rgba(250, 246, 241, 0.98);
+      background-color: rgba(13, 11, 30, 0.95);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+      box-shadow: 0 4px 20px -1px rgba(0, 0, 0, 0.3);
     }
 
     .sticky-nav-inner {
@@ -304,7 +305,7 @@
         display: flex;
         align-items: center;
         gap: 0.25rem;
-        background-color: rgba(237, 232, 226, 0.5);
+        background-color: rgba(45, 37, 71, 0.5);
         border-radius: 9999px;
         padding: 0.25rem 0.5rem;
       }
@@ -326,10 +327,10 @@
         font-size: 0.875rem;
         font-weight: 600;
         border-radius: 9999px;
-        background-color: var(--primary);
-        color: var(--primary-foreground);
-        transition: opacity 0.2s ease;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+        color: white;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 15px -3px rgba(168, 85, 247, 0.4);
       }
 
       .nav-cta:hover {
@@ -384,7 +385,7 @@
       position: relative;
       height: 50vh;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(235, 220, 200, 0.5));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.2));
     }
 
     @media (min-width: 640px) {
@@ -404,7 +405,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, var(--background), rgba(250, 246, 241, 0.4), transparent);
+      background: linear-gradient(to top, var(--background), rgba(13, 11, 30, 0.6), transparent);
     }
 
     .hero-play-btn {
@@ -419,11 +420,11 @@
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.9);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.4);
       transition: transform 0.3s ease;
     }
 
@@ -438,7 +439,7 @@
     .play-icon {
       width: 1.5rem;
       height: 1.5rem;
-      fill: var(--primary-foreground);
+      fill: white;
       margin-left: 4px;
     }
 
@@ -664,7 +665,7 @@
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), var(--secondary));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.3));
       border: 2px solid var(--background);
       display: flex;
       align-items: center;
@@ -708,8 +709,8 @@
     }
 
     .benefit-card:hover {
-      border-color: rgba(168, 50, 70, 0.3);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 4px 20px -1px rgba(168, 85, 247, 0.2);
     }
 
     .benefit-content {
@@ -721,7 +722,7 @@
       width: 3rem;
       height: 3rem;
       border-radius: 0.75rem;
-      background-color: rgba(168, 50, 70, 0.1);
+      background-color: rgba(168, 85, 247, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -843,13 +844,13 @@
       width: 4rem;
       height: 4rem;
       border-radius: 50%;
-      background-color: rgba(250, 246, 241, 0.9);
+      background-color: rgba(26, 21, 48, 0.9);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 0.5rem;
       border: 4px solid var(--background);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.2);
     }
 
     @media (min-width: 640px) {
@@ -900,7 +901,7 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-radius: 9999px;
-      background-color: rgba(168, 50, 70, 0.1);
+      background-color: rgba(168, 85, 247, 0.15);
       color: var(--primary);
       margin-bottom: 0.75rem;
     }
@@ -1019,7 +1020,7 @@
     .video-thumb {
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.4));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.4));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1029,11 +1030,11 @@
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.9);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.3);
     }
 
     @media (min-width: 640px) {
@@ -1072,7 +1073,7 @@
       font-size: 0.625rem;
       font-weight: 500;
       color: var(--foreground);
-      background-color: rgba(250, 246, 241, 0.7);
+      background-color: rgba(26, 21, 48, 0.8);
       padding: 0.125rem 0.375rem;
       border-radius: 0.25rem;
     }
@@ -1123,8 +1124,8 @@
     }
 
     .work-item:hover {
-      border-color: rgba(168, 50, 70, 0.3);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      border-color: rgba(168, 85, 247, 0.4);
+      box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.2);
       transform: scale(1.02);
     }
 
@@ -1142,8 +1143,8 @@
       left: 0.75rem;
       font-size: 0.75rem;
       font-weight: 500;
-      color: rgba(35, 29, 24, 0.7);
-      background-color: rgba(250, 246, 241, 0.6);
+      color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(26, 21, 48, 0.7);
       padding: 0.25rem 0.5rem;
       border-radius: 0.375rem;
       backdrop-filter: blur(4px);
@@ -1183,7 +1184,7 @@
       right: 1rem;
       width: 2rem;
       height: 2rem;
-      color: rgba(168, 50, 70, 0.1);
+      color: rgba(168, 85, 247, 0.15);
     }
 
     .quote-text {
@@ -1210,14 +1211,14 @@
       gap: 0.5rem;
       padding: 1rem 2rem;
       border-radius: 9999px;
-      background-color: rgba(168, 50, 70, 0.1);
-      border: 1px solid rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
       transition: all 0.3s ease;
     }
 
     .view-more-btn:hover {
-      background-color: rgba(168, 50, 70, 0.2);
-      border-color: rgba(168, 50, 70, 0.3);
+      background-color: rgba(168, 85, 247, 0.25);
+      border-color: rgba(168, 85, 247, 0.5);
     }
 
     .view-more-text {
@@ -1270,7 +1271,7 @@
 
     .instructor-image {
       aspect-ratio: 1;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), var(--secondary));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.2));
     }
 
     @media (min-width: 768px) {
@@ -1307,7 +1308,7 @@
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), var(--secondary));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.3));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1411,7 +1412,7 @@
 
     .fail-text {
       font-size: 0.875rem;
-      color: rgba(35, 29, 24, 0.8);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     @media (min-width: 640px) {
@@ -1449,8 +1450,8 @@
       height: 3.5rem;
       margin: 0 1rem;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.1);
-      border: 1px solid rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1479,9 +1480,9 @@
       text-align: center;
       padding: 1.5rem 2rem 2rem;
       border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.05), rgba(168, 50, 70, 0.1), rgba(168, 50, 70, 0.05));
-      border: 1px solid rgba(168, 50, 70, 0.2);
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.05));
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      box-shadow: 0 4px 20px -5px rgba(168, 85, 247, 0.15);
     }
 
     @media (min-width: 640px) {
@@ -1497,8 +1498,8 @@
       height: 3.5rem;
       margin: 0 auto 1rem;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.1);
-      border: 1px solid rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1555,8 +1556,8 @@
       margin: 0 auto;
       padding: 2rem 1.5rem;
       border-radius: 1.5rem;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.03), rgba(168, 50, 70, 0.08), rgba(168, 50, 70, 0.03));
-      border: 1px solid rgba(168, 50, 70, 0.15);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(236, 72, 153, 0.1), rgba(168, 85, 247, 0.05));
+      border: 1px solid rgba(168, 85, 247, 0.2);
       position: relative;
     }
 
@@ -1764,7 +1765,7 @@
     }
 
     .level-header:hover {
-      background-color: rgba(237, 232, 226, 0.5);
+      background-color: rgba(45, 37, 71, 0.5);
     }
 
     .level-info {
@@ -1781,7 +1782,7 @@
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.05));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.15));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1920,8 +1921,8 @@
       margin: 0 auto;
       padding: 1.5rem 2rem;
       border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.1), rgba(168, 50, 70, 0.05), transparent);
-      border: 2px solid rgba(168, 50, 70, 0.3);
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.1), transparent);
+      border: 2px solid rgba(168, 85, 247, 0.4);
       position: relative;
     }
 
@@ -1940,8 +1941,8 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       border-radius: 9999px;
-      background-color: var(--primary);
-      color: var(--primary-foreground);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      color: white;
     }
 
     .bonus-icon-wrapper {
@@ -1949,7 +1950,7 @@
       height: 3.5rem;
       margin: 1rem auto;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.1);
+      background-color: rgba(168, 85, 247, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2075,7 +2076,7 @@
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.2), rgba(168, 50, 70, 0.05));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.25), rgba(236, 72, 153, 0.1));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2117,7 +2118,7 @@
       width: 4rem;
       height: 4rem;
       border-radius: 1rem;
-      background: linear-gradient(135deg, rgba(168, 50, 70, 0.3), rgba(168, 50, 70, 0.1));
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), rgba(236, 72, 153, 0.2));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2136,8 +2137,8 @@
     .trust-note {
       padding: 1rem 1.25rem;
       border-radius: 0.75rem;
-      background-color: rgba(168, 50, 70, 0.05);
-      border: 1px solid rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.25);
       text-align: center;
     }
 
@@ -2163,7 +2164,7 @@
       border: 2px solid var(--primary);
       border-radius: 1rem;
       padding: 1.5rem;
-      box-shadow: 0 25px 50px -12px rgba(168, 50, 70, 0.15);
+      box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.25);
     }
 
     @media (min-width: 640px) {
@@ -2226,7 +2227,7 @@
       gap: 0.5rem;
       margin-bottom: 1.5rem;
       padding: 1rem;
-      background-color: rgba(168, 50, 70, 0.05);
+      background-color: rgba(168, 85, 247, 0.1);
       border-radius: 0.75rem;
     }
 
@@ -2281,7 +2282,7 @@
       padding: 0.25rem 0.5rem;
       font-size: 0.75rem;
       font-weight: 600;
-      background-color: rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.25);
       color: var(--primary);
       border-radius: 0.25rem;
     }
@@ -2317,10 +2318,10 @@
       font-size: 1.125rem;
       font-weight: 600;
       border-radius: 0.75rem;
-      background-color: var(--primary);
-      color: var(--primary-foreground);
-      transition: opacity 0.2s ease;
-      box-shadow: 0 10px 25px -5px rgba(168, 50, 70, 0.3);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      color: white;
+      transition: all 0.2s ease;
+      box-shadow: 0 10px 30px -5px rgba(168, 85, 247, 0.4);
     }
 
     .pricing-cta:hover {
@@ -2404,7 +2405,7 @@
       height: 4rem;
       margin: 0 auto 1.25rem;
       border-radius: 50%;
-      background-color: rgba(168, 50, 70, 0.1);
+      background-color: rgba(168, 85, 247, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2516,7 +2517,7 @@
     }
 
     .copy-link-btn:hover {
-      background-color: rgba(237, 232, 226, 0.8);
+      background-color: rgba(45, 37, 71, 0.8);
     }
 
     /* ============================================
@@ -2557,7 +2558,7 @@
     }
 
     .faq-question:hover {
-      background-color: rgba(237, 232, 226, 0.5);
+      background-color: rgba(45, 37, 71, 0.5);
     }
 
     @media (min-width: 640px) {
@@ -2673,7 +2674,7 @@
     ============================================ */
     .footer {
       padding: 1.5rem 0;
-      background-color: var(--card);
+      background-color: hsl(255, 30%, 5%);
       border-top: 1px solid var(--border);
       margin-bottom: 4rem;
     }
@@ -2728,13 +2729,13 @@
       position: sticky;
       bottom: 0;
       z-index: 50;
-      background-color: var(--card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border);
+      background-color: rgba(13, 11, 30, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(168, 85, 247, 0.2);
       padding: 0.75rem 1rem;
       padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
-      box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 -10px 30px -5px rgba(0, 0, 0, 0.3);
     }
 
     /* Hide floating CTA on desktop since nav has CTA */
@@ -2791,7 +2792,7 @@
 
     .floating-cta-discount {
       font-size: 0.625rem;
-      background-color: rgba(168, 50, 70, 0.2);
+      background-color: rgba(168, 85, 247, 0.25);
       color: var(--primary);
       padding: 0.125rem 0.375rem;
       border-radius: 0.25rem;
@@ -2801,11 +2802,12 @@
       padding: 0.625rem 1.25rem;
       font-size: 0.8125rem;
       font-weight: 600;
-      background-color: var(--primary);
-      color: var(--primary-foreground);
+      background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+      color: white;
       border-radius: 0.75rem;
-      transition: opacity 0.2s ease;
+      transition: all 0.2s ease;
       white-space: nowrap;
+      box-shadow: 0 4px 15px -3px rgba(168, 85, 247, 0.4);
     }
 
     .floating-cta-btn:hover {
@@ -2845,13 +2847,13 @@
     .space-y-6 > * + * { margin-top: 1.5rem; }
     .space-y-8 > * + * { margin-top: 2rem; }
 
-    /* Gradient backgrounds for artwork */
-    .gradient-amber { background: linear-gradient(135deg, #fef3c7, #fed7aa); }
-    .gradient-rose { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
-    .gradient-violet { background: linear-gradient(135deg, #ede9fe, #e9d5ff); }
-    .gradient-teal { background: linear-gradient(135deg, #ccfbf1, #a5f3fc); }
-    .gradient-emerald { background: linear-gradient(135deg, #d1fae5, #bbf7d0); }
-    .gradient-sky { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+    /* Gradient backgrounds for artwork - updated to purple theme */
+    .gradient-amber { background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.2)); }
+    .gradient-rose { background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(168, 85, 247, 0.2)); }
+    .gradient-violet { background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(168, 85, 247, 0.4)); }
+    .gradient-teal { background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(168, 85, 247, 0.2)); }
+    .gradient-emerald { background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(99, 102, 241, 0.2)); }
+    .gradient-sky { background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(168, 85, 247, 0.2)); }
 
   </style>
 </head>
@@ -3024,7 +3026,7 @@
         <!-- Desktop Nav -->
         <div class="sticky-nav-inner desktop-only">
           <a href="#" class="logo">
-            <div class="logo-icon">A</div>
+            <img src="images/logo.png" alt="Aasuri Logo" style="height: 2.25rem; width: auto;">
             <span class="logo-text">AASURI</span>
           </a>
           
@@ -4176,7 +4178,7 @@
     <div class="container">
       <div class="footer-content">
         <div class="logo">
-          <div class="logo-icon">A</div>
+          <img src="images/logo.png" alt="Aasuri Logo" style="height: 2rem; width: auto;">
           <span class="logo-text">AASURI</span>
         </div>
         <nav class="footer-links">

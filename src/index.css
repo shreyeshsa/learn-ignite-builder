@@ -9,34 +9,34 @@
 
 @layer base {
   :root {
-    /* Artnaavu-inspired Warm Cream Theme */
-    --background: 35 40% 96%; /* Warm cream #FAF6F1 */
-    --foreground: 25 30% 12%; /* Dark brown #231D18 */
+    /* Dark Purple Theme - Aasuri Academy */
+    --background: 255 30% 7%; /* Dark purple-black #0D0B1E */
+    --foreground: 0 0% 98%; /* White text #FAFAFA */
 
-    --card: 35 35% 93%; /* Slightly darker cream #F4EDE5 */
-    --card-foreground: 25 30% 12%;
+    --card: 255 25% 12%; /* Dark purple card #1A1530 */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 35 35% 93%;
-    --popover-foreground: 25 30% 12%;
+    --popover: 255 25% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 350 65% 40%; /* Maroon/Burgundy #A83246 */
-    --primary-foreground: 35 40% 96%;
+    --primary: 270 90% 65%; /* Bright purple #A855F7 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 60% 85%; /* Warm beige #EBDCC8 */
-    --secondary-foreground: 25 30% 12%;
+    --secondary: 265 30% 18%; /* Deep purple #2D2547 */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 35 25% 90%; /* Light muted cream #EDE8E2 */
-    --muted-foreground: 25 15% 45%;
+    --muted: 260 20% 15%; /* Muted purple */
+    --muted-foreground: 260 20% 70%; /* Light purple-gray #A0A0C0 */
 
-    --accent: 35 50% 88%; /* Soft accent cream #F0E5D5 */
-    --accent-foreground: 25 30% 12%;
+    --accent: 265 40% 20%; /* Accent purple */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 35 40% 96%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 35 20% 85%;
-    --input: 35 20% 88%;
-    --ring: 350 65% 40%;
+    --border: 260 25% 25%; /* Purple-tinted border #3D3560 */
+    --input: 260 25% 20%;
+    --ring: 270 90% 65%;
 
     --radius: 0.75rem;
 
@@ -47,25 +47,25 @@
   }
 
   .dark {
-    --background: 25 30% 8%;
-    --foreground: 35 40% 96%;
-    --card: 25 25% 12%;
-    --card-foreground: 35 40% 96%;
-    --popover: 25 25% 12%;
-    --popover-foreground: 35 40% 96%;
-    --primary: 350 65% 50%;
-    --primary-foreground: 35 40% 96%;
-    --secondary: 35 30% 20%;
-    --secondary-foreground: 35 40% 96%;
-    --muted: 25 20% 15%;
-    --muted-foreground: 35 25% 70%;
-    --accent: 35 30% 18%;
-    --accent-foreground: 35 40% 96%;
+    --background: 255 30% 5%;
+    --foreground: 0 0% 98%;
+    --card: 255 25% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 255 25% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 270 90% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 265 30% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 20% 12%;
+    --muted-foreground: 260 20% 65%;
+    --accent: 265 40% 18%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 35 40% 96%;
-    --border: 25 20% 20%;
-    --input: 25 20% 18%;
-    --ring: 350 65% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 25% 22%;
+    --input: 260 25% 18%;
+    --ring: 270 90% 70%;
   }
 }
 
@@ -136,11 +136,19 @@
 
   /* CTA button variants - touch-friendly */
   .cta-button {
-    @apply inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-xl bg-primary text-primary-foreground transition-all duration-300 hover:opacity-90 active:scale-[0.98] shadow-lg;
+    @apply inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-xl text-white transition-all duration-300 hover:opacity-90 active:scale-[0.98];
+    background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+    box-shadow: 0 10px 30px -5px rgba(168, 85, 247, 0.4);
   }
 
   .cta-button-outline {
-    @apply inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300;
+    @apply inline-flex items-center justify-center px-6 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-xl border-2 border-primary text-primary transition-all duration-300;
+    background: transparent;
+  }
+
+  .cta-button-outline:hover {
+    background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+    @apply text-white border-transparent;
   }
 
   /* Testimonial card */
@@ -158,7 +166,8 @@
   }
 
   .section-light {
-    @apply section-padding bg-card/50;
+    @apply section-padding;
+    background-color: rgba(26, 21, 48, 0.5);
   }
 
   /* Feature list items */
@@ -170,9 +179,12 @@
     @apply w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0;
   }
 
-  /* Floating CTA bar - mobile optimized */
+  /* Floating CTA bar - mobile optimized with purple glassmorphism */
   .floating-cta {
-    @apply fixed bottom-0 left-0 right-0 bg-card backdrop-blur-lg border-t border-border py-3 px-4 z-50 shadow-2xl;
+    @apply fixed bottom-0 left-0 right-0 backdrop-blur-lg border-t py-3 px-4 z-50;
+    background-color: rgba(13, 11, 30, 0.95);
+    border-color: rgba(168, 85, 247, 0.2);
+    box-shadow: 0 -10px 30px -5px rgba(0, 0, 0, 0.3);
     padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
   }
 
@@ -181,14 +193,18 @@
     @apply rounded-xl overflow-hidden border border-border transition-all duration-300 hover:shadow-lg;
   }
 
-  /* Level badge */
+  /* Level badge with purple theme */
   .level-badge {
-    @apply inline-block px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full bg-primary/10 text-primary border border-primary/20;
+    @apply inline-block px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full text-primary;
+    background-color: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.3);
   }
 
-  /* Highlight cards like artnaavu */
+  /* Highlight cards with purple theme */
   .highlight-card {
-    @apply flex flex-col items-center text-center p-4 sm:p-5 bg-secondary/50 rounded-xl border border-border;
+    @apply flex flex-col items-center text-center p-4 sm:p-5 rounded-xl;
+    background-color: rgba(45, 37, 71, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.2);
   }
 
   /* Mobile navigation styles */
@@ -226,7 +242,7 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(350 65% 55%) 100%);
+    background-image: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
   }
 
   .animate-float {
