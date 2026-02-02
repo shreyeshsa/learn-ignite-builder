@@ -229,6 +229,13 @@
       position: relative;
     }
 
+    /* Spacer to delay sticky nav appearance until user scrolls */
+    .sticky-nav-spacer {
+      height: 50vh; /* Push the nav down so it only appears after scrolling */
+      margin-bottom: -50vh; /* Collapse the space so it doesn't affect layout */
+      pointer-events: none;
+    }
+
     /* ============================================
        NAVIGATION - STICKY (Appears on Scroll)
        Inside main-content-wrapper so it only appears when scrolling past hero
@@ -758,6 +765,16 @@
       box-sizing: border-box;
     }
 
+    @media (max-width: 767px) {
+      .story-card {
+        width: 100%;
+        max-width: calc(100vw - 2rem);
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+      }
+    }
+
     @media (min-width: 640px) {
       .story-card { margin-bottom: 2rem; }
     }
@@ -767,6 +784,13 @@
       width: 100%;
       max-width: 100%;
       overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+      .story-grid {
+        display: block;
+        overflow: hidden;
+      }
     }
 
     @media (min-width: 768px) {
@@ -779,6 +803,14 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
+    }
+
+    @media (max-width: 767px) {
+      .story-image {
+        max-height: 200px;
+        overflow: hidden;
+      }
     }
 
     @media (min-width: 768px) {
@@ -826,6 +858,16 @@
       box-sizing: border-box;
     }
 
+    @media (max-width: 767px) {
+      .story-content {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+    }
+
     @media (min-width: 640px) {
       .story-content { padding: 1.5rem 2rem 2rem; }
     }
@@ -862,6 +904,15 @@
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-word;
+      hyphens: auto;
+    }
+
+    @media (max-width: 767px) {
+      .story-text {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        hyphens: auto;
+      }
     }
 
     @media (min-width: 640px) {
@@ -882,6 +933,21 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       box-sizing: border-box;
+    }
+
+    @media (max-width: 767px) {
+      .media-carousel {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        display: flex;
+        gap: 0.5rem;
+        padding-bottom: 0.75rem;
+        margin: 0;
+      }
     }
 
     @media (min-width: 640px) {
@@ -911,6 +977,15 @@
       overflow: hidden;
       scroll-snap-align: start;
       position: relative;
+    }
+
+    @media (max-width: 767px) {
+      .media-item {
+        flex-shrink: 0;
+        width: 5rem;
+        height: 3.5rem;
+        scroll-snap-align: start;
+      }
     }
 
     @media (min-width: 640px) {
@@ -2904,6 +2979,9 @@
          MAIN CONTENT WRAPPER - Enables sticky nav & floating CTA behavior
     ============================================ -->
     <div class="main-content-wrapper">
+    
+    <!-- Spacer element to delay sticky nav appearance -->
+    <div class="sticky-nav-spacer" aria-hidden="true"></div>
     
     <!-- ============================================
          STICKY NAVIGATION - Placed after hero so it appears when scrolling
