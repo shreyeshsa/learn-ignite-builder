@@ -222,13 +222,12 @@
     }
 
     /* ============================================
-       NAVIGATION - STICKY (Always Visible)
+       NAVIGATION - STICKY (Appears on Scroll)
+       Placed after hero in HTML so it naturally appears when scrolling
     ============================================ */
     .sticky-nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 60;
       background-color: rgba(250, 246, 241, 0.98);
       backdrop-filter: blur(24px);
@@ -363,11 +362,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding-top: 3.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .hero { padding-top: 4rem; }
+      padding-top: 0; /* No padding needed - nav appears after hero */
     }
 
     .hero-image-wrapper {
@@ -750,6 +745,7 @@
       overflow: hidden;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
       margin-bottom: 1.5rem;
+      max-width: 100%;
     }
 
     @media (min-width: 640px) {
@@ -758,6 +754,8 @@
 
     .story-grid {
       display: grid;
+      max-width: 100%;
+      overflow: hidden;
     }
 
     @media (min-width: 768px) {
@@ -811,7 +809,9 @@
     }
 
     .story-content {
-      padding: 1rem 1.5rem 1.5rem;
+      padding: 1rem;
+      overflow: hidden;
+      max-width: 100%;
     }
 
     @media (min-width: 640px) {
@@ -853,25 +853,40 @@
       .story-text { font-size: 1rem; }
     }
 
-    /* Media Carousel */
+    /* Media Carousel - Fixed for mobile overflow */
     .media-carousel {
       display: flex;
       gap: 0.75rem;
       overflow-x: auto;
+      overflow-y: hidden;
       padding-bottom: 0.5rem;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+      padding-right: 0.5rem;
+      -ms-overflow-style: auto; /* Show scrollbar on IE/Edge */
+      scrollbar-width: thin; /* Show thin scrollbar on Firefox */
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      max-width: 100%;
     }
 
+    /* Show scrollbar on webkit browsers for mobile */
     .media-carousel::-webkit-scrollbar {
-      display: none;
+      height: 4px;
+    }
+
+    .media-carousel::-webkit-scrollbar-track {
+      background: var(--muted);
+      border-radius: 4px;
+    }
+
+    .media-carousel::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
     }
 
     .media-item {
       flex-shrink: 0;
-      width: 8rem;
-      height: 6rem;
+      width: 6.5rem;
+      height: 5rem;
       border-radius: 0.75rem;
       overflow: hidden;
       scroll-snap-align: start;
@@ -2587,7 +2602,8 @@
     }
 
     /* ============================================
-       FLOATING CTA
+       FLOATING CTA - Fixed at bottom on mobile only
+       Pure CSS limitation: cannot hide based on scroll, so always visible on mobile
     ============================================ */
     .floating-cta {
       position: fixed;
@@ -2602,6 +2618,12 @@
       padding: 0.75rem 1rem;
       padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
       box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hide floating CTA on desktop since nav has CTA */
+    @media (min-width: 640px) {
+      .floating-cta { display: none; }
+      .footer { margin-bottom: 0; }
     }
 
     .floating-cta-inner {
@@ -2714,46 +2736,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ============================================
-       STICKY NAVIGATION
-  ============================================ -->
-  <nav class="sticky-nav">
-    <div class="container">
-      <!-- Mobile Nav -->
-      <div class="sticky-nav-inner mobile-only">
-        <div class="nav-pills">
-          <a href="#why-choose" class="nav-link">Why Aasuri</a>
-          <span class="nav-separator"></span>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <span class="nav-separator"></span>
-          <a href="#curriculum" class="nav-link">Curriculum</a>
-          <span class="nav-separator"></span>
-          <a href="#faq" class="nav-link">FAQ</a>
-        </div>
-      </div>
-
-      <!-- Desktop Nav -->
-      <div class="sticky-nav-inner desktop-only">
-        <a href="#" class="logo">
-          <div class="logo-icon">A</div>
-          <span class="logo-text">AASURI</span>
-        </a>
-        
-        <div class="nav-pills-desktop">
-          <a href="#why-choose" class="nav-link">Why Aasuri</a>
-          <span class="nav-separator-desktop"></span>
-          <a href="#testimonials" class="nav-link">Testimonials</a>
-          <span class="nav-separator-desktop"></span>
-          <a href="#curriculum" class="nav-link">Curriculum</a>
-          <span class="nav-separator-desktop"></span>
-          <a href="#faq" class="nav-link">FAQ</a>
-        </div>
-
-        <a href="#pricing" class="nav-cta">Enroll Now</a>
-      </div>
-    </div>
-  </nav>
 
   <main>
     <!-- ============================================
@@ -2892,6 +2874,46 @@
         </div>
       </div>
     </section>
+
+    <!-- ============================================
+         STICKY NAVIGATION - Placed after hero so it appears when scrolling
+    ============================================ -->
+    <nav class="sticky-nav">
+      <div class="container">
+        <!-- Mobile Nav -->
+        <div class="sticky-nav-inner mobile-only">
+          <div class="nav-pills">
+            <a href="#why-choose" class="nav-link">Why Aasuri</a>
+            <span class="nav-separator"></span>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <span class="nav-separator"></span>
+            <a href="#curriculum" class="nav-link">Curriculum</a>
+            <span class="nav-separator"></span>
+            <a href="#faq" class="nav-link">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="sticky-nav-inner desktop-only">
+          <a href="#" class="logo">
+            <div class="logo-icon">A</div>
+            <span class="logo-text">AASURI</span>
+          </a>
+          
+          <div class="nav-pills-desktop">
+            <a href="#why-choose" class="nav-link">Why Aasuri</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#curriculum" class="nav-link">Curriculum</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#faq" class="nav-link">FAQ</a>
+          </div>
+
+          <a href="#pricing" class="nav-cta">Enroll Now</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- ============================================
          BENEFITS SECTION
@@ -4021,7 +4043,7 @@
   </footer>
 
   <!-- ============================================
-       FLOATING CTA
+       FLOATING CTA - Sticky at bottom, appears when scrolling
   ============================================ -->
   <div class="floating-cta">
     <div class="container">
