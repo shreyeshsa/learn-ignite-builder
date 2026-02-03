@@ -43,10 +43,7 @@
     /* Custom tokens */
     --star-color: 45 98% 50%;
     --gold: 45 100% 50%;
-    --success: 145 80% 42%;
-    --warning: 38 95% 55%;
-    --info: 200 95% 55%;
-    --accent-cyan: 180 85% 45%;
+    --success: 145 60% 40%;
   }
 
   .dark {
