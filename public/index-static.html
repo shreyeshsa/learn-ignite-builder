@@ -41,12 +41,12 @@
       --star-color: hsl(45, 98%, 50%);
       --radius: 0.75rem;
       
-      /* Vibrant Accent Colors */
-      --accent-green: hsl(145, 70%, 50%);
-      --accent-orange: hsl(25, 95%, 55%);
-      --accent-blue: hsl(210, 100%, 55%);
-      --accent-teal: hsl(175, 80%, 45%);
-      --accent-gold: hsl(45, 98%, 50%);
+      /* Accent Colors for Emphasis */
+      --success: hsl(145, 80%, 42%);         /* Emerald Green #22C55E */
+      --warning: hsl(38, 95%, 55%);          /* Amber Orange #F59E0B */
+      --info: hsl(200, 95%, 55%);            /* Sky Blue #0EA5E9 */
+      --accent-cyan: hsl(180, 85%, 45%);     /* Cyan/Teal #14B8A6 */
+      --gold: hsl(45, 100%, 50%);            /* Gold for mastery */
     }
 
     html {
@@ -231,20 +231,26 @@
 
     /* ============================================
        MAIN CONTENT WRAPPER - Contains everything after hero
-       This enables the floating CTA to work correctly
+       This enables the sticky nav and floating CTA to work correctly
     ============================================ */
     .main-content-wrapper {
       position: relative;
     }
 
+    /* Spacer to delay sticky nav appearance until user scrolls */
+    .sticky-nav-spacer {
+      height: 50vh; /* Push the nav down so it only appears after scrolling */
+      margin-bottom: -50vh; /* Collapse the space so it doesn't affect layout */
+      pointer-events: none;
+    }
+
     /* ============================================
-       NAVIGATION - FIXED (Always visible at top)
+       NAVIGATION - STICKY (Appears on Scroll)
+       Inside main-content-wrapper so it only appears when scrolling past hero
     ============================================ */
     .sticky-nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 60;
       background-color: rgba(13, 11, 30, 0.95);
       backdrop-filter: blur(24px);
@@ -379,13 +385,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding-top: 3.5rem; /* Account for fixed header height on mobile */
-    }
-    
-    @media (min-width: 768px) {
-      .hero {
-        padding-top: 4rem; /* Account for fixed header height on desktop */
-      }
+      padding-top: 0; /* No padding needed - nav appears after hero */
     }
 
     .hero-image-wrapper {
@@ -589,27 +589,11 @@
       margin-bottom: 0.5rem;
     }
     
-    /* Accent Color Classes for Icons */
-    .icon-green { color: var(--accent-green) !important; }
-    .icon-orange { color: var(--accent-orange) !important; }
-    .icon-blue { color: var(--accent-blue) !important; }
-    .icon-teal { color: var(--accent-teal) !important; }
-    .icon-gold { color: var(--accent-gold) !important; }
-    .icon-purple { color: var(--primary) !important; }
-    
-    /* Icon wrapper backgrounds matching accent colors */
-    .icon-wrapper-green { background-color: rgba(34, 197, 94, 0.15) !important; }
-    .icon-wrapper-orange { background-color: rgba(249, 115, 22, 0.15) !important; }
-    .icon-wrapper-blue { background-color: rgba(59, 130, 246, 0.15) !important; }
-    .icon-wrapper-teal { background-color: rgba(20, 184, 166, 0.15) !important; }
-    .icon-wrapper-gold { background-color: rgba(250, 204, 21, 0.15) !important; }
-    
-    /* Urgency badge style */
-    .badge-urgent {
-      background-color: rgba(249, 115, 22, 0.15) !important;
-      color: var(--accent-orange) !important;
-      border-color: rgba(249, 115, 22, 0.3) !important;
-    }
+    /* Highlight icon color variants */
+    .highlight-icon-info { color: var(--info); }
+    .highlight-icon-warning { color: var(--warning); }
+    .highlight-icon-success { color: var(--success); }
+    .highlight-icon-cyan { color: var(--accent-cyan); }
 
     .highlight-text {
       font-size: 0.875rem;
@@ -646,9 +630,9 @@
       width: 3.5rem;
       height: 3.5rem;
       background-color: var(--card);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(245, 158, 11, 0.3);
       border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 0 15px -3px rgba(245, 158, 11, 0.15);
     }
 
     @media (min-width: 640px) {
@@ -663,6 +647,7 @@
       font-size: 1.25rem;
       font-weight: 700;
       line-height: 1;
+      color: var(--warning);
     }
 
     @media (min-width: 640px) {
@@ -763,6 +748,18 @@
       height: 1.5rem;
       color: var(--primary);
     }
+    
+    /* Benefit icon color variants */
+    .benefit-icon-info { color: var(--info); }
+    .benefit-icon-warning { color: var(--warning); }
+    .benefit-icon-success { color: var(--success); }
+    .benefit-icon-cyan { color: var(--accent-cyan); }
+    
+    /* Benefit icon wrapper color variants */
+    .benefit-wrapper-info { background-color: rgba(14, 165, 233, 0.15); }
+    .benefit-wrapper-warning { background-color: rgba(245, 158, 11, 0.15); }
+    .benefit-wrapper-success { background-color: rgba(34, 197, 94, 0.15); }
+    .benefit-wrapper-cyan { background-color: rgba(20, 184, 166, 0.15); }
 
     .benefit-title {
       font-weight: 600;
@@ -1819,6 +1816,13 @@
       font-weight: 700;
       color: var(--primary);
     }
+    
+    /* Level number color progression */
+    .level-number-1 { color: var(--info); background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(14, 165, 233, 0.1)); }
+    .level-number-2 { color: var(--accent-cyan); background: linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1)); }
+    .level-number-3 { color: var(--primary); background: linear-gradient(135deg, rgba(168, 85, 247, 0.3), rgba(236, 72, 153, 0.15)); }
+    .level-number-4 { color: var(--warning); background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.1)); }
+    .level-number-5 { color: var(--gold); background: linear-gradient(135deg, rgba(234, 179, 8, 0.3), rgba(234, 179, 8, 0.1)); }
 
     @media (min-width: 640px) {
       .level-number { width: 2.75rem; height: 2.75rem; }
@@ -1921,7 +1925,7 @@
     .check-icon {
       width: 1rem;
       height: 1rem;
-      color: var(--accent-green);
+      color: var(--success);
       flex-shrink: 0;
       margin-top: 0.125rem;
     }
@@ -2236,7 +2240,7 @@
     .pricing-feature-icon {
       width: 1.25rem;
       height: 1.25rem;
-      color: var(--accent-green);
+      color: var(--success);
       flex-shrink: 0;
     }
 
@@ -2311,8 +2315,8 @@
       padding: 0.25rem 0.5rem;
       font-size: 0.75rem;
       font-weight: 600;
-      background-color: rgba(249, 115, 22, 0.25);
-      color: var(--accent-orange);
+      background-color: rgba(245, 158, 11, 0.25);
+      color: var(--warning);
       border-radius: 0.25rem;
     }
 
@@ -2338,7 +2342,7 @@
     .included-icon {
       width: 1rem;
       height: 1rem;
-      color: var(--accent-green);
+      color: var(--success);
     }
 
     .pricing-cta {
@@ -2821,8 +2825,8 @@
 
     .floating-cta-discount {
       font-size: 0.625rem;
-      background-color: rgba(168, 85, 247, 0.25);
-      color: var(--primary);
+      background-color: rgba(245, 158, 11, 0.25);
+      color: var(--warning);
       padding: 0.125rem 0.375rem;
       border-radius: 0.25rem;
     }
@@ -2890,46 +2894,6 @@
 
   <main>
     <!-- ============================================
-         FIXED NAVIGATION - Always visible at top
-    ============================================ -->
-    <nav class="sticky-nav">
-      <div class="container">
-        <!-- Mobile Nav -->
-        <div class="sticky-nav-inner mobile-only">
-          <div class="nav-pills">
-            <a href="#why-choose" class="nav-link">Why Aasuri</a>
-            <span class="nav-separator"></span>
-            <a href="#testimonials" class="nav-link">Testimonials</a>
-            <span class="nav-separator"></span>
-            <a href="#curriculum" class="nav-link">Curriculum</a>
-            <span class="nav-separator"></span>
-            <a href="#faq" class="nav-link">FAQ</a>
-          </div>
-        </div>
-
-        <!-- Desktop Nav -->
-        <div class="sticky-nav-inner desktop-only">
-          <a href="#" class="logo">
-            <img src="images/logo.png" alt="Aasuri Logo" style="height: 2.25rem; width: auto;">
-            <span class="logo-text">AASURI</span>
-          </a>
-          
-          <div class="nav-pills-desktop">
-            <a href="#why-choose" class="nav-link">Why Aasuri</a>
-            <span class="nav-separator-desktop"></span>
-            <a href="#testimonials" class="nav-link">Testimonials</a>
-            <span class="nav-separator-desktop"></span>
-            <a href="#curriculum" class="nav-link">Curriculum</a>
-            <span class="nav-separator-desktop"></span>
-            <a href="#faq" class="nav-link">FAQ</a>
-          </div>
-
-          <a href="#pricing" class="nav-cta">Enroll Now</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- ============================================
          HERO SECTION
     ============================================ -->
     <section class="hero" id="hero">
@@ -2948,7 +2912,7 @@
         <div class="container">
           <!-- Badge -->
           <div class="text-center mb-4">
-            <span class="level-badge badge-urgent">Limited Time Offer</span>
+            <span class="level-badge">Limited Time Offer</span>
           </div>
 
           <!-- Title -->
@@ -2986,31 +2950,31 @@
           <div class="highlights-scroll mb-6">
             <div class="highlight-item">
               <div class="highlight-card">
-                <svg class="highlight-icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                <svg class="highlight-icon highlight-icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
                 <span class="highlight-text">88+ Lessons</span>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-card">
-                <svg class="highlight-icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
+                <svg class="highlight-icon highlight-icon-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12,6 12,12 16,14"></polyline></svg>
                 <span class="highlight-text">80+ Hours</span>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-card">
-                <svg class="highlight-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <svg class="highlight-icon highlight-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 <span class="highlight-text">Live Q&A</span>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-card">
-                <svg class="highlight-icon icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
+                <svg class="highlight-icon highlight-icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"></path></svg>
                 <span class="highlight-text">Lifetime Access</span>
               </div>
             </div>
             <div class="highlight-item">
               <div class="highlight-card">
-                <svg class="highlight-icon icon-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="m9 16 2 2 4-4"></path></svg>
+                <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line><path d="m9 16 2 2 4-4"></path></svg>
                 <span class="highlight-text">Weekly Guidance</span>
               </div>
             </div>
@@ -3067,9 +3031,52 @@
     </section>
 
     <!-- ============================================
-         MAIN CONTENT WRAPPER - Enables floating CTA behavior
+         MAIN CONTENT WRAPPER - Enables sticky nav & floating CTA behavior
     ============================================ -->
     <div class="main-content-wrapper">
+    
+    <!-- Spacer element to delay sticky nav appearance -->
+    <div class="sticky-nav-spacer" aria-hidden="true"></div>
+    
+    <!-- ============================================
+         STICKY NAVIGATION - Placed after hero so it appears when scrolling
+    ============================================ -->
+    <nav class="sticky-nav">
+      <div class="container">
+        <!-- Mobile Nav -->
+        <div class="sticky-nav-inner mobile-only">
+          <div class="nav-pills">
+            <a href="#why-choose" class="nav-link">Why Aasuri</a>
+            <span class="nav-separator"></span>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <span class="nav-separator"></span>
+            <a href="#curriculum" class="nav-link">Curriculum</a>
+            <span class="nav-separator"></span>
+            <a href="#faq" class="nav-link">FAQ</a>
+          </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="sticky-nav-inner desktop-only">
+          <a href="#" class="logo">
+            <img src="images/logo.png" alt="Aasuri Logo" style="height: 2.25rem; width: auto;">
+            <span class="logo-text">AASURI</span>
+          </a>
+          
+          <div class="nav-pills-desktop">
+            <a href="#why-choose" class="nav-link">Why Aasuri</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#curriculum" class="nav-link">Curriculum</a>
+            <span class="nav-separator-desktop"></span>
+            <a href="#faq" class="nav-link">FAQ</a>
+          </div>
+
+          <a href="#pricing" class="nav-cta">Enroll Now</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- ============================================
          BENEFITS SECTION
@@ -3087,11 +3094,11 @@
         </div>
 
         <div class="benefits-grid">
-          <!-- Benefit 1 - Blue -->
+          <!-- Benefit 1 - Blue (Educational) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-blue">
-                <svg class="benefit-icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-info">
+                <svg class="benefit-icon benefit-icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
               </div>
               <div>
                 <h3 class="benefit-title">A Proven Learning System</h3>
@@ -3100,11 +3107,11 @@
             </div>
           </div>
 
-          <!-- Benefit 2 - Teal -->
+          <!-- Benefit 2 - Orange (Achievement) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-teal">
-                <svg class="benefit-icon icon-teal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-warning">
+                <svg class="benefit-icon benefit-icon-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"></path><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"></path><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"></path></svg>
               </div>
               <div>
                 <h3 class="benefit-title">5 Progressive Levels to Mastery</h3>
@@ -3113,11 +3120,11 @@
             </div>
           </div>
 
-          <!-- Benefit 3 - Orange -->
+          <!-- Benefit 3 - Cyan (Technology) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-orange">
-                <svg class="benefit-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-cyan">
+                <svg class="benefit-icon benefit-icon-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
               </div>
               <div>
                 <h3 class="benefit-title">Learning Social Network (LSN) App</h3>
@@ -3126,11 +3133,11 @@
             </div>
           </div>
 
-          <!-- Benefit 4 - Purple (brand) -->
+          <!-- Benefit 4 - Green (Growth) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper">
-                <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-success">
+                <svg class="benefit-icon benefit-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
               </div>
               <div>
                 <h3 class="benefit-title">A Spiritual & Divine Art Community</h3>
@@ -3139,11 +3146,11 @@
             </div>
           </div>
 
-          <!-- Benefit 5 - Green -->
+          <!-- Benefit 5 - Blue (Flexibility) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-green">
-                <svg class="benefit-icon icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-info">
+                <svg class="benefit-icon benefit-icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
               </div>
               <div>
                 <h3 class="benefit-title">Learn Anywhere, at Your Pace</h3>
@@ -3152,11 +3159,11 @@
             </div>
           </div>
 
-          <!-- Benefit 6 - Gold -->
+          <!-- Benefit 6 - Orange (Achievement) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-gold">
-                <svg class="benefit-icon icon-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-warning">
+                <svg class="benefit-icon benefit-icon-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
               </div>
               <div>
                 <h3 class="benefit-title">Recognition for Your Journey</h3>
@@ -3165,11 +3172,11 @@
             </div>
           </div>
 
-          <!-- Benefit 7 - Orange -->
+          <!-- Benefit 7 - Green (Live/Community) -->
           <div class="benefit-card">
             <div class="benefit-content">
-              <div class="benefit-icon-wrapper icon-wrapper-orange">
-                <svg class="benefit-icon icon-orange" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+              <div class="benefit-icon-wrapper benefit-wrapper-success">
+                <svg class="benefit-icon benefit-icon-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
               </div>
               <div>
                 <h3 class="benefit-title">Draw With Me – Live Learning</h3>
@@ -3206,8 +3213,8 @@
                   <div class="avatar-circle">
                     <span class="avatar-letter">P</span>
                   </div>
-                  <p style="font-size: 0.875rem; font-weight: 500; color: var(--foreground);">Pranavi</p>
-                  <p style="font-size: 0.75rem; color: var(--muted-foreground);">Oman</p>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Pranavi</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">Oman</p>
                 </div>
               </div>
               <div class="story-content">
@@ -3252,8 +3259,8 @@
                   <div class="avatar-circle">
                     <span class="avatar-letter">A</span>
                   </div>
-                  <p style="font-size: 0.875rem; font-weight: 500; color: var(--foreground);">Ankitha</p>
-                  <p style="font-size: 0.75rem; color: var(--muted-foreground);">India</p>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Ankitha</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">India</p>
                 </div>
               </div>
               <div class="story-content">
@@ -3298,8 +3305,8 @@
                   <div class="avatar-circle">
                     <span class="avatar-letter">S</span>
                   </div>
-                  <p style="font-size: 0.875rem; font-weight: 500; color: var(--foreground);">Sruthi</p>
-                  <p style="font-size: 0.75rem; color: var(--muted-foreground);">India</p>
+                  <p style="font-size: 0.875rem; font-weight: 500; color: rgba(35, 29, 24, 0.8);">Sruthi</p>
+                  <p style="font-size: 0.75rem; color: rgba(35, 29, 24, 0.6);">India</p>
                 </div>
               </div>
               <div class="story-content">
@@ -3568,7 +3575,7 @@
             <input type="radio" name="curriculum" id="level-1" class="level-toggle" checked>
             <label for="level-1" class="level-header">
               <div class="level-info">
-                <div class="level-number">L1</div>
+                <div class="level-number level-number-1">L1</div>
                 <div>
                   <h3 class="level-title">Foundation of Realism</h3>
                   <p class="level-subtitle">Basics for Colour Pencil</p>
@@ -3622,7 +3629,7 @@
             <input type="radio" name="curriculum" id="level-2" class="level-toggle">
             <label for="level-2" class="level-header">
               <div class="level-info">
-                <div class="level-number">L2</div>
+                <div class="level-number level-number-2">L2</div>
                 <div>
                   <h3 class="level-title">Control & Confidence</h3>
                   <p class="level-subtitle">Rajagopalan Realistic Drawing</p>
@@ -3672,7 +3679,7 @@
             <input type="radio" name="curriculum" id="level-3" class="level-toggle">
             <label for="level-3" class="level-header">
               <div class="level-info">
-                <div class="level-number">L3</div>
+                <div class="level-number level-number-3">L3</div>
                 <div>
                   <h3 class="level-title">Depth & Detail</h3>
                   <p class="level-subtitle">Vaduvur Ramar Realistic Drawing</p>
@@ -3722,7 +3729,7 @@
             <input type="radio" name="curriculum" id="level-4" class="level-toggle">
             <label for="level-4" class="level-header">
               <div class="level-info">
-                <div class="level-number">L4</div>
+                <div class="level-number level-number-4">L4</div>
                 <div>
                   <h3 class="level-title">Advanced Realism</h3>
                   <p class="level-subtitle">Ramanujar Realistic Drawing</p>
@@ -3772,7 +3779,7 @@
             <input type="radio" name="curriculum" id="level-5" class="level-toggle">
             <label for="level-5" class="level-header">
               <div class="level-info">
-                <div class="level-number">L5</div>
+                <div class="level-number level-number-5">L5</div>
                 <div>
                   <h3 class="level-title">Ultimate Realism</h3>
                   <p class="level-subtitle">Parthasarathy Realistic Drawing</p>
